@@ -74,9 +74,10 @@ Settings/Show_Tooltips=true
 
 [application]
 
-config/name="Your First 2D Game With Godot 4: START (GDQuest)"
+config/name="simple-survivor"
 run/main_scene="uid://cpvj8xnphfau1"
 config/features=PackedStringArray("4.4", "Forward Plus")
+config/icon="uid://dsw7y0enp8lf7"
 
 [audio]
 
@@ -86,7 +87,8 @@ buses/default_bus_layout=""
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/stretch/mode="viewport"
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [dotnet]
 
