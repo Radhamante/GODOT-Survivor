@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnhd33bd6oxqk"]
+
+[ext_resource type="Texture2D" uid="uid://w8povmxpj3ab" path="res://trees/sprites/foliagePack_016.png" id="1_tqodg"]
+[ext_resource type="Shader" uid="uid://d3ts2bvbvearu" path="res://blur.gdshader" id="1_y7fxa"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_peeio"]
+shader = ExtResource("1_y7fxa")
+shader_parameter/strength = 7.0
+shader_parameter/opacity = 0.3
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = false
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b3lh"]
+
+[node name="Green-tree" type="StaticBody2D"]
+
+[node name="Shadow" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_peeio")
+position = Vector2(38, -59)
+scale = Vector2(0.486, 0.366)
+skew = 0.523599
+texture = ExtResource("1_tqodg")
+
+[node name="Element" type="Sprite2D" parent="."]
+position = Vector2(0, -95)
+scale = Vector2(0.486239, 0.486239)
+texture = ExtResource("1_tqodg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("CircleShape2D_8b3lh")

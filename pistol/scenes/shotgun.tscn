@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://ct542247ts6k5"]
+
+[ext_resource type="Script" uid="uid://6gh85a13t1x4" path="res://pistol/scripts/shotgun.gd" id="1_kb1h3"]
+[ext_resource type="Texture2D" uid="uid://d0aqseyrpi2c6" path="res://pistol/sprites/hand_yellow_open.png" id="2_1vfjq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kb1h3"]
+radius = 252.002
+
+[node name="Shotgun" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_kb1h3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kb1h3")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+
+[node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(74, -1.78814e-07)
+rotation = 1.39626
+scale = Vector2(-0.541, 0.541)
+texture = ExtResource("2_1vfjq")
+
+[node name="ShootingPoints" type="Node2D" parent="WeaponPivot/Pistol"]
+unique_name_in_owner = true
+
+[node name="1" type="Marker2D" parent="WeaponPivot/Pistol/ShootingPoints"]
+position = Vector2(29.0022, -23.4632)
+scale = Vector2(1, 1)
+
+[node name="2" type="Marker2D" parent="WeaponPivot/Pistol/ShootingPoints"]
+position = Vector2(3.39403, -37.2971)
+scale = Vector2(1, 1)
+
+[node name="3" type="Marker2D" parent="WeaponPivot/Pistol/ShootingPoints"]
+position = Vector2(-18.6834, -31.1071)
+scale = Vector2(1, 1)
+
+[node name="4" type="Marker2D" parent="WeaponPivot/Pistol/ShootingPoints"]
+position = Vector2(-29.7733, 2.13984)
+scale = Vector2(1, 1)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.9
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="shoot"]
