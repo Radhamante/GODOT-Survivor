@@ -1,6 +1,9 @@
 class_name Weapon
 extends Area2D
 
+var weapon_modifiers:Array[WeaponModifier] = []
+var bullet_modifiers: Array[BulletModifier] = []
+
 func _physics_process(delta: float) -> void:
 	var enemies_in_range = get_overlapping_bodies()
 	if enemies_in_range.size() == 0:

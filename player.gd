@@ -18,7 +18,6 @@ func _physics_process(delta: float) -> void:
 		%Alien.play_idle_animation()
 
 	var overlapping_mobs: Array[Node2D] = %HurtBox.get_overlapping_bodies()
-	print(overlapping_mobs)
 	if overlapping_mobs.size() > 0:
 		var overlapping_damages = overlapping_mobs.reduce(func (sum, next): return sum + next.consts.DAMAGE, 0)
 		health -= overlapping_damages * delta
