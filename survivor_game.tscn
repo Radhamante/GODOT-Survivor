@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://cpvj8xnphfau1"]
+[gd_scene load_steps=13 format=3 uid="uid://cpvj8xnphfau1"]
 
 [ext_resource type="Script" uid="uid://bo5ru0gqcwtgi" path="res://survivor_game.gd" id="1_5mrb7"]
 [ext_resource type="PackedScene" uid="uid://deyaebkrhgrx2" path="res://player.tscn" id="1_wkcnj"]
+[ext_resource type="Script" uid="uid://dp12pg7emkynb" path="res://v_box_container.gd" id="2_j618h"]
 [ext_resource type="Script" uid="uid://bioesh7rgehi2" path="res://despawning_zone.gd" id="3_i54c3"]
 [ext_resource type="Script" uid="uid://c435d8n4npur8" path="res://mob_generator.gd" id="4_5mrb7"]
 [ext_resource type="Script" uid="uid://dxlfu5j8dlngl" path="res://environement_generator.gd" id="5_d0dif"]
 [ext_resource type="Script" uid="uid://d1octvvixlfii" path="res://difficulty_manager.gd" id="6_d0dif"]
+[ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://theme/survivor_game.tres" id="7_bwn4j"]
+[ext_resource type="Texture2D" uid="uid://cyse8wih2xkhe" path="res://theme/panel_brown_damaged.png" id="8_2sip7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i54c3"]
 radius = 200.0
@@ -23,10 +26,10 @@ size = Vector2(5132, 3608)
 y_sort_enabled = true
 script = ExtResource("1_5mrb7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Background" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="Background"]
 offset_right = 1920.0
 offset_bottom = 1081.0
 color = Color(0.537701, 0.960516, 0.51703, 1)
@@ -106,6 +109,51 @@ shape = SubResource("RectangleShape2D_kbdm8")
 unique_name_in_owner = true
 script = ExtResource("6_d0dif")
 
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.0
+offset_bottom = 135.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("7_bwn4j")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("7_bwn4j")
+texture = ExtResource("8_2sip7")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -26.0
+offset_right = 0.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_bwn4j")
+script = ExtResource("2_j618h")
+
+[node name="TimerLabel" type="Label" parent="HUD/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="DifficultyLabel" type="Label" parent="HUD/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
 [connection signal="timeout" from="MobGenerator/Timer" to="MobGenerator" method="spawn_mod"]
 [connection signal="heath_depleted" from="Player" to="." method="_on_player_heath_depleted"]
 [connection signal="body_exited" from="Player/DespawningZone" to="Player/DespawningZone" method="_on_body_exited"]
+[connection signal="timer_updated" from="DifficultyManager" to="HUD/MarginContainer/NinePatchRect/VBoxContainer" method="_on_difficulty_manager_timer_updated"]

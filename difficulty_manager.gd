@@ -27,9 +27,13 @@ var difficulty_levels := {
 
 var active_modifiers: Array[MonsterModifier] = []
 
+signal timer_updated(elapsed_time: float, applied_times: Array)
+
 func _process(delta: float) -> void:
 	elapsed_time += delta
+	emit_signal("timer_updated", elapsed_time, applied_times)
 	_check_for_next_difficulty()
+
 
 func _check_for_next_difficulty():
 	for t in difficulty_levels.keys():
