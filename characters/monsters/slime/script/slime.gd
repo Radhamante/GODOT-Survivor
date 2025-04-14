@@ -22,7 +22,7 @@ func move(delta: float) -> void:
 		if jump_timer <= 0.0:
 			animation.play("Move")
 			var direction = global_position.direction_to(player.global_position)
-			velocity = direction * consts.SPEED * 2.0
+			velocity = direction * stats.speed * 2.0
 			is_jumping = true
 			jump_timer = jump_duration
 			animation.queue("idle")

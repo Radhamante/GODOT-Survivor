@@ -3,6 +3,7 @@ extends Bullet
 var time_to_zero = 1.0
 var opacity = 1.0
 
+
 func _physics_process(delta: float) -> void:
 	if speed > 0.0:
 		var deceleration = speed / time_to_zero
@@ -15,3 +16,4 @@ func _ready() -> void:
 	damage = 0.1
 	piercing = true
 	modulate = Color(1,randf_range(.7,1), randf_range(.7,1))
+	types = [Enums.DamageType.FIRE]

@@ -83,6 +83,10 @@ config/icon="uid://dsw7y0enp8lf7"
 
 buses/default_bus_layout=""
 
+[autoload]
+
+Enums="*res://shared/enums.gd"
+
 [display]
 
 window/size/viewport_width=1920

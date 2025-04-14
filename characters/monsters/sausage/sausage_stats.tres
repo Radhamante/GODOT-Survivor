@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MonsterStats" load_steps=2 format=3 uid="uid://7ykebg5me3uw"]
+
+[ext_resource type="Script" uid="uid://c8p46qwnr2g7d" path="res://characters/monsters/monster_stats.gd" id="1_rn0ii"]
+
+[resource]
+script = ExtResource("1_rn0ii")
+health = 10.0
+speed = 30.0
+damage = 10.0
+armor = 0.0
+resistance = Dictionary[int, float]({
+2: 20.0
+})
+metadata/_custom_type_script = "uid://c8p46qwnr2g7d"

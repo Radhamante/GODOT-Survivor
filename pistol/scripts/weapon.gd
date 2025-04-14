@@ -19,4 +19,4 @@ func _physics_process(delta: float) -> void:
 			closest_enemy = enemy
 
 	if closest_enemy:
-		look_at(closest_enemy.global_position)
+		look_at(closest_enemy.get_node("CollisionShape2D").global_position)

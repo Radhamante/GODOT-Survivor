@@ -7,8 +7,10 @@ var speed: float = 1000.0
 var range: float = 1200.0
 var damage: float = 1.0
 var piercing: bool = false
+var armor_penetration: float = 0.0
 var crit_chance: float = 0
 var crit_damage: float = 1.5
+var types: Array[Enums.DamageType]
 
 var process: Array[Callable]
 var on_hit: Array[Callable]
@@ -32,12 +34,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Monster:
-		if randf() <= crit_chance:
-			body.take_damage(damage * crit_damage)
-		else:
-			body.take_damage(damage)
-		for p in on_hit:
-			p.call(self, body)
+		body.take_damage(self)
 	if not piercing:
 		queue_free()
 	else:

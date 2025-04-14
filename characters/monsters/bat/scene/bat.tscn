@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://xedcq52eu2kg" path="res://characters/monsters/monster.gd" id="1_3nwls"]
 [ext_resource type="Texture2D" uid="uid://c035bk3wdwav8" path="res://characters/monsters/bat/sprite/bat_hit.png" id="2_3nwls"]
+[ext_resource type="Resource" uid="uid://c4176vvs8d7qo" path="res://characters/monsters/bat/bat_stats.tres" id="2_qwrbg"]
 [ext_resource type="Texture2D" uid="uid://cx5utx0300022" path="res://characters/monsters/bat/sprite/bat.png" id="3_6xi73"]
 [ext_resource type="Texture2D" uid="uid://bmujvc4d2l5uc" path="res://characters/monsters/bat/sprite/bat_fly.png" id="4_qwrbg"]
-[ext_resource type="Script" uid="uid://bkce7baq6pjed" path="res://characters/monsters/bat/script/const.gd" id="5_6xi73"]
 [ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="6_qwrbg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6xi73"]
@@ -69,6 +69,7 @@ _data = {
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_3nwls")
+base_stats = ExtResource("2_qwrbg")
 metadata/_custom_type_script = "uid://xedcq52eu2kg"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -83,9 +84,6 @@ autoplay = "Move"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_6xi73")
 flip_h = true
-
-[node name="Const" type="Node2D" parent="."]
-script = ExtResource("5_6xi73")
 
 [node name="GroundShadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.188235)

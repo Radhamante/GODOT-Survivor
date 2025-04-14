@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="MonsterStats" load_steps=2 format=3 uid="uid://3iapv65yl3y1"]
+
+[ext_resource type="Script" uid="uid://c8p46qwnr2g7d" path="res://characters/monsters/monster_stats.gd" id="1_emnf3"]
+
+[resource]
+script = ExtResource("1_emnf3")
+health = 5.0
+speed = 150.0
+damage = 5.0
+armor = 0.5
+resistance = {}
+metadata/_custom_type_script = "uid://c8p46qwnr2g7d"

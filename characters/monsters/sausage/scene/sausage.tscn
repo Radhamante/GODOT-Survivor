@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://bitkbagvnnqr7"]
 
 [ext_resource type="Script" uid="uid://xedcq52eu2kg" path="res://characters/monsters/monster.gd" id="1_3o2m8"]
+[ext_resource type="Resource" uid="uid://7ykebg5me3uw" path="res://characters/monsters/sausage/sausage_stats.tres" id="2_f344s"]
 [ext_resource type="Texture2D" uid="uid://dr871w0021nog" path="res://characters/monsters/sausage/sprite/snakeLava_ani.png" id="3_f344s"]
 [ext_resource type="Texture2D" uid="uid://ctktteniafoep" path="res://characters/monsters/sausage/sprite/snakeLava_hit.png" id="4_f344s"]
-[ext_resource type="Script" uid="uid://cnq0v601kd0mx" path="res://characters/monsters/sausage/script/const.gd" id="5_f344s"]
 [ext_resource type="Texture2D" uid="uid://ci3jwgbci7ve4" path="res://characters/monsters/sausage/sprite/snakeLava.png" id="6_f344s"]
 [ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="6_fxn00"]
 
@@ -70,6 +70,7 @@ _data = {
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_3o2m8")
+base_stats = ExtResource("2_f344s")
 metadata/_custom_type_script = "uid://xedcq52eu2kg"
 
 [node name="GroundShadow" type="Sprite2D" parent="."]
@@ -91,6 +92,3 @@ autoplay = "Move"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("6_f344s")
 flip_h = true
-
-[node name="Const" type="Node2D" parent="."]
-script = ExtResource("5_f344s")
