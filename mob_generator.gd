@@ -14,11 +14,10 @@ const mobs = [
 ]
 
 func spawn_mod():
-	var new_mod = mobs.pick_random().instantiate()
+	var new_mod: Monster = mobs.pick_random().instantiate()
 	%PathFollow2D.progress_ratio = randf()
 	new_mod.global_position = %PathFollow2D.global_position
+	new_mod.modifiers = %DifficultyManager.active_modifiers
+		
 	add_child(new_mod)
 	
-	# Appliquer les modifiers en direct
-	for modifier:MonsterModifier in %DifficultyManager.get_active_modifiers():
-		modifier.apply(new_mod)

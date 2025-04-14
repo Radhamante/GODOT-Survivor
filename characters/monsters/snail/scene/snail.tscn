@@ -41,6 +41,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_tr5y1")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_q2hd4"]
 resource_name = "hurt"
@@ -52,27 +64,47 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_tr5y1"), ExtResource("6_tr5y1")]
+"values": [ExtResource("6_tr5y1")]
+}
+
+[sub_resource type="Animation" id="Animation_q1lpb"]
+resource_name = "immune"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_tr5y1")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0627451, 0.698039, 0.937255, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vamy"]
 _data = {
 &"Move": SubResource("Animation_6xi73"),
 &"RESET": SubResource("Animation_qwrbg"),
-&"hurt": SubResource("Animation_q2hd4")
+&"hurt": SubResource("Animation_q2hd4"),
+&"immune": SubResource("Animation_q1lpb")
 }
-
-[sub_resource type="GDScript" id="GDScript_0uayh"]
-script/source = "extends Node2D
-
-const HEALTH = 8
-const SPEED = 150
-const DAMAGE = 2
-const ARMOR = 0
-"
 
 [node name="Snail" type="CharacterBody2D"]
 collision_layer = 2
@@ -100,6 +132,3 @@ autoplay = "Move"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_tr5y1")
 flip_h = true
-
-[node name="Const" type="Node2D" parent="."]
-script = SubResource("GDScript_0uayh")

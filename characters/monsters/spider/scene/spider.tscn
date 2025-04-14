@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6jaayc62hs4u"]
+[gd_scene load_steps=13 format=3 uid="uid://c6jaayc62hs4u"]
 
 [ext_resource type="Script" uid="uid://xedcq52eu2kg" path="res://characters/monsters/monster.gd" id="1_16kyb"]
 [ext_resource type="Resource" uid="uid://c36txvujkxl78" path="res://characters/monsters/spider/spider_stats.tres" id="2_16kyb"]
@@ -41,6 +41,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("2_xvxwr")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_q2hd4"]
 resource_name = "hurt"
@@ -58,11 +70,40 @@ tracks/0/keys = {
 "values": [ExtResource("4_wan0o"), ExtResource("4_wan0o")]
 }
 
+[sub_resource type="Animation" id="Animation_16kyb"]
+resource_name = "immune"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_wan0o")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0627451, 0.698039, 0.937255, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vamy"]
 _data = {
 &"Move": SubResource("Animation_6xi73"),
 &"RESET": SubResource("Animation_qwrbg"),
-&"hurt": SubResource("Animation_q2hd4")
+&"hurt": SubResource("Animation_q2hd4"),
+&"immune": SubResource("Animation_16kyb")
 }
 
 [node name="Spider" type="CharacterBody2D"]
@@ -71,6 +112,12 @@ collision_mask = 3
 script = ExtResource("1_16kyb")
 base_stats = ExtResource("2_16kyb")
 metadata/_custom_type_script = "uid://xedcq52eu2kg"
+
+[node name="GroundShadow" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.188235)
+position = Vector2(0, 20)
+scale = Vector2(0.690476, 0.365385)
+texture = ExtResource("6_f004r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_6xi73")
@@ -84,9 +131,3 @@ autoplay = "Move"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_xvxwr")
 flip_h = true
-
-[node name="GroundShadow" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 0.188235)
-position = Vector2(0, 20)
-scale = Vector2(0.690476, 0.365385)
-texture = ExtResource("6_f004r")

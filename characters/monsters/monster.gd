@@ -1,15 +1,19 @@
 extends CharacterBody2D
 class_name Monster
 
-@export var base_stats: MonsterStats
-@onready var stats: MonsterStats = base_stats.duplicate()
+var modifiers: Array[MonsterModifier]
 
+@export var base_stats: MonsterStats
+var stats: MonsterStats
 
 @onready var player: CharacterBody2D = get_node("/root/Game/Player")
 @onready var animation: AnimationPlayer = get_node("AnimationPlayer")
 
 func _ready() -> void:
 	animation.queue("Move")
+	stats = base_stats.duplicate()
+	for modifier in modifiers:
+		modifier.apply(self)
 
 func _physics_process(delta: float) -> void:
 	move(delta)
@@ -37,31 +41,37 @@ func look_at_player():
 		$Sprite2D.flip_h = true
 
 func _show_crit_particles(bullet: Bullet) -> void:
-	const CRIT_PARTICLES = preload("res://pistol/impact/critical_hit.tscn")
+	const CRIT_PARTICLES = preload("res://pistols/impact/critical_hit.tscn")
 	var particles = CRIT_PARTICLES.instantiate()
 	particles.global_position = global_position
 	particles.global_rotation = bullet.global_rotation
 	get_parent().add_child(particles)
 	
 func _calculate_damages(bullet: Bullet) -> float:
-	var total_multiplier := 1.0
+	var damage = bullet.damageSource.damage
+	
+	# ARMOR
+	if bullet.damageSource.types.has(Enums.DamageType.PHYSICAL):
+		damage -= max(stats.armor - bullet.damageSource.armor_penetration, 0)
 
-	for damage_type in bullet.types:
+	# RESISTANCES
+	var resistance_multiplier := 1.0
+	for damage_type in bullet.damageSource.types:
 		if stats.resistance.has(damage_type):
 			var resistance = stats.resistance[damage_type]
-			total_multiplier *= resistance
-
-	# Calcul du crit
-	var is_critical = randf() < bullet.crit_chance
-	var final_damage = bullet.damage * total_multiplier
+			resistance_multiplier *= resistance
+	damage = damage * resistance_multiplier
+	
+	# CRIT
+	var is_critical = randf() < bullet.damageSource.crit_chance
 	if is_critical:
-		var crit_damage = final_damage - final_damage * bullet.crit_damage
+		var crit_damage = bullet.damageSource.damage - bullet.damageSource.damage * bullet.damageSource.crit_damage
 		if stats.resistance.has(Enums.DamageType.CRITICAL):
 			crit_damage *= stats.resistance[Enums.DamageType.CRITICAL]
-		final_damage += bullet.crit_damage
-		_show_crit_particles(bullet) # <- on déclenche les particules ici
+		damage += bullet.damageSource.crit_damage
+		_show_crit_particles(bullet)
 	
-	return final_damage
+	return damage
 
 func _kill():
 	queue_free()
@@ -72,8 +82,12 @@ func _kill():
 
 func take_damage(bullet: Bullet):
 	var damage = _calculate_damages(bullet)
-	stats.health -= damage
-	animation.play("hurt")
+	if damage > 0:
+		stats.health -= damage
+		animation.play("hurt")
+	else: 
+		animation.play("immune")
+		animation.queue("RESET")
 	animation.queue("Move")
 	if stats.health <= 0:
 		_kill()

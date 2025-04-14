@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bx0kgwffybo3w"]
+
+[ext_resource type="Script" uid="uid://bxskm8xtccctw" path="res://pistols/flamethrower/script/flamethrower_bullet.gd" id="1_7j1ra"]
+[ext_resource type="Texture2D" uid="uid://brgpjilf7s2ul" path="res://pistols/sprites/muzzle_flash.png" id="2_7j1ra"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
+radius = 13.0
+
+[node name="Bullet" type="Area2D"]
+top_level = true
+scale = Vector2(1.38297, 1.38297)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_7j1ra")
+metadata/_custom_type_script = "uid://cjl2m57tt2bcp"
+
+[node name="Projectile" type="Sprite2D" parent="."]
+position = Vector2(1, -1)
+texture = ExtResource("2_7j1ra")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rtl8c")

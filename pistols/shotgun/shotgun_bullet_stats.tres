@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BulletStats" load_steps=2 format=3 uid="uid://dhfmmoc2vuk5f"]
+
+[ext_resource type="Script" uid="uid://be6uvph2adm82" path="res://pistols/scripts/bullet_stats.gd" id="1_w1d6n"]
+
+[resource]
+script = ExtResource("1_w1d6n")
+speed = 1500.0
+range = 200.0
+piercing = false
+metadata/_custom_type_script = "uid://be6uvph2adm82"

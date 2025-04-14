@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://d1vrowuf1cnpf"]
+
+[ext_resource type="Script" uid="uid://cjl2m57tt2bcp" path="res://pistols/scripts/bullet.gd" id="1_jg2xy"]
+[ext_resource type="Resource" uid="uid://cdkn1r7f0smtk" path="res://pistols/machinegun/machinegun_bullet_damage.tres" id="2_nk0sa"]
+[ext_resource type="Resource" uid="uid://dobxp3wtm0duu" path="res://pistols/machinegun/machinegun_bullet_stats.tres" id="3_nk0sa"]
+[ext_resource type="Texture2D" uid="uid://dftkbqwsfd68r" path="res://pistols/sprites/projectile.png" id="4_ma7hf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
+radius = 16.1245
+
+[node name="MachinegunBullet" type="Area2D"]
+top_level = true
+scale = Vector2(0.661195, 0.661195)
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_jg2xy")
+base_damageSource = ExtResource("2_nk0sa")
+base_bulletStats = ExtResource("3_nk0sa")
+metadata/_custom_type_script = "uid://cjl2m57tt2bcp"
+
+[node name="Projectile" type="Sprite2D" parent="."]
+position = Vector2(-11, -1)
+texture = ExtResource("4_ma7hf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rtl8c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

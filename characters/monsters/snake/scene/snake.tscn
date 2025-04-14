@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c8aos4h2rhckw"]
+[gd_scene load_steps=13 format=3 uid="uid://c8aos4h2rhckw"]
 
 [ext_resource type="Script" uid="uid://dumvuxogsl10l" path="res://characters/monsters/snake/script/snake.gd" id="1_7lw85"]
 [ext_resource type="Resource" uid="uid://b88asv66bac4p" path="res://characters/monsters/snake/snake_stats.tres" id="2_8xiau"]
@@ -41,6 +41,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("3_6swx6")]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_q2hd4"]
 resource_name = "hurt"
@@ -58,11 +70,40 @@ tracks/0/keys = {
 "values": [ExtResource("6_giqrs"), ExtResource("6_giqrs")]
 }
 
+[sub_resource type="Animation" id="Animation_8xiau"]
+resource_name = "immune"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("6_giqrs")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0627451, 0.698039, 0.937255, 1)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vamy"]
 _data = {
 &"Move": SubResource("Animation_6xi73"),
 &"RESET": SubResource("Animation_qwrbg"),
-&"hurt": SubResource("Animation_q2hd4")
+&"hurt": SubResource("Animation_q2hd4"),
+&"immune": SubResource("Animation_8xiau")
 }
 
 [node name="snake" type="CharacterBody2D"]

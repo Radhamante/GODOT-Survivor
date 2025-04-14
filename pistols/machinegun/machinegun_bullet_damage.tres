@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DamageSource" load_steps=2 format=3 uid="uid://cdkn1r7f0smtk"]
+
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/damageSource.gd" id="1_pi4aa"]
+
+[resource]
+script = ExtResource("1_pi4aa")
+damage = 0.5
+armor_penetration = 0.0
+crit_chance = 0.1
+crit_damage = 1.5
+types = Array[int]([0])
+damage_reduction_on_piercing = 0.0
+metadata/_custom_type_script = "uid://cdu8jjauvfhnp"

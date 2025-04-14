@@ -8,5 +8,7 @@ health = 5.0
 speed = 150.0
 damage = 5.0
 armor = 0.5
-resistance = {}
+resistance = Dictionary[int, float]({
+3: 1.5
+})
 metadata/_custom_type_script = "uid://c8p46qwnr2g7d"

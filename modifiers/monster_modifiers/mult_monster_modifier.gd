@@ -10,7 +10,4 @@ func _init(property: String, bonus: float = 0.0):
 
 
 func apply(monster: Monster):
-	if not monster.stats.has_meta(property):
-		push_error("Unkown property of monster : ", property)
-		return
 	monster.stats[property] *= bonus

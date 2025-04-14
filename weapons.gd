@@ -2,12 +2,13 @@ extends Node2D
 
 var selected = 0
 
-const GUN = preload("res://pistol/scenes/gun.tscn")
-const SHOTGUN = preload("res://pistol/scenes/shotgun.tscn")
-const FLAMETHROWER = preload("res://pistol/scenes/flamethrower.tscn")
+const GUN = preload("res://pistols/gun/scene/gun.tscn")
+const FLAMETHROWER = preload("res://pistols/flamethrower/scene/flamethrower.tscn")
+const SHOTGUN = preload("res://pistols/shotgun/scene/shotgun.tscn")
+const MACHINEGUN = preload("res://pistols/machinegun/scene/machinegun.tscn")
 
-var weapons = [
-	GUN, SHOTGUN, FLAMETHROWER
+@export var weapons = [
+	GUN, SHOTGUN, FLAMETHROWER, MACHINEGUN
 ]
 var weapon_index = 0
 
