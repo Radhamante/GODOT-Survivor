@@ -67,7 +67,8 @@ _data = {
 }
 
 [node name="Sausage" type="CharacterBody2D"]
-collision_layer = 3
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_3o2m8")
 metadata/_custom_type_script = "uid://xedcq52eu2kg"
 

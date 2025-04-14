@@ -13,11 +13,21 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	move(delta)
-	move_and_slide()
+	var collision = move_and_slide()
+	if collision:
+		for i in range(get_slide_collision_count()):
+			var col = get_slide_collision(i)
+			if col.get_collider() == player:
+				velocity = Vector2.ZERO
 	
 func move(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
-	velocity = direction * consts.SPEED
+	var distance = global_position.distance_to(player.global_position)
+	
+	if distance > 3:
+		velocity = direction * consts.SPEED
+	else:
+		velocity = Vector2.ZERO
 	look_at_player()
 		
 func look_at_player():

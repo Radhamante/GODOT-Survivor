@@ -1,9 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6uupk6osn1pe"]
+[gd_scene load_steps=14 format=3 uid="uid://c6uupk6osn1pe"]
 
 [ext_resource type="Script" uid="uid://c1f5u26jbvhue" path="res://characters/monsters/slime/script/slime.gd" id="1_7kmwx"]
 [ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="2_2hgch"]
 [ext_resource type="Texture2D" uid="uid://b2rap1w7fbvw" path="res://characters/monsters/slime/sprite/slime.png" id="2_7kmwx"]
-[ext_resource type="Texture2D" uid="uid://cx5utx0300022" path="res://characters/monsters/bat/sprite/bat.png" id="2_k82q7"]
 [ext_resource type="Texture2D" uid="uid://dp5x3x6mmlnol" path="res://characters/monsters/slime/sprite/slime_squashed.png" id="2_xd4fu"]
 [ext_resource type="Texture2D" uid="uid://c60pvrp42ualk" path="res://characters/monsters/slime/sprite/slime_walk.png" id="3_xd4fu"]
 [ext_resource type="Texture2D" uid="uid://da00f0ahpaq" path="res://characters/monsters/slime/sprite/slime_hit.png" id="5_2hgch"]
@@ -52,7 +51,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_k82q7")]
+"values": [ExtResource("2_7kmwx")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -121,7 +120,8 @@ _data = {
 }
 
 [node name="Slime" type="CharacterBody2D"]
-collision_layer = 3
+collision_layer = 2
+collision_mask = 3
 script = ExtResource("1_7kmwx")
 metadata/_custom_type_script = "uid://xedcq52eu2kg"
 
@@ -143,7 +143,7 @@ autoplay = "idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -15)
-texture = ExtResource("2_k82q7")
+texture = ExtResource("2_7kmwx")
 flip_h = true
 
 [node name="Const" type="Node2D" parent="."]
