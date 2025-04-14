@@ -1,11 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://fk84spmwptye"]
+[gd_scene load_steps=12 format=3 uid="uid://c6jaayc62hs4u"]
 
-[ext_resource type="Script" uid="uid://xedcq52eu2kg" path="res://characters/monsters/monster.gd" id="1_3nwls"]
-[ext_resource type="Texture2D" uid="uid://c035bk3wdwav8" path="res://characters/monsters/bat/sprite/bat_hit.png" id="2_3nwls"]
-[ext_resource type="Texture2D" uid="uid://cx5utx0300022" path="res://characters/monsters/bat/sprite/bat.png" id="3_6xi73"]
-[ext_resource type="Texture2D" uid="uid://bmujvc4d2l5uc" path="res://characters/monsters/bat/sprite/bat_fly.png" id="4_qwrbg"]
-[ext_resource type="Script" uid="uid://bkce7baq6pjed" path="res://characters/monsters/bat/script/const.gd" id="5_6xi73"]
-[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="6_qwrbg"]
+[ext_resource type="Script" uid="uid://xedcq52eu2kg" path="res://characters/monsters/monster.gd" id="1_16kyb"]
+[ext_resource type="Texture2D" uid="uid://cl388a2e8el0b" path="res://characters/monsters/spider/sprite/spider_walk1.png" id="2_xvxwr"]
+[ext_resource type="Texture2D" uid="uid://dacve02ogusgi" path="res://characters/monsters/spider/sprite/spider_walk2.png" id="3_dwgqb"]
+[ext_resource type="Texture2D" uid="uid://cit8yjhpq7qhl" path="res://characters/monsters/spider/sprite/spider_hit.png" id="4_wan0o"]
+[ext_resource type="Script" uid="uid://b31004d2f0bia" path="res://characters/monsters/spider/script/const.gd" id="5_y5yvb"]
+[ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="6_f004r"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6xi73"]
 radius = 17.4642
@@ -24,7 +24,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("3_6xi73"), ExtResource("4_qwrbg")]
+"values": [ExtResource("2_xvxwr"), ExtResource("3_dwgqb")]
 }
 
 [sub_resource type="Animation" id="Animation_qwrbg"]
@@ -39,7 +39,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_6xi73")]
+"values": [ExtResource("2_xvxwr")]
 }
 
 [sub_resource type="Animation" id="Animation_q2hd4"]
@@ -55,7 +55,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [ExtResource("2_3nwls"), ExtResource("2_3nwls")]
+"values": [ExtResource("4_wan0o"), ExtResource("4_wan0o")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3vamy"]
@@ -65,9 +65,9 @@ _data = {
 &"hurt": SubResource("Animation_q2hd4")
 }
 
-[node name="Bat" type="CharacterBody2D"]
+[node name="Spider" type="CharacterBody2D"]
 collision_layer = 3
-script = ExtResource("1_3nwls")
+script = ExtResource("1_16kyb")
 metadata/_custom_type_script = "uid://xedcq52eu2kg"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -80,14 +80,14 @@ libraries = {
 autoplay = "Move"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("3_6xi73")
+texture = ExtResource("2_xvxwr")
 flip_h = true
 
 [node name="Const" type="Node2D" parent="."]
-script = ExtResource("5_6xi73")
+script = ExtResource("5_y5yvb")
 
 [node name="GroundShadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.188235)
-position = Vector2(0, 41)
-scale = Vector2(0.365385, 0.365385)
-texture = ExtResource("6_qwrbg")
+position = Vector2(0, 20)
+scale = Vector2(0.690476, 0.365385)
+texture = ExtResource("6_f004r")

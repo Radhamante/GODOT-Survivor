@@ -144,6 +144,7 @@ autoplay = "idle"
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -15)
 texture = ExtResource("2_k82q7")
+flip_h = true
 
 [node name="Const" type="Node2D" parent="."]
 script = ExtResource("6_7kmwx")

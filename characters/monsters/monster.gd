@@ -18,7 +18,13 @@ func _physics_process(delta: float) -> void:
 func move(delta: float) -> void:
 	var direction = global_position.direction_to(player.global_position)
 	velocity = direction * consts.SPEED
-	
+	look_at_player()
+		
+func look_at_player():
+	if player.global_position.x < global_position.x:
+		$Sprite2D.flip_h = false
+	else:
+		$Sprite2D.flip_h = true
 	
 
 func take_damage(damage: float):

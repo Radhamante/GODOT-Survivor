@@ -10,6 +10,7 @@ func _ready() -> void:
 	animation.play("idle")
 
 func move(delta: float) -> void:
+	look_at_player()
 	jump_timer -= delta
 	
 	if is_jumping:
