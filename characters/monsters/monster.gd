@@ -5,10 +5,12 @@ class_name Monster
 @onready var player: CharacterBody2D = get_node("/root/Game/Player")
 @onready var animation: AnimationPlayer = get_node("AnimationPlayer")
 @onready var consts = get_node("Const")
-var health: float
+@onready var health: float = consts.HEALTH
+@onready var speed: float = consts.SPEED
+@onready var damage: float = consts.DAMAGE
+@onready var armor: float = consts.ARMOR
 
 func _ready() -> void:
-	health = consts.HEALTH
 	animation.queue("Move")
 
 func _physics_process(delta: float) -> void:
@@ -25,7 +27,7 @@ func move(delta: float) -> void:
 	var distance = global_position.distance_to(player.global_position)
 	
 	if distance > 3:
-		velocity = direction * consts.SPEED
+		velocity = direction * speed
 	else:
 		velocity = Vector2.ZERO
 	look_at_player()
@@ -38,7 +40,7 @@ func look_at_player():
 	
 
 func take_damage(damage: float):
-	health-=damage
+	health-=min(damage - armor, 0.1)
 	animation.play("hurt")
 	animation.queue("Move")
 	if health <= 0:

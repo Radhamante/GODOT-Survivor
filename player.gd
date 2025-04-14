@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 
 	var overlapping_mobs: Array[Node2D] = %HurtBox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0:
-		var overlapping_damages = overlapping_mobs.reduce(func (sum, next): return sum + next.consts.DAMAGE, 0)
+		var overlapping_damages = overlapping_mobs.reduce(func (sum, next): return sum + next.damage, 0)
 		health -= overlapping_damages * delta
 		%ProgressBar.value = health
 		if health <= 0:

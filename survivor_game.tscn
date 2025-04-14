@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://cpvj8xnphfau1"]
+[gd_scene load_steps=10 format=3 uid="uid://cpvj8xnphfau1"]
 
 [ext_resource type="Script" uid="uid://bo5ru0gqcwtgi" path="res://survivor_game.gd" id="1_5mrb7"]
 [ext_resource type="PackedScene" uid="uid://deyaebkrhgrx2" path="res://player.tscn" id="1_wkcnj"]
 [ext_resource type="Script" uid="uid://bioesh7rgehi2" path="res://despawning_zone.gd" id="3_i54c3"]
 [ext_resource type="Script" uid="uid://c435d8n4npur8" path="res://mob_generator.gd" id="4_5mrb7"]
 [ext_resource type="Script" uid="uid://dxlfu5j8dlngl" path="res://environement_generator.gd" id="5_d0dif"]
+[ext_resource type="Script" uid="uid://d1octvvixlfii" path="res://difficulty_manager.gd" id="6_d0dif"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i54c3"]
 radius = 200.0
@@ -100,6 +101,10 @@ script = ExtResource("3_i54c3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/DespawningZone"]
 position = Vector2(7, 0)
 shape = SubResource("RectangleShape2D_kbdm8")
+
+[node name="DifficultyManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_d0dif")
 
 [connection signal="timeout" from="MobGenerator/Timer" to="MobGenerator" method="spawn_mod"]
 [connection signal="heath_depleted" from="Player" to="." method="_on_player_heath_depleted"]

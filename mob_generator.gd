@@ -8,15 +8,17 @@ const SPIDER = preload("res://characters/monsters/spider/scene/spider.tscn")
 const GHOST = preload("res://characters/monsters/ghost/scene/ghost.tscn")
 const SAUSAGE = preload("res://characters/monsters/sausage/scene/sausage.tscn")
 
+
 const mobs = [
 	BAT,SLIME, SNAKE, SNAIL, SPIDER, GHOST, SAUSAGE
 ]
 
 func spawn_mod():
 	var new_mod = mobs.pick_random().instantiate()
-	
 	%PathFollow2D.progress_ratio = randf()
-	
 	new_mod.global_position = %PathFollow2D.global_position
-	
 	add_child(new_mod)
+	
+	# Appliquer les modifiers en direct
+	for modifier:MonsterModifier in %DifficultyManager.get_active_modifiers():
+		modifier.apply(new_mod)
