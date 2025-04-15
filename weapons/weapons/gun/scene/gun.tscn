@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://yi6xlwinuh2e"]
+
+[ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/scripts/weapon.gd" id="1_6h5ka"]
+[ext_resource type="Resource" uid="uid://cjpkg01wgihko" path="res://weapons/weapons/gun/gun_shoot_behavior.tres" id="2_6h5ka"]
+[ext_resource type="Texture2D" uid="uid://b2cd5ft4gom6d" path="res://weapons/weapons/gun/sprite/hand_yellow_point.png" id="2_buta8"]
+[ext_resource type="Script" uid="uid://eiececv5s1s8" path="res://weapons/behaviors/move_behaviors/FollowClosestEnemyMovement.gd" id="3_1uysu"]
+
+[sub_resource type="Resource" id="Resource_3htep"]
+script = ExtResource("3_1uysu")
+metadata/_custom_type_script = "uid://eiececv5s1s8"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dk5gl"]
+radius = 600.0
+
+[node name="Gun" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_6h5ka")
+shoot_behavior = ExtResource("2_6h5ka")
+movement_behavior = SubResource("Resource_3htep")
+metadata/_custom_type_script = "uid://culhnjwum6js5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dk5gl")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+
+[node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(69.5616, -2.34974)
+rotation = 0.652695
+scale = Vector2(0.540904, 0.540904)
+texture = ExtResource("2_buta8")
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
+unique_name_in_owner = true
+position = Vector2(31.359, -31.3865)

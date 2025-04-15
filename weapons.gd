@@ -2,10 +2,10 @@ extends Node2D
 
 var selected = 0
 
-const GUN = preload("res://pistols/gun/scene/gun.tscn")
-const FLAMETHROWER = preload("res://pistols/flamethrower/scene/flamethrower.tscn")
-const SHOTGUN = preload("res://pistols/shotgun/scene/shotgun.tscn")
-const MACHINEGUN = preload("res://pistols/machinegun/scene/machinegun.tscn")
+const GUN = preload("res://weapons/weapons/gun/scene/gun.tscn")
+const SHOTGUN = preload("res://weapons/weapons/shotgun/scene/shotgun.tscn")
+const MACHINEGUN = preload("res://weapons/weapons/machinegun/scene/machinegun.tscn")
+const FLAMETHROWER = preload("res://weapons/weapons/flamethrower/scene/flamethrower.tscn")
 
 @export var weapons = [
 	GUN, SHOTGUN, FLAMETHROWER, MACHINEGUN

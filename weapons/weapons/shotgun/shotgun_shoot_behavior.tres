@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MultipleBulletShootBehavior" load_steps=3 format=3 uid="uid://dhjgcowert321"]
+
+[ext_resource type="Script" uid="uid://b8cyifd2w58xg" path="res://weapons/behaviors/MultipleBulletShotBehavior.gd" id="1_0uvkt"]
+[ext_resource type="PackedScene" uid="uid://bf0okcbmlw82x" path="res://weapons/weapons/shotgun/scene/shotgun_bullet.tscn" id="1_m0uap"]
+
+[resource]
+script = ExtResource("1_0uvkt")
+bullet_scene = ExtResource("1_m0uap")
+shoot_delay = 0.7
+bullet_count = 4
+spread_angle = 25.0
+accuracy_bias = 0.7
+accuracy_correction = 100.0
+metadata/_custom_type_script = "uid://b8cyifd2w58xg"

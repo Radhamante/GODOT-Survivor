@@ -1,12 +1,20 @@
-[gd_scene load_steps=15 format=3 uid="uid://c6uupk6osn1pe"]
+[gd_scene load_steps=17 format=3 uid="uid://c6uupk6osn1pe"]
 
-[ext_resource type="Script" uid="uid://c1f5u26jbvhue" path="res://characters/monsters/slime/script/slime.gd" id="1_7kmwx"]
+[ext_resource type="Script" uid="uid://xedcq52eu2kg" path="res://characters/monsters/monster.gd" id="1_7kmwx"]
 [ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="2_2hgch"]
 [ext_resource type="Texture2D" uid="uid://b2rap1w7fbvw" path="res://characters/monsters/slime/sprite/slime.png" id="2_7kmwx"]
-[ext_resource type="Resource" uid="uid://43dtqtqeohce" path="res://characters/monsters/slime/slime_stats.tres" id="2_vjq1q"]
+[ext_resource type="Script" uid="uid://eqaq2idmi00o" path="res://characters/monsters/behavior/JumpMoveBehavior.gd" id="2_gtfug"]
 [ext_resource type="Texture2D" uid="uid://dp5x3x6mmlnol" path="res://characters/monsters/slime/sprite/slime_squashed.png" id="2_xd4fu"]
+[ext_resource type="Resource" uid="uid://43dtqtqeohce" path="res://characters/monsters/slime/slime_stats.tres" id="3_2hgch"]
 [ext_resource type="Texture2D" uid="uid://c60pvrp42ualk" path="res://characters/monsters/slime/sprite/slime_walk.png" id="3_xd4fu"]
 [ext_resource type="Texture2D" uid="uid://da00f0ahpaq" path="res://characters/monsters/slime/sprite/slime_hit.png" id="5_2hgch"]
+
+[sub_resource type="Resource" id="Resource_xd4fu"]
+resource_local_to_scene = true
+script = ExtResource("2_gtfug")
+jump_cooldown = 0.5
+jump_duration = 0.5
+metadata/_custom_type_script = "uid://eqaq2idmi00o"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6xi73"]
 radius = 17.4642
@@ -164,7 +172,8 @@ _data = {
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_7kmwx")
-base_stats = ExtResource("2_vjq1q")
+move_behavior = SubResource("Resource_xd4fu")
+base_stats = ExtResource("3_2hgch")
 metadata/_custom_type_script = "uid://xedcq52eu2kg"
 
 [node name="GroundShadow" type="Sprite2D" parent="."]

@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ct542247ts6k5"]
+
+[ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/scripts/weapon.gd" id="1_dfr8x"]
+[ext_resource type="Texture2D" uid="uid://d0aqseyrpi2c6" path="res://weapons/weapons/shotgun/sprite/hand_yellow_open.png" id="2_5ihko"]
+[ext_resource type="Resource" uid="uid://dhjgcowert321" path="res://weapons/weapons/shotgun/shotgun_shoot_behavior.tres" id="2_p66vu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kb1h3"]
+radius = 300.0
+
+[node name="Shotgun" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_dfr8x")
+shoot_behavior = ExtResource("2_p66vu")
+metadata/_custom_type_script = "uid://culhnjwum6js5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_kb1h3")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+
+[node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(74, -1.78814e-07)
+rotation = 1.39626
+scale = Vector2(-0.541, 0.541)
+texture = ExtResource("2_5ihko")
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
+unique_name_in_owner = true
+position = Vector2(0.646301, -28.2681)

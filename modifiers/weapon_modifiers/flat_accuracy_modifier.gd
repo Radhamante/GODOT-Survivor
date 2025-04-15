@@ -1,7 +1,7 @@
 extends WeaponModifier
 class_name FlatAccuracyModifier
 
-var bonus: float = 0.0
+@export var bonus: float = 0.0
 
 
 func _init(bonus: float = 0.0):

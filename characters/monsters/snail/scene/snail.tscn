@@ -1,11 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://31522nj1m35x"]
+[gd_scene load_steps=15 format=3 uid="uid://31522nj1m35x"]
 
 [ext_resource type="Script" uid="uid://xedcq52eu2kg" path="res://characters/monsters/monster.gd" id="1_084ox"]
+[ext_resource type="Script" uid="uid://cs3y3vpdb7l5e" path="res://characters/monsters/behavior/FollowMoveBehavior.gd" id="2_0uayh"]
 [ext_resource type="Resource" uid="uid://3iapv65yl3y1" path="res://characters/monsters/snail/snail_stats.tres" id="2_q1lpb"]
 [ext_resource type="Texture2D" uid="uid://dw6meqawd705f" path="res://characters/monsters/snail/sprite/snail.png" id="2_tr5y1"]
 [ext_resource type="Texture2D" uid="uid://cxqra3ao5its6" path="res://characters/monsters/snail/sprite/snail_walk.png" id="3_0uayh"]
 [ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="6_2g2fr"]
 [ext_resource type="Texture2D" uid="uid://dnnn7eal5d4ts" path="res://characters/monsters/snail/sprite/snail_hit.png" id="6_tr5y1"]
+
+[sub_resource type="Resource" id="Resource_qs5hg"]
+script = ExtResource("2_0uayh")
+look_at_player = false
+metadata/_custom_type_script = "uid://cs3y3vpdb7l5e"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6xi73"]
 radius = 19.0263
@@ -110,6 +116,7 @@ _data = {
 collision_layer = 2
 collision_mask = 3
 script = ExtResource("1_084ox")
+move_behavior = SubResource("Resource_qs5hg")
 base_stats = ExtResource("2_q1lpb")
 metadata/_custom_type_script = "uid://xedcq52eu2kg"
 

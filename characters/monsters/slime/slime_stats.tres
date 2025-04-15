@@ -5,8 +5,8 @@
 [resource]
 script = ExtResource("1_nrtpk")
 health = 3.0
-speed = 200.0
+speed = 400.0
 damage = 3.0
 armor = 0.0
-resistance = {}
+resistance = Dictionary[int, float]({})
 metadata/_custom_type_script = "uid://c8p46qwnr2g7d"
