@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://kcl4efkvrany"]
+
+[ext_resource type="Texture2D" uid="uid://dn80eu1qs371v" path="res://weapons/impact/critical_hit/circle.png" id="1_18i06"]
+[ext_resource type="Material" uid="uid://cr0fieh7ivlga" path="res://weapons/impact/critical_hit/critical_hit_process_material.tres" id="2_aybjm"]
+[ext_resource type="Script" uid="uid://w66062h67ypi" path="res://weapons/impact/impact.gd" id="2_i1y4j"]
+
+[node name="GPUParticles2D" type="GPUParticles2D"]
+modulate = Color(0, 0, 0, 1)
+emitting = false
+amount = 12
+texture = ExtResource("1_18i06")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+visibility_rect = Rect2(0, 0, 0, 0)
+process_material = ExtResource("2_aybjm")
+script = ExtResource("2_i1y4j")
+metadata/_custom_type_script = "uid://w66062h67ypi"

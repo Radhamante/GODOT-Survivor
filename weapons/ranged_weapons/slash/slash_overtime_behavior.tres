@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DamageOverTimeEffect" load_steps=5 format=3 uid="uid://cfkly5r8ilhhy"]
+
+[ext_resource type="PackedScene" uid="uid://nnfm6c1iau8x" path="res://weapons/impact/bleed_hit/bleed_hit.tscn" id="1_b1d5t"]
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/damageSource.gd" id="2_d5k7e"]
+[ext_resource type="Script" uid="uid://cm0q6v7v8lll8" path="res://effects/DamageOverTimeEffect.gd" id="3_nbl1l"]
+
+[sub_resource type="Resource" id="Resource_k8ghu"]
+script = ExtResource("2_d5k7e")
+damage = 1.0
+armor_penetration = 0.0
+crit_chance = 0.0
+crit_damage = 1.5
+types = Array[int]([])
+particules = ExtResource("1_b1d5t")
+damage_reduction_on_piercing = 0.0
+knockback_force = 0.0
+metadata/_custom_type_script = "uid://cdu8jjauvfhnp"
+
+[resource]
+script = ExtResource("3_nbl1l")
+damage_source = SubResource("Resource_k8ghu")
+tick_interval = 0.5
+duration = 3.0
+metadata/_custom_type_script = "uid://cm0q6v7v8lll8"

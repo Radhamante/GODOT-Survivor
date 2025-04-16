@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bkkoyofa4wnyw"]
+
+[ext_resource type="Script" uid="uid://cjl2m57tt2bcp" path="res://weapons/ranged_weapons/scripts/bullet.gd" id="1_ub75n"]
+[ext_resource type="Resource" uid="uid://famck1cc5wdu" path="res://weapons/ranged_weapons/boucing_bolt/bouncing_bolt_bullet_damage.tres" id="2_j2ge1"]
+[ext_resource type="Texture2D" uid="uid://c8sl1sdwfuq8i" path="res://weapons/ranged_weapons/boucing_bolt/sprite/trace_05.png" id="4_j2ge1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rtl8c"]
+radius = 16.1245
+
+[node name="Bullet" type="Area2D"]
+top_level = true
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_ub75n")
+damageSource = ExtResource("2_j2ge1")
+metadata/_custom_type_script = "uid://cjl2m57tt2bcp"
+
+[node name="Projectile" type="Sprite2D" parent="."]
+position = Vector2(-53, -1)
+rotation = 1.5708
+scale = Vector2(0.408627, 0.408627)
+texture = ExtResource("4_j2ge1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_rtl8c")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

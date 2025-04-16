@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="DamageSource" load_steps=2 format=3 uid="uid://cjmdjq051nhe4"]
+
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/damageSource.gd" id="1_pcgaq"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_pcgaq")
+damage = 1.0
+armor_penetration = 0.5
+crit_chance = 0.1
+crit_damage = 1.5
+types = Array[int]([0])
+damage_reduction_on_piercing = 0.0
+knockback_force = 700.0
+metadata/_custom_type_script = "uid://cdu8jjauvfhnp"

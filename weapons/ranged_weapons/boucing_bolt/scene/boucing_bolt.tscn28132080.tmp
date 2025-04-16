@@ -1,0 +1,47 @@
+[gd_scene load_steps=10 format=3 uid="uid://bl0xb7yg5qst5"]
+
+[ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/weapon.gd" id="1_tbhaj"]
+[ext_resource type="Script" uid="uid://bh1kaj35dkkan" path="res://modifiers/bullet_modifiers/bullet_modifier.gd" id="2_uicfy"]
+[ext_resource type="Script" uid="uid://eiececv5s1s8" path="res://weapons/behaviors/move_behaviors/FollowClosestEnemyMovement.gd" id="3_b88v1"]
+[ext_resource type="Script" uid="uid://ctd2jdgbxaypk" path="res://modifiers/bullet_modifiers/boucing_bullet_modifier.gd" id="3_nw1gx"]
+[ext_resource type="Resource" uid="uid://vf75m62xa46b" path="res://weapons/ranged_weapons/boucing_bolt/bouncing_bolt_shoot_behavior.tres" id="4_nw1gx"]
+[ext_resource type="Texture2D" uid="uid://b2cd5ft4gom6d" path="res://weapons/ranged_weapons/gun/sprite/hand_yellow_point.png" id="4_o573m"]
+
+[sub_resource type="Resource" id="Resource_rbmqr"]
+resource_local_to_scene = true
+script = ExtResource("3_nw1gx")
+bounce_radius = 300.0
+max_bouce = 3
+metadata/_custom_type_script = "uid://ctd2jdgbxaypk"
+
+[sub_resource type="Resource" id="Resource_1kiw1"]
+script = ExtResource("3_b88v1")
+metadata/_custom_type_script = "uid://eiececv5s1s8"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dk5gl"]
+radius = 600.0
+
+[node name="BouncingBolt" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_tbhaj")
+bullet_modifiers = Array[ExtResource("2_uicfy")]([SubResource("Resource_rbmqr")])
+shoot_behavior = ExtResource("4_nw1gx")
+movement_behavior = SubResource("Resource_1kiw1")
+metadata/_custom_type_script = "uid://culhnjwum6js5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dk5gl")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+
+[node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
+modulate = Color(1.54018e-06, 0.525206, 0.684623, 1)
+position = Vector2(69.5616, -2.34974)
+rotation = 0.652695
+scale = Vector2(0.540904, 0.540904)
+texture = ExtResource("4_o573m")
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
+unique_name_in_owner = true
+position = Vector2(31.359, -31.3865)

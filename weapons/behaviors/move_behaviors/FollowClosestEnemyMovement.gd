@@ -1,7 +1,7 @@
 extends WeaponMovementBehavior
 class_name FollowClosestEnemyMovement
 
-func update_movement(weapon: Weapon, delta: float) -> void:
+func update_movement(weapon: Area2D, delta: float) -> void:
 	var enemies_in_range = weapon.get_overlapping_bodies()
 	if enemies_in_range.is_empty():
 		return

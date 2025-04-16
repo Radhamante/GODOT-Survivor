@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://nnfm6c1iau8x"]
+
+[ext_resource type="Texture2D" uid="uid://cfeh71nnvprcc" path="res://weapons/impact/bleed_hit/image.png" id="1_dv8f3"]
+[ext_resource type="Material" uid="uid://cgtumpo6rl5th" path="res://weapons/impact/bleed_hit/bleed_hit_process_material.tres" id="2_dv8f3"]
+[ext_resource type="Script" uid="uid://w66062h67ypi" path="res://weapons/impact/impact.gd" id="3_dumai"]
+
+[node name="FireHit" type="GPUParticles2D"]
+emitting = false
+texture = ExtResource("1_dv8f3")
+lifetime = 0.4
+one_shot = true
+explosiveness = 0.87
+process_material = ExtResource("2_dv8f3")
+script = ExtResource("3_dumai")
+metadata/_custom_type_script = "uid://w66062h67ypi"

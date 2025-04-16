@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SingleBulletShootBehavior" load_steps=3 format=3 uid="uid://dhmvivclxyxuq"]
+
+[ext_resource type="PackedScene" uid="uid://d1vrowuf1cnpf" path="res://weapons/ranged_weapons/machinegun/scene/machinegun_bullet.tscn" id="1_0omf5"]
+[ext_resource type="Script" uid="uid://ba1j1ueuxeg5p" path="res://weapons/behaviors/SingleBulletShotBehavior.gd" id="2_51rgp"]
+
+[resource]
+script = ExtResource("2_51rgp")
+bullet_scene = ExtResource("1_0omf5")
+shoot_delay = 0.05
+accuracy_correction = -90.0
+metadata/_custom_type_script = "uid://ba1j1ueuxeg5p"

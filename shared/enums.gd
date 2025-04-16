@@ -4,5 +4,6 @@ enum DamageType {
 	PHYSICAL,
 	FIRE,
 	MAGICAL,
-	CRITICAL
+	CRITICAL,
+	BLEED,
 }

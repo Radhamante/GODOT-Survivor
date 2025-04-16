@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DamageSource" load_steps=3 format=3 uid="uid://ccppp1635yr1p"]
+
+[ext_resource type="PackedScene" uid="uid://nnfm6c1iau8x" path="res://weapons/impact/bleed_hit/bleed_hit.tscn" id="1_lywam"]
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/damageSource.gd" id="1_msnue"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_msnue")
+damage = 3.0
+armor_penetration = 0.0
+crit_chance = 0.1
+crit_damage = 2.0
+types = Array[int]([0])
+particules = ExtResource("1_lywam")
+damage_reduction_on_piercing = 0.0
+knockback_force = 0.0
+metadata/_custom_type_script = "uid://cdu8jjauvfhnp"

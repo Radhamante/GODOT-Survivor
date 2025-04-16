@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bwxopym2to3ds"]
+
+[ext_resource type="Script" uid="uid://cjl2m57tt2bcp" path="res://weapons/ranged_weapons/scripts/bullet.gd" id="1_bp5qk"]
+[ext_resource type="Resource" uid="uid://ccppp1635yr1p" path="res://weapons/ranged_weapons/slash/slash_bullet_damage_source.tres" id="2_gtvw1"]
+[ext_resource type="Resource" uid="uid://gvoitrtsqa50" path="res://weapons/ranged_weapons/slash/slash_bullet_stats.tres" id="3_x64pp"]
+[ext_resource type="Texture2D" uid="uid://dv2y8d01pblr2" path="res://weapons/ranged_weapons/slash/sprite/slash_01.png" id="4_x64pp"]
+
+[node name="Bullet" type="Area2D"]
+top_level = true
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("1_bp5qk")
+damageSource = ExtResource("2_gtvw1")
+bulletStats = ExtResource("3_x64pp")
+metadata/_custom_type_script = "uid://cjl2m57tt2bcp"
+
+[node name="Projectile" type="Sprite2D" parent="."]
+position = Vector2(46.3545, -1)
+rotation = -1.5708
+scale = Vector2(0.97013, 0.970131)
+texture = ExtResource("4_x64pp")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(57.3545, 0)
+scale = Vector2(1.4961, 1.4961)
+polygon = PackedVector2Array(-34, -99, 26, -73, 53, -1, 26, 71, -31, 93, 27, 95, 67, 71, 90, 0, 65, -72, 21, -101)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

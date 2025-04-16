@@ -11,4 +11,5 @@ armor = 0.5
 resistance = Dictionary[int, float]({
 3: 1.5
 })
+knockback_resitance = 0.5
 metadata/_custom_type_script = "uid://c8p46qwnr2g7d"

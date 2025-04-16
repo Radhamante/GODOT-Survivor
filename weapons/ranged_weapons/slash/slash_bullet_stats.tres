@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BulletStats" load_steps=2 format=3 uid="uid://gvoitrtsqa50"]
+
+[ext_resource type="Script" uid="uid://be6uvph2adm82" path="res://weapons/ranged_weapons/scripts/bullet_stats.gd" id="1_m8258"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_m8258")
+speed = 200.0
+range = 20.0
+piercing = true
+metadata/_custom_type_script = "uid://be6uvph2adm82"

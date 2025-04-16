@@ -1,0 +1,31 @@
+[gd_resource type="ParticleProcessMaterial" load_steps=5 format=3 uid="uid://cgtumpo6rl5th"]
+
+[ext_resource type="Curve" uid="uid://btgvqnwptyty6" path="res://weapons/impact/impact_scale_curve.tres" id="1_4mr55"]
+
+[sub_resource type="Curve" id="Curve_cosxu"]
+_limits = [-360.0, 360.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cosxu"]
+curve = SubResource("Curve_cosxu")
+
+[sub_resource type="CurveTexture" id="CurveTexture_6uenu"]
+curve = ExtResource("1_4mr55")
+
+[resource]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(20, 20, 1)
+angle_curve = SubResource("CurveTexture_cosxu")
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 80.56
+initial_velocity_max = 176.46
+gravity = Vector3(0, 600, 0)
+scale_min = 0.05
+scale_max = 0.08
+scale_curve = SubResource("CurveTexture_6uenu")
+color = Color(0.821476, 0.321522, 1.92523e-07, 1)
+hue_variation_min = -0.03
+hue_variation_max = 0.07

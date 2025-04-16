@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SingleBulletShootBehavior" load_steps=3 format=3 uid="uid://cw700igjex3e3"]
+
+[ext_resource type="PackedScene" uid="uid://bwxopym2to3ds" path="res://weapons/ranged_weapons/slash/scene/slash_bullet.tscn" id="1_u7rtf"]
+[ext_resource type="Script" uid="uid://ba1j1ueuxeg5p" path="res://weapons/behaviors/SingleBulletShotBehavior.gd" id="2_nsvxl"]
+
+[resource]
+script = ExtResource("2_nsvxl")
+bullet_scene = ExtResource("1_u7rtf")
+shoot_delay = 1.0
+accuracy_correction = 0.0
+metadata/_custom_type_script = "uid://ba1j1ueuxeg5p"

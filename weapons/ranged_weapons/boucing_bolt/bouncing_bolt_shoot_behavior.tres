@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="SingleBulletShootBehavior" load_steps=3 format=3 uid="uid://vf75m62xa46b"]
+
+[ext_resource type="PackedScene" uid="uid://bkkoyofa4wnyw" path="res://weapons/ranged_weapons/boucing_bolt/scene/bouncing_bolt_bullet.tscn" id="1_t7qmg"]
+[ext_resource type="Script" uid="uid://ba1j1ueuxeg5p" path="res://weapons/behaviors/SingleBulletShotBehavior.gd" id="2_m5e6h"]
+
+[resource]
+script = ExtResource("2_m5e6h")
+bullet_scene = ExtResource("1_t7qmg")
+shoot_delay = 0.5
+accuracy_correction = -37.0
+metadata/_custom_type_script = "uid://ba1j1ueuxeg5p"

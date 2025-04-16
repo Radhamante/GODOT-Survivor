@@ -86,6 +86,7 @@ buses/default_bus_layout=""
 [autoload]
 
 Enums="*res://shared/enums.gd"
+Variables="*res://shared/variables.gd"
 
 [display]
 

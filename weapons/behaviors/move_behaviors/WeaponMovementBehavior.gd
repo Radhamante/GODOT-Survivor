@@ -1,5 +1,5 @@
 extends Resource
 class_name WeaponMovementBehavior
 
-func update_movement(weapon: Weapon, delta: float) -> void:
+func update_movement(weapon: Area2D, delta: float) -> void:
 	pass

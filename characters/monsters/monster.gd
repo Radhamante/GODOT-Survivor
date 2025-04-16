@@ -11,6 +11,10 @@ var stats: MonsterStats
 @onready var player: CharacterBody2D = get_node("/root/Game/Player")
 @onready var animation: AnimationPlayer = get_node("AnimationPlayer")
 
+var active_dots: Dictionary = {}
+var external_velocity: Vector2 = Vector2.ZERO
+
+
 func _ready() -> void:
 	animation.queue("Move")
 	stats = base_stats.duplicate()
@@ -18,6 +22,7 @@ func _ready() -> void:
 		modifier.apply(self)
 
 func _physics_process(delta: float) -> void:
+	external_velocity = external_velocity.move_toward(Vector2.ZERO, 800 * delta)
 	move_behavior.move(self, delta)
 	var collision = move_and_slide()
 	if collision:
@@ -33,7 +38,7 @@ func look_at_player():
 		$Sprite2D.flip_h = true
 
 func _show_crit_particles() -> void:
-	const CRITICAL_HIT = preload("res://weapons/impact/critical_hit.tscn")
+	const CRITICAL_HIT = preload("res://weapons/impact/critical_hit/critical_hit.tscn")
 	var particles = CRITICAL_HIT.instantiate()
 	particles.global_position = global_position
 	get_parent().add_child(particles)
@@ -82,18 +87,48 @@ func take_damage(damage_source: DamageSource):
 	animation.queue("Move")
 	if stats.health <= 0:
 		_kill()
-	
-func apply_dot(damage_source: DamageSource, interval: float, duration: float):
+	if damage_source.source_position:
+		take_knockback(damage_source.knockback_force, damage_source.source_position)
+	if damage_source.particules:
+		var particules = damage_source.particules.instantiate()
+		if particules is ImpactParticules:
+			add_child(damage_source.particules.instantiate())
+		else:
+			particules.queue_free()
+
+func take_knockback(force: float, source_position: Vector2):
+	if force > 0.0:
+		var direction = (global_position - source_position).normalized()
+		external_velocity  = direction * force * stats.knockback_resitance
+
+func apply_dot(dot_id: String, damage_source: DamageSource, interval: float, duration: float, refresh_if_exists := true):
+	if active_dots.has(dot_id):
+		if refresh_if_exists:
+			# Redémarre le DoT existant
+			var existing_timer_data = active_dots[dot_id]
+			existing_timer_data["duration"] = existing_timer_data["elapsed"] + duration
+		return
+
 	var timer := Timer.new()
 	timer.wait_time = interval
 	timer.one_shot = false
 	add_child(timer)
-	
-	var elapsed = 0.0
+
+	var dot_data = {
+		"timer": timer,
+		"elapsed": 0.0,
+		"duration": duration,
+		"damage_source": damage_source,
+	}
+	active_dots[dot_id] = dot_data
+
 	timer.timeout.connect(func():
+		dot_data["elapsed"] += interval
 		take_damage(damage_source)
-		elapsed += interval
-		if elapsed >= duration:
+
+		if dot_data["elapsed"] >= duration:
 			timer.queue_free()
+			active_dots.erase(dot_id)
 	)
+
 	timer.start()

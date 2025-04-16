@@ -1,0 +1,71 @@
+[gd_scene load_steps=13 format=3 uid="uid://c1emgqt0boroh"]
+
+[ext_resource type="Script" uid="uid://c7uhlo51epgvr" path="res://weapons/melee_weapons/MeleeWeapon.gd" id="1_ql4h4"]
+[ext_resource type="Texture2D" uid="uid://cwya3dyjd8m8i" path="res://weapons/melee_weapons/sword/sprite/swordSilver.png" id="1_v35pk"]
+[ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://effects/EffectComponent.gd" id="2_g6loa"]
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/damageSource.gd" id="2_ku5lq"]
+[ext_resource type="PackedScene" uid="uid://nnfm6c1iau8x" path="res://weapons/impact/bleed_hit/bleed_hit.tscn" id="3_10x5j"]
+[ext_resource type="Script" uid="uid://dcqb0eircmei1" path="res://weapons/behaviors/move_behaviors/OrbitPlayerMovement.gd" id="3_ficgy"]
+[ext_resource type="Script" uid="uid://cm0q6v7v8lll8" path="res://effects/DamageOverTimeEffect.gd" id="5_ghlu0"]
+
+[sub_resource type="Resource" id="Resource_qytv3"]
+script = ExtResource("2_ku5lq")
+damage = 1.0
+armor_penetration = 0.0
+crit_chance = 0.0
+crit_damage = 1.5
+types = Array[int]([])
+particules = ExtResource("3_10x5j")
+damage_reduction_on_piercing = 0.0
+knockback_force = 0.0
+metadata/_custom_type_script = "uid://cdu8jjauvfhnp"
+
+[sub_resource type="Resource" id="Resource_tus20"]
+script = ExtResource("5_ghlu0")
+damage_source = SubResource("Resource_qytv3")
+tick_interval = 0.5
+duration = 10.0
+metadata/_custom_type_script = "uid://cm0q6v7v8lll8"
+
+[sub_resource type="Resource" id="Resource_ql4h4"]
+script = ExtResource("2_ku5lq")
+damage = 0.1
+armor_penetration = 0.0
+crit_chance = 0.0
+crit_damage = 1.5
+types = Array[int]([])
+particules = ExtResource("3_10x5j")
+damage_reduction_on_piercing = 0.0
+knockback_force = 0.0
+metadata/_custom_type_script = "uid://cdu8jjauvfhnp"
+
+[sub_resource type="Resource" id="Resource_10x5j"]
+script = ExtResource("3_ficgy")
+orbit_speed = 6.0
+metadata/_custom_type_script = "uid://dcqb0eircmei1"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v35pk"]
+height = 44.0
+
+[node name="Sword" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_ql4h4")
+hit_effects = Array[ExtResource("2_g6loa")]([SubResource("Resource_tus20")])
+base_on_entered_damageSource = SubResource("Resource_ql4h4")
+movement_behavior = SubResource("Resource_10x5j")
+metadata/_custom_type_script = "uid://c7uhlo51epgvr"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(53.9575, 8.99831e-13)
+rotation = 1.5708
+scale = Vector2(1.22735, 1.22735)
+texture = ExtResource("1_v35pk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(60.9575, 1)
+rotation = -1.5708
+scale = Vector2(1.22735, 1.22735)
+shape = SubResource("CapsuleShape2D_v35pk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

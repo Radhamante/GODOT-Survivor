@@ -24,7 +24,8 @@ func shoot(weapon: Weapon) -> void:
 		var log_weighted_offset = sign(random_offset - 0.5) * log(1.0 + abs(random_offset - 0.5)) * accuracy_bias
 		var final_accuracy = log_weighted_offset * total_acc
 
-		bullet.hit_effects = weapon.hit_effects.duplicate()
+		for effect in weapon.hit_effects:
+			bullet.hit_effects.push_back(effect.duplicate(true))
 
 		weapon.apply_bullet_modifier(weapon.bullet_modifiers, bullet, FlatBulletModifier)
 		weapon.apply_bullet_modifier(weapon.bullet_modifiers, bullet, MultBulletModifier)

@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="DamageOverTimeEffect" load_steps=5 format=3 uid="uid://bp4d5ygpv1rrx"]
+
+[ext_resource type="PackedScene" uid="uid://baa70obrjl62s" path="res://weapons/impact/fire_hit/fire_hit.tscn" id="1_gim2n"]
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/damageSource.gd" id="1_rm6ul"]
+[ext_resource type="Script" uid="uid://cm0q6v7v8lll8" path="res://effects/DamageOverTimeEffect.gd" id="2_gim2n"]
+
+[sub_resource type="Resource" id="Resource_6d4n5"]
+script = ExtResource("1_rm6ul")
+damage = 0.5
+armor_penetration = 0.0
+crit_chance = 0.0
+crit_damage = 1.5
+types = Array[int]([1])
+particules = ExtResource("1_gim2n")
+damage_reduction_on_piercing = 0.0
+knockback_force = 0.0
+metadata/_custom_type_script = "uid://cdu8jjauvfhnp"
+
+[resource]
+script = ExtResource("2_gim2n")
+damage_source = SubResource("Resource_6d4n5")
+tick_interval = 0.5
+duration = 5.0
+metadata/_custom_type_script = "uid://cm0q6v7v8lll8"

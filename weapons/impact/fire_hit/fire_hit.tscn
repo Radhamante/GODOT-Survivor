@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://baa70obrjl62s"]
+
+[ext_resource type="Texture2D" uid="uid://cgakj448clwl3" path="res://weapons/impact/fire_hit/flame_05.png" id="1_bbxaq"]
+[ext_resource type="Material" uid="uid://g8anp6tfndhx" path="res://weapons/impact/fire_hit/fire_hit_process_material.tres" id="2_56cnx"]
+[ext_resource type="Script" uid="uid://w66062h67ypi" path="res://weapons/impact/impact.gd" id="3_56cnx"]
+
+[node name="FireHit" type="GPUParticles2D"]
+emitting = false
+amount = 4
+texture = ExtResource("1_bbxaq")
+lifetime = 0.2
+one_shot = true
+explosiveness = 0.87
+process_material = ExtResource("2_56cnx")
+script = ExtResource("3_56cnx")
+metadata/_custom_type_script = "uid://w66062h67ypi"

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="DamageSource" load_steps=3 format=3 uid="uid://famck1cc5wdu"]
+
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/damageSource.gd" id="1_s6l7d"]
+[ext_resource type="PackedScene" uid="uid://dncuj6qhkoy3y" path="res://weapons/impact/magical_hit/magical_hit.tscn" id="1_x0qvx"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("1_s6l7d")
+damage = 2.0
+armor_penetration = 0.0
+crit_chance = 0.0
+crit_damage = 1.5
+types = Array[int]([2])
+particules = ExtResource("1_x0qvx")
+damage_reduction_on_piercing = 0.0
+knockback_force = 0.0
+metadata/_custom_type_script = "uid://cdu8jjauvfhnp"

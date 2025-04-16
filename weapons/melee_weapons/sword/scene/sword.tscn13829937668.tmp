@@ -1,0 +1,41 @@
+[gd_scene load_steps=8 format=3 uid="uid://c1emgqt0boroh"]
+
+[ext_resource type="Script" uid="uid://c7uhlo51epgvr" path="res://weapons/melee_weapons/MeleeWeapon.gd" id="1_ql4h4"]
+[ext_resource type="Texture2D" uid="uid://cwya3dyjd8m8i" path="res://weapons/melee_weapons/sword/sprite/swordSilver.png" id="1_v35pk"]
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/damageSource.gd" id="2_ku5lq"]
+[ext_resource type="Script" uid="uid://dcqb0eircmei1" path="res://weapons/behaviors/move_behaviors/OrbitPlayerMovement.gd" id="3_ficgy"]
+
+[sub_resource type="Resource" id="Resource_g6loa"]
+script = ExtResource("2_ku5lq")
+damage = 5.0
+armor_penetration = 0.0
+crit_chance = 0.0
+crit_damage = 1.5
+types = Array[int]([])
+damage_reduction_on_piercing = 0.0
+metadata/_custom_type_script = "uid://cdu8jjauvfhnp"
+
+[sub_resource type="Resource" id="Resource_10x5j"]
+script = ExtResource("3_ficgy")
+orbit_speed = 3.0
+metadata/_custom_type_script = "uid://dcqb0eircmei1"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v35pk"]
+height = 44.0
+
+[node name="Sword" type="Area2D"]
+script = ExtResource("1_ql4h4")
+hit_effects = null
+base_damageSource = SubResource("Resource_g6loa")
+movement_behavior = SubResource("Resource_10x5j")
+metadata/_custom_type_script = "uid://c7uhlo51epgvr"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(50, 0)
+rotation = 1.5708
+texture = ExtResource("1_v35pk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(57, 1)
+rotation = -1.5708
+shape = SubResource("CapsuleShape2D_v35pk")

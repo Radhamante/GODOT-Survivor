@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmml3kt2amqjr"]
+
+[ext_resource type="Script" uid="uid://c7uhlo51epgvr" path="res://weapons/melee_weapons/MeleeWeapon.gd" id="1_5r41l"]
+[ext_resource type="Resource" uid="uid://c1rpbh7tolnwl" path="res://weapons/melee_weapons/forcefield/forcefield_damage_source.tres" id="2_p0un4"]
+[ext_resource type="Script" uid="uid://dcqb0eircmei1" path="res://weapons/behaviors/move_behaviors/OrbitPlayerMovement.gd" id="3_qk1go"]
+[ext_resource type="Texture2D" uid="uid://dl438kjuhl06j" path="res://weapons/melee_weapons/forcefield/sprite/circle_01.png" id="4_p0un4"]
+
+[sub_resource type="Resource" id="Resource_10x5j"]
+script = ExtResource("3_qk1go")
+orbit_speed = 6.0
+metadata/_custom_type_script = "uid://dcqb0eircmei1"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_008xr"]
+radius = 94.0479
+
+[node name="ForceField" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_5r41l")
+base_on_entered_damageSource = ExtResource("2_p0un4")
+base_overtime_damageSource = ExtResource("2_p0un4")
+movement_behavior = SubResource("Resource_10x5j")
+metadata/_custom_type_script = "uid://c7uhlo51epgvr"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(0.435044, 0.435044)
+texture = ExtResource("4_p0un4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_008xr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
