@@ -8,7 +8,6 @@ const ORANGE_TREE = preload("res://trees/scenes/orange-tree.tscn")
 
 var spawn_timer : float = 0.0  # Internal timer for delay between shots
 @export var spawn_delay : float = 1 
-var try_to_spawn = false
 
 var foliages: Array[PackedScene] = [GREEN_TREE, BIG_MOSSY_ROCK,BUSH,MOSSY_ROCK,ORANGE_TREE,]
 
@@ -16,19 +15,18 @@ func _process(delta: float) -> void:
 	spawn_timer += delta
 
 	# Check if we can spawn (timer has reached shotspeed)
-	if spawn_timer >= spawn_delay or try_to_spawn:
-		try_to_spawn = !try_to_spawn
+	if spawn_timer >= spawn_delay:
 		spawn_timer = 0
-		if try_to_spawn:
-			spawn_foliage()
-		else:
-			move_test_area()
-
-func move_test_area():
-	%PathFollow2D.progress_ratio = randf()
-	%CanSpawn.global_position = %PathFollow2D.global_position
+		spawn_foliage()
+	
 
 func spawn_foliage():
+	%PathFollow2D.progress_ratio = randf()
+	%CanSpawn.global_position = %PathFollow2D.global_position
+	
+	await get_tree().process_frame
+	await get_tree().process_frame
+	
 	var overlapping_bodies = %CanSpawn.get_overlapping_bodies()
 
 	# Si aucun chevauchement n'est détecté, ajoutez le feuillage
