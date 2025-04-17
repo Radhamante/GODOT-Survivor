@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DamageSource" load_steps=2 format=3 uid="uid://cjmdjq051nhe4"]
 
-[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/damageSource.gd" id="1_pcgaq"]
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/script/damageSource.gd" id="1_pcgaq"]
 
 [resource]
 resource_local_to_scene = true

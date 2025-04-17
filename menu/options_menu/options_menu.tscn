@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://n26qjgtu4ldm"]
+
+[ext_resource type="Script" uid="uid://whfkpmpjlisn" path="res://menu/options_menu/options_menu.gd" id="1_f3be3"]
+
+[node name="OptionsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_f3be3")

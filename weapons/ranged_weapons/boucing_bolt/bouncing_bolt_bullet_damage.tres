@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="DamageSource" load_steps=3 format=3 uid="uid://famck1cc5wdu"]
 
-[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/damageSource.gd" id="1_s6l7d"]
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/script/damageSource.gd" id="1_s6l7d"]
 [ext_resource type="PackedScene" uid="uid://dncuj6qhkoy3y" path="res://weapons/impact/magical_hit/magical_hit.tscn" id="1_x0qvx"]
 
 [resource]

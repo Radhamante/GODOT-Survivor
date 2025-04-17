@@ -1,0 +1,38 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://biwko33b8flpa"]
+
+[ext_resource type="FontFile" uid="uid://dbp72m3e5fakv" path="res://shared/theme/Kenney Pixel.ttf" id="1_4ytik"]
+[ext_resource type="StyleBox" uid="uid://bsbae32xbjjvg" path="res://shared/theme/button_disabled_box_texture.tres" id="2_7or5m"]
+[ext_resource type="StyleBox" uid="uid://b2nvhiq0b6idt" path="res://shared/theme/button_hover_box_texture.tres" id="2_hsao8"]
+[ext_resource type="StyleBox" uid="uid://b1qk8go6uwunx" path="res://shared/theme/button_box_texture.tres" id="2_ihyem"]
+[ext_resource type="Texture2D" uid="uid://do3yi5ujqml0" path="res://menu/sprite/button_grey_depth_line_pressed.png" id="5_5gkx1"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7or5m"]
+content_margin_left = 20.0
+content_margin_top = 30.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+texture = ExtResource("5_5gkx1")
+texture_margin_left = 16.0
+texture_margin_top = 26.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[resource]
+default_font = ExtResource("1_4ytik")
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/colors/font_disabled_color = Color(0, 0, 0, 0.486275)
+Button/colors/font_hover_color = Color(0, 0, 0, 1)
+Button/font_sizes/font_size = 30
+Button/fonts/font = ExtResource("1_4ytik")
+Button/styles/disabled = ExtResource("2_7or5m")
+Button/styles/hover = ExtResource("2_hsao8")
+Button/styles/normal = ExtResource("2_ihyem")
+Button/styles/pressed = SubResource("StyleBoxTexture_7or5m")
+HBoxContainer/constants/separation = 5
+Label/colors/font_color = Color(0.152941, 0.168627, 0.188235, 1)
+Label/font_sizes/font_size = 32
+MarginContainer/constants/margin_bottom = 10
+MarginContainer/constants/margin_left = 10
+MarginContainer/constants/margin_right = 10
+MarginContainer/constants/margin_top = 10
+VBoxContainer/constants/separation = 5

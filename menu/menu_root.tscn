@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://d0jtw05w3xofs"]
+
+[ext_resource type="Script" uid="uid://bswn0csmelkug" path="res://menu/menu_root.gd" id="1_c4kem"]
+[ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="1_t8pbm"]
+[ext_resource type="PackedScene" uid="uid://blyh8cra8at8w" path="res://menu/main_menu/main_menu.tscn" id="3_qvmb4"]
+[ext_resource type="PackedScene" uid="uid://dmmyv728c85ag" path="res://menu/character_select/character_select.tscn" id="4_kdtid"]
+[ext_resource type="PackedScene" uid="uid://c4bc6xi5hptg4" path="res://menu/level_select/level_select.tscn" id="5_i8pwd"]
+[ext_resource type="PackedScene" uid="uid://n26qjgtu4ldm" path="res://menu/options_menu/options_menu.tscn" id="6_mvocj"]
+[ext_resource type="PackedScene" uid="uid://x3e8modtr7fy" path="res://menu/pause_menu/pause_menu.tscn" id="7_wmwb7"]
+[ext_resource type="PackedScene" uid="uid://qfmimc27lm15" path="res://menu/game_over_menu/game_over_menu.tscn" id="8_whfxe"]
+
+[node name="MenuRoot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t8pbm")
+script = ExtResource("1_c4kem")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" parent="." instance=ExtResource("3_qvmb4")]
+layout_mode = 1
+
+[node name="CharacterSelect" parent="." instance=ExtResource("4_kdtid")]
+layout_mode = 1
+
+[node name="LevelSelect" parent="." instance=ExtResource("5_i8pwd")]
+layout_mode = 1
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="OptionsMenu" parent="." instance=ExtResource("6_mvocj")]
+
+[node name="GameOverMenu" parent="." instance=ExtResource("8_whfxe")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_wmwb7")]

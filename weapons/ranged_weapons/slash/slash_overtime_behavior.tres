@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="DamageOverTimeEffect" load_steps=5 format=3 uid="uid://cfkly5r8ilhhy"]
 
 [ext_resource type="PackedScene" uid="uid://nnfm6c1iau8x" path="res://weapons/impact/bleed_hit/bleed_hit.tscn" id="1_b1d5t"]
-[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/damageSource.gd" id="2_d5k7e"]
-[ext_resource type="Script" uid="uid://cm0q6v7v8lll8" path="res://effects/DamageOverTimeEffect.gd" id="3_nbl1l"]
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/script/damageSource.gd" id="2_d5k7e"]
+[ext_resource type="Script" uid="uid://cm0q6v7v8lll8" path="res://weapons/effects/DamageOverTimeEffect.gd" id="3_nbl1l"]
 
 [sub_resource type="Resource" id="Resource_k8ghu"]
 script = ExtResource("2_d5k7e")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtbap356q5fk7"]
+
+[ext_resource type="Shader" uid="uid://d3ts2bvbvearu" path="res://shared/shader/blur.gdshader" id="1_glmsk"]
+[ext_resource type="Texture2D" uid="uid://dr27igyhljr7e" path="res://environement/sprites/foliagePack_057.png" id="1_u6p23"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_glmsk"]
+shader = ExtResource("1_glmsk")
+shader_parameter/strength = 7.0
+shader_parameter/opacity = 0.3
+shader_parameter/sample_power = 4
+shader_parameter/is_canvas_group = false
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_glmsk"]
+radius = 7.21771
+height = 59.1853
+
+[node name="Big-mossy-rock" type="StaticBody2D"]
+scale = Vector2(1.38548, 1.38548)
+collision_layer = 5
+
+[node name="Shadow" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_glmsk")
+position = Vector2(13, -24)
+scale = Vector2(0.486239, 0.486239)
+skew = 0.523599
+texture = ExtResource("1_u6p23")
+
+[node name="Element" type="Sprite2D" parent="."]
+position = Vector2(0, -27)
+scale = Vector2(0.486239, 0.486239)
+texture = ExtResource("1_u6p23")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7.93949)
+rotation = -1.57079
+shape = SubResource("CapsuleShape2D_glmsk")

@@ -1,0 +1,159 @@
+[gd_scene load_steps=13 format=3 uid="uid://cpvj8xnphfau1"]
+
+[ext_resource type="Script" uid="uid://bo5ru0gqcwtgi" path="res://level/script/survivor_game.gd" id="1_5mrb7"]
+[ext_resource type="PackedScene" uid="uid://deyaebkrhgrx2" path="res://characters/player/scene/player.tscn" id="1_wkcnj"]
+[ext_resource type="Script" uid="uid://dp12pg7emkynb" path="res://level/script/time_display.gd" id="2_j618h"]
+[ext_resource type="Script" uid="uid://bioesh7rgehi2" path="res://characters/player/script/despawning_zone.gd" id="3_i54c3"]
+[ext_resource type="Script" uid="uid://c435d8n4npur8" path="res://level/script/mob_generator.gd" id="4_5mrb7"]
+[ext_resource type="Script" uid="uid://dxlfu5j8dlngl" path="res://environement/environement_generator.gd" id="5_d0dif"]
+[ext_resource type="Script" uid="uid://d1octvvixlfii" path="res://level/script/difficulty_manager.gd" id="6_d0dif"]
+[ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="7_bwn4j"]
+[ext_resource type="Texture2D" uid="uid://cyse8wih2xkhe" path="res://shared/theme/panel_brown_damaged.png" id="8_2sip7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i54c3"]
+radius = 200.0
+
+[sub_resource type="Curve2D" id="Curve2D_i54c3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -282, -219, 0, 0, 0, 0, 2158, -224, 0, 0, 0, 0, 2159, 1304, 0, 0, 0, 0, -270, 1288, 0, 0, 0, 0, -282, -219)
+}
+point_count = 5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbdm8"]
+size = Vector2(5132, 3608)
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_5mrb7")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 1920.0
+offset_bottom = 1081.0
+color = Color(0.537701, 0.960516, 0.51703, 1)
+
+[node name="GameOver" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.729412)
+
+[node name="Label" type="Label" parent="GameOver/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 79
+text = "GAME OVER"
+
+[node name="MobGenerator" type="Node" parent="."]
+script = ExtResource("4_5mrb7")
+
+[node name="Timer" type="Timer" parent="MobGenerator"]
+autostart = true
+
+[node name="EnvironementGenerator" type="Node2D" parent="."]
+y_sort_enabled = true
+script = ExtResource("5_d0dif")
+
+[node name="Timer" type="Timer" parent="EnvironementGenerator"]
+autostart = true
+
+[node name="CanSpawn" type="Area2D" parent="EnvironementGenerator"]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EnvironementGenerator/CanSpawn"]
+shape = SubResource("CircleShape2D_i54c3")
+debug_color = Color(0, 0.647778, 0.201317, 0.42)
+
+[node name="Player" parent="." instance=ExtResource("1_wkcnj")]
+position = Vector2(954, 534)
+
+[node name="Path2D" type="Path2D" parent="Player"]
+position = Vector2(-954, -534)
+curve = SubResource("Curve2D_i54c3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
+unique_name_in_owner = true
+position = Vector2(-282, -219)
+rotation = -0.00204918
+
+[node name="DespawningZone" type="Area2D" parent="Player"]
+collision_layer = 0
+collision_mask = 3
+script = ExtResource("3_i54c3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/DespawningZone"]
+position = Vector2(7, 0)
+shape = SubResource("RectangleShape2D_kbdm8")
+
+[node name="DifficultyManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("6_d0dif")
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="HUD"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -225.0
+offset_bottom = 135.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("7_bwn4j")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="HUD/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("7_bwn4j")
+texture = ExtResource("8_2sip7")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD/MarginContainer/NinePatchRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -26.0
+offset_right = 0.5
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_bwn4j")
+script = ExtResource("2_j618h")
+
+[node name="TimerLabel" type="Label" parent="HUD/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="DifficultyLabel" type="Label" parent="HUD/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="timeout" from="MobGenerator/Timer" to="MobGenerator" method="spawn_mod"]
+[connection signal="heath_depleted" from="Player" to="." method="_on_player_heath_depleted"]
+[connection signal="body_exited" from="Player/DespawningZone" to="Player/DespawningZone" method="_on_body_exited"]
+[connection signal="timer_updated" from="DifficultyManager" to="HUD/MarginContainer/NinePatchRect/VBoxContainer" method="_on_difficulty_manager_timer_updated"]

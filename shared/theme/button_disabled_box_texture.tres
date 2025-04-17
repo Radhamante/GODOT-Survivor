@@ -1,0 +1,16 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://bsbae32xbjjvg"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ggi1y"]
+load_path = "res://.godot/imported/button_red_depth_line.png-dbce1c5e00f8831d6a5d7498b61f0163.ctex"
+
+[resource]
+content_margin_left = 20.0
+content_margin_top = 20.0
+content_margin_right = 20.0
+content_margin_bottom = 30.0
+texture = SubResource("CompressedTexture2D_ggi1y")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 26.0
+modulate_color = Color(0.650128, 0.650128, 0.650128, 1)

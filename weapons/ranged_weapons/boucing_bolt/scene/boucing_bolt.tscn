@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://bl0xb7yg5qst5"]
 
 [ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/weapon.gd" id="1_tbhaj"]
-[ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://effects/EffectComponent.gd" id="2_nw1gx"]
+[ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://weapons/effects/EffectComponent.gd" id="2_nw1gx"]
 [ext_resource type="Script" uid="uid://eiececv5s1s8" path="res://weapons/behaviors/move_behaviors/FollowClosestEnemyMovement.gd" id="3_b88v1"]
-[ext_resource type="Script" uid="uid://b71xs3q6hes2f" path="res://effects/BoucingEffect.gd" id="3_rbmqr"]
+[ext_resource type="Script" uid="uid://b71xs3q6hes2f" path="res://weapons/effects/BoucingEffect.gd" id="3_rbmqr"]
 [ext_resource type="Resource" uid="uid://vf75m62xa46b" path="res://weapons/ranged_weapons/boucing_bolt/bouncing_bolt_shoot_behavior.tres" id="4_nw1gx"]
-[ext_resource type="Texture2D" uid="uid://b2cd5ft4gom6d" path="res://weapons/ranged_weapons/gun/sprite/hand_yellow_point.png" id="4_o573m"]
+[ext_resource type="Texture2D" uid="uid://dp8hyyc5klhsd" path="res://weapons/ranged_weapons/boucing_bolt/sprite/waterbolt.png" id="6_rbmqr"]
 
 [sub_resource type="Resource" id="Resource_hc7ws"]
 script = ExtResource("3_rbmqr")
@@ -35,11 +35,9 @@ shape = SubResource("CircleShape2D_dk5gl")
 [node name="WeaponPivot" type="Marker2D" parent="."]
 
 [node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
-modulate = Color(1.54018e-06, 0.525206, 0.684623, 1)
 position = Vector2(69.5616, -2.34974)
-rotation = 0.652695
-scale = Vector2(0.540904, 0.540904)
-texture = ExtResource("4_o573m")
+scale = Vector2(0.0837437, 0.0837438)
+texture = ExtResource("6_rbmqr")
 
 [node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
 unique_name_in_owner = true

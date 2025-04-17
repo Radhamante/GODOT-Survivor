@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://dmmyv728c85ag"]
+
+[ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="1_11xvg"]
+[ext_resource type="Script" uid="uid://cdfr0f7stuieh" path="res://menu/character_select/character_select.gd" id="1_tbvmj"]
+[ext_resource type="Texture2D" uid="uid://dsw7y0enp8lf7" path="res://characters/player/sprites/alienYellow.png" id="3_11xvg"]
+[ext_resource type="PackedScene" uid="uid://ct02o4x0tn6qs" path="res://menu/character_select/character_button.tscn" id="3_yvb1p"]
+[ext_resource type="Texture2D" uid="uid://bwaqb6msenbbp" path="res://menu/sprite/button_square_depth_line.png" id="5_dlf04"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5tvcj"]
+texture = ExtResource("5_dlf04")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 32.0
+
+[node name="CharacterSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_11xvg")
+script = ExtResource("1_tbvmj")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="CharacterList" type="HFlowContainer" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+last_wrap_alignment = 2
+
+[node name="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2/CharacterList" instance=ExtResource("3_yvb1p")]
+layout_mode = 2
+icon_texture = ExtResource("3_11xvg")
+label_text = "JAUNE"
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5tvcj")
+text = "BACK"
+
+[node name="DetailPanel" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CharacterName" type="Label" parent="MarginContainer/HBoxContainer/DetailPanel"]
+layout_mode = 2
+
+[node name="CharacterDescription" type="Label" parent="MarginContainer/HBoxContainer/DetailPanel"]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="MarginContainer/HBoxContainer/DetailPanel"]
+layout_mode = 2

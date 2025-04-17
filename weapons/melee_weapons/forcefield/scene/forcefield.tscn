@@ -17,8 +17,8 @@ radius = 94.0479
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_5r41l")
-base_on_entered_damageSource = ExtResource("2_p0un4")
-base_overtime_damageSource = ExtResource("2_p0un4")
+on_entered_damageSource = ExtResource("2_p0un4")
+overtime_damageSource = ExtResource("2_p0un4")
 movement_behavior = SubResource("Resource_10x5j")
 metadata/_custom_type_script = "uid://c7uhlo51epgvr"
 

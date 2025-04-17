@@ -3,21 +3,13 @@ extends Area2D
 class_name MeleeWeapon
 
 @export var hit_effects: Array[EffectComponent] = []
-@export var base_on_entered_damageSource: DamageSource
-@export var base_overtime_damageSource: DamageSource
+@export var on_entered_damageSource: DamageSource
+@export var overtime_damageSource: DamageSource
 @export var overtime_delay: float = .2
 @export var movement_behavior: WeaponMovementBehavior
 
-var on_entered_damageSource: DamageSource
-var overtime_damageSource: DamageSource
-
 @onready var _overtime_timer = overtime_delay
 
-func _ready() -> void:
-	if base_on_entered_damageSource:
-		on_entered_damageSource = base_on_entered_damageSource.duplicate()
-	if base_overtime_damageSource:
-		overtime_damageSource = base_overtime_damageSource.duplicate()
 
 func _process(delta: float) -> void:
 	if overtime_damageSource:

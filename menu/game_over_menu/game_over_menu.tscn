@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://qfmimc27lm15"]
+
+[ext_resource type="Script" uid="uid://caf55y401wimr" path="res://menu/game_over_menu/game_over_menu.gd" id="1_5n31o"]
+
+[node name="GameOverMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_5n31o")

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="DamageSource" load_steps=3 format=3 uid="uid://ccppp1635yr1p"]
 
 [ext_resource type="PackedScene" uid="uid://nnfm6c1iau8x" path="res://weapons/impact/bleed_hit/bleed_hit.tscn" id="1_lywam"]
-[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/damageSource.gd" id="1_msnue"]
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/script/damageSource.gd" id="1_msnue"]
 
 [resource]
 resource_local_to_scene = true

@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cl6d7e32ws30d" path="res://weapons/ranged_weapons/flamethrower/sprite/hand_yellow_rock.png" id="2_fvnwn"]
 [ext_resource type="Resource" uid="uid://0scfpfftqqja" path="res://weapons/ranged_weapons/flamethrower/flamethrower_accuracy_modifier.tres" id="3_a2ba3"]
 [ext_resource type="Resource" uid="uid://bsroa0q7irv60" path="res://weapons/ranged_weapons/flamethrower/flamethrower_behavior.tres" id="4_5udj4"]
-[ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://effects/EffectComponent.gd" id="4_6rltb"]
+[ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://weapons/effects/EffectComponent.gd" id="4_6rltb"]
 [ext_resource type="Script" uid="uid://eiececv5s1s8" path="res://weapons/behaviors/move_behaviors/FollowClosestEnemyMovement.gd" id="5_5udj4"]
 [ext_resource type="Resource" uid="uid://bp4d5ygpv1rrx" path="res://weapons/ranged_weapons/flamethrower/flamethrower_fire_effect.tres" id="5_uprcx"]
 
