@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2m0rhcw1wf5e"
-path="res://.godot/imported/alienYellow_stand.png-3378c093cee5d60ba4d10b302557cee1.ctex"
+uid="uid://dsd6byfi3je6l"
+path="res://.godot/imported/ruins.webp-d5b00055f1dedb447ceee16bcfa79fe7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/player/sprites/alienYellow_stand.png"
-dest_files=["res://.godot/imported/alienYellow_stand.png-3378c093cee5d60ba4d10b302557cee1.ctex"]
+source_file="res://level/sprite/ruins.webp"
+dest_files=["res://.godot/imported/ruins.webp-d5b00055f1dedb447ceee16bcfa79fe7.ctex"]
 
 [params]
 

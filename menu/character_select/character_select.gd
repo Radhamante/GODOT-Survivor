@@ -2,7 +2,7 @@ extends Control
 
 signal back_pressed
 signal character_selected(character_name)
-signal continue_pressed()
+signal continue_pressed(character_info: CharacterInfo)
 
 @onready var character_list = $MarginContainer/HBoxContainer/VBoxContainer/MarginContainer2/CharacterList
 @onready var details_panel = $MarginContainer/HBoxContainer/DetailsPanel
@@ -10,42 +10,35 @@ signal continue_pressed()
 @onready var character_description_label = details_panel.get_node("ScrollContainer/CharacterDescription")
 @onready var continue_button = details_panel.get_node("ContinueButton")
 
-var characters = [
-	{ "name": "JAUNE", "icon": preload("res://characters/player/sprites/alienYellow.png"), "description": "Un alien rapide." },
-	{ "name": "BLEU", "icon": preload("res://characters/player/sprites/alienYellow.png"), "description": "Un alien tanky." },
-]
+@export var characters_infos : Array[CharacterInfo]
 
 var selected_character = null
 
 func _ready() -> void:
 	# Clear & populate list
-	clear_character_list()
-	for char_data in characters:
+	for child in character_list.get_children():
+		child.queue_free()
+	for character_info in characters_infos:
 		var btn = preload("res://menu/character_select/character_button.tscn").instantiate()
-		btn.setup(char_data.icon, char_data.name)
+		btn.setup(character_info)
 		character_list.add_child(btn)
-		btn.pressed.connect(_on_character_pressed.bind(char_data))
-		character_list.add_child(btn)
+		btn.pressed.connect(_on_character_pressed.bind(character_info.duplicate()))
 
 	# Hide right panel at first
 	details_panel.visible = false
 	continue_button.visible = false
 
-func _on_character_pressed(char_data):
-	selected_character = char_data
+func _on_character_pressed(character_info: CharacterInfo):
+	selected_character = character_info
 	details_panel.visible = true
-	character_name_label.text = char_data.name
-	character_description_label.text = char_data.description
+	character_name_label.text = character_info.character_name
+	character_description_label.text = character_info.description
 	continue_button.visible = true
-	character_selected.emit(char_data.name)
+	character_selected.emit(character_info.character_name)
 
 func _on_back_pressed():
 	back_pressed.emit()
 
 func _on_continue_pressed():
 	if selected_character:
-		continue_pressed.emit()
-
-func clear_character_list():
-	for child in character_list.get_children():
-		child.queue_free()
+		continue_pressed.emit(selected_character)

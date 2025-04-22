@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=4 format=3 uid="uid://d4ddhd6ae4l15"]
+
+[ext_resource type="Texture2D" uid="uid://bvauk735atflj" path="res://level/sprite/forest.webp" id="1_gpfvl"]
+[ext_resource type="Resource" uid="uid://cnu6kgpn63wt3" path="res://level/infos/forest_difficulty_levels.tres" id="1_y0m47"]
+[ext_resource type="Script" uid="uid://6282jyup2y6f" path="res://level/script/level_info.gd" id="2_y0m47"]
+
+[resource]
+script = ExtResource("2_y0m47")
+logo = ExtResource("1_gpfvl")
+name = "Forest"
+description = "A beautify and peacefull forest"
+dificulty = 1
+difficulty_levels = ExtResource("1_y0m47")
+metadata/_custom_type_script = "uid://6282jyup2y6f"

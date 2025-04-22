@@ -48,7 +48,7 @@ func apply(caller: Variant, monster: Monster) -> void:
 			closest = e
 
 	if closest:
-		bullet.look_at(closest.global_position)
+		bullet.look_at(closest.get_node("CollisionShape2D").global_position)
 		current_bouce_time += 1
 	else:
 		bullet.queue_free()

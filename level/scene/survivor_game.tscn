@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cpvj8xnphfau1"]
+[gd_scene load_steps=18 format=3 uid="uid://cpvj8xnphfau1"]
 
 [ext_resource type="Script" uid="uid://bo5ru0gqcwtgi" path="res://level/script/survivor_game.gd" id="1_5mrb7"]
 [ext_resource type="PackedScene" uid="uid://deyaebkrhgrx2" path="res://characters/player/scene/player.tscn" id="1_wkcnj"]
@@ -6,12 +6,30 @@
 [ext_resource type="Script" uid="uid://bioesh7rgehi2" path="res://characters/player/script/despawning_zone.gd" id="3_i54c3"]
 [ext_resource type="Script" uid="uid://c435d8n4npur8" path="res://level/script/mob_generator.gd" id="4_5mrb7"]
 [ext_resource type="Script" uid="uid://dxlfu5j8dlngl" path="res://environement/environement_generator.gd" id="5_d0dif"]
+[ext_resource type="PackedScene" uid="uid://ci1sb54cm4xqh" path="res://characters/player/scene/yellow.tscn" id="5_houip"]
+[ext_resource type="Texture2D" uid="uid://dsw7y0enp8lf7" path="res://characters/player/sprites/yellow/alienYellow.png" id="6_46rwm"]
 [ext_resource type="Script" uid="uid://d1octvvixlfii" path="res://level/script/difficulty_manager.gd" id="6_d0dif"]
+[ext_resource type="Script" uid="uid://b2sycb0fk37xf" path="res://characters/player/script/character_info.gd" id="7_5hofn"]
 [ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="7_bwn4j"]
 [ext_resource type="Texture2D" uid="uid://cyse8wih2xkhe" path="res://shared/theme/panel_brown_damaged.png" id="8_2sip7"]
+[ext_resource type="PackedScene" uid="uid://yi6xlwinuh2e" path="res://weapons/ranged_weapons/gun/scene/gun.tscn" id="8_8cgn3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i54c3"]
 radius = 200.0
+
+[sub_resource type="Resource" id="Resource_npl3b"]
+resource_local_to_scene = true
+script = ExtResource("7_5hofn")
+character_name = "Yellow"
+description = "A very basic alien with a very basic gun"
+logo = ExtResource("6_46rwm")
+appearance = ExtResource("5_houip")
+health = 0.0
+max_health = 0.0
+speed = 0.0
+armor = 0.0
+weapons = Array[Resource]([ExtResource("8_8cgn3")])
+metadata/_custom_type_script = "uid://b2sycb0fk37xf"
 
 [sub_resource type="Curve2D" id="Curve2D_i54c3"]
 _data = {
@@ -86,6 +104,7 @@ debug_color = Color(0, 0.647778, 0.201317, 0.42)
 
 [node name="Player" parent="." instance=ExtResource("1_wkcnj")]
 position = Vector2(954, 534)
+character_info = SubResource("Resource_npl3b")
 
 [node name="Path2D" type="Path2D" parent="Player"]
 position = Vector2(-954, -534)
@@ -156,4 +175,5 @@ layout_mode = 2
 [connection signal="timeout" from="MobGenerator/Timer" to="MobGenerator" method="spawn_mod"]
 [connection signal="heath_depleted" from="Player" to="." method="_on_player_heath_depleted"]
 [connection signal="body_exited" from="Player/DespawningZone" to="Player/DespawningZone" method="_on_body_exited"]
+[connection signal="difficulty_changed" from="DifficultyManager" to="." method="_on_difficulty_manager_difficulty_changed"]
 [connection signal="timer_updated" from="DifficultyManager" to="HUD/MarginContainer/NinePatchRect/VBoxContainer" method="_on_difficulty_manager_timer_updated"]

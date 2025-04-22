@@ -11,7 +11,7 @@ class_name MultipleBulletShootBehavior
 
 var shoot_timer: float = 0.0
 
-func shoot(weapon: Weapon) -> void:
+func shoot(weapon: RandedWeapon) -> void:
 	shoot_timer += weapon.get_process_delta_time()
 	var mods = weapon.weapon_modifiers
 	var final_delay = weapon.apply_weapon_modifiers(mods, weapon.apply_weapon_modifiers(mods, shoot_delay, FlatShotspeedModifier), MultShotspeedModifier)

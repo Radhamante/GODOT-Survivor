@@ -35,8 +35,6 @@ layout_mode = 1
 
 [node name="LevelSelect" parent="." instance=ExtResource("5_i8pwd")]
 layout_mode = 1
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="OptionsMenu" parent="." instance=ExtResource("6_mvocj")]
 

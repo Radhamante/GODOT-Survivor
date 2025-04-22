@@ -3,6 +3,9 @@ extends Control
 var current_menu = "main"
 var menus
 
+var selected_character_info: CharacterInfo
+var selected_level_info: LevelInfo
+
 func _ready():
 	menus = {
 		"main": $MainMenu,
@@ -21,7 +24,7 @@ func _ready():
 	$CharacterSelect.continue_pressed.connect(_on_CharacterChosen)
 	$CharacterSelect.back_pressed.connect(_on_ButtonBack_pressed)
 	
-	$LevelSelect.start_run.connect(_on_LevelChosen)
+	$LevelSelect.level_selected.connect(_on_LevelChosen)
 
 func show_menu(name: String):
 	for key in menus:
@@ -35,10 +38,12 @@ func _on_ButtonBack_pressed():
 	if current_menu in ["character", "level", "options"]:
 		show_menu("main")
 
-func _on_CharacterChosen():
+func _on_CharacterChosen(_selected_character_info: CharacterInfo):
+	selected_character_info = _selected_character_info
 	show_menu("level")
 
-func _on_LevelChosen():
+func _on_LevelChosen(_selected_level_info: LevelInfo):
+	selected_level_info = _selected_level_info
 	start_game()
 
 func _on_ButtonOptions_pressed():
@@ -49,5 +54,7 @@ func _on_ButtonQuit_pressed():
 
 func start_game():
 	var scene = preload("res://level/scene/survivor_game.tscn").instantiate()
+	scene.get_node("Player").character_info = selected_character_info
+	scene.get_node("DifficultyManager").difficulty_levels = selected_level_info.difficulty_levels
 	get_tree().root.add_child(scene)
 	self.hide()

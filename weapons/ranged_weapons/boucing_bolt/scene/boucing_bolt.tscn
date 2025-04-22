@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://bl0xb7yg5qst5"]
 
-[ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/weapon.gd" id="1_tbhaj"]
+[ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/ranged_weapon.gd" id="1_tbhaj"]
 [ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://weapons/effects/EffectComponent.gd" id="2_nw1gx"]
 [ext_resource type="Script" uid="uid://eiececv5s1s8" path="res://weapons/behaviors/move_behaviors/FollowClosestEnemyMovement.gd" id="3_b88v1"]
 [ext_resource type="Script" uid="uid://b71xs3q6hes2f" path="res://weapons/effects/BoucingEffect.gd" id="3_rbmqr"]

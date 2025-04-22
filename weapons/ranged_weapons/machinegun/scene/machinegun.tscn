@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://wqtcmssf1m0k"]
 
 [ext_resource type="Texture2D" uid="uid://drydquut0g84k" path="res://weapons/ranged_weapons/machinegun/sprite/hand_yellow_peace.png" id="1_j2kgv"]
-[ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/weapon.gd" id="1_m0wau"]
+[ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/ranged_weapon.gd" id="1_m0wau"]
 [ext_resource type="Resource" uid="uid://dhmvivclxyxuq" path="res://weapons/ranged_weapons/machinegun/machinegun_shoot_behavior.tres" id="2_2c8fh"]
 [ext_resource type="Script" uid="uid://dcqb0eircmei1" path="res://weapons/behaviors/move_behaviors/OrbitPlayerMovement.gd" id="3_i1xmd"]
 

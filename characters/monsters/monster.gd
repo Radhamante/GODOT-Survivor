@@ -18,6 +18,9 @@ var external_velocity: Vector2 = Vector2.ZERO
 func _ready() -> void:
 	animation.queue("Move")
 	stats = base_stats.duplicate()
+	ready.connect(apply_modifiers)
+		
+func apply_modifiers() -> void:
 	for modifier in modifiers:
 		modifier.apply(self)
 

@@ -2,5 +2,5 @@
 extends Resource
 class_name ShootBehavior
 
-func shoot(weapon: Weapon) -> void:
+func shoot(weapon: RandedWeapon) -> void:
 	pass

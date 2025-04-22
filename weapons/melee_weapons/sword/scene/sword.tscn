@@ -13,7 +13,7 @@ orbit_speed = 6.0
 metadata/_custom_type_script = "uid://dcqb0eircmei1"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v35pk"]
-height = 44.0
+height = 52.2141
 
 [node name="Sword" type="Area2D"]
 collision_layer = 0
@@ -25,15 +25,15 @@ movement_behavior = SubResource("Resource_10x5j")
 metadata/_custom_type_script = "uid://c7uhlo51epgvr"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(53.9575, 8.99831e-13)
+position = Vector2(80.9575, 0)
 rotation = 1.5708
-scale = Vector2(1.22735, 1.22735)
+scale = Vector2(1.64555, 1.64555)
 texture = ExtResource("1_v35pk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(60.9575, 1)
+position = Vector2(87.9575, 0)
 rotation = -1.5708
-scale = Vector2(1.22735, 1.22735)
+scale = Vector2(1.64555, 1.64555)
 shape = SubResource("CapsuleShape2D_v35pk")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

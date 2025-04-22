@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=3 format=3 uid="uid://klg3um3nqw2k"]
+
+[ext_resource type="Texture2D" uid="uid://dsd6byfi3je6l" path="res://level/sprite/ruins.webp" id="1_wflpm"]
+[ext_resource type="Script" uid="uid://6282jyup2y6f" path="res://level/script/level_info.gd" id="2_gmix1"]
+
+[resource]
+script = ExtResource("2_gmix1")
+logo = ExtResource("1_wflpm")
+name = "Ruins"
+description = "Old ruins in the desert"
+dificulty = 2
+metadata/_custom_type_script = "uid://6282jyup2y6f"

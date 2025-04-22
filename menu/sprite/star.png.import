@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsw7y0enp8lf7"
-path="res://.godot/imported/alienYellow.png-ace7ac1a2d3bf9d6c73cfb7d88ae1df1.ctex"
+uid="uid://knpdq6px5uyj"
+path="res://.godot/imported/star.png-bd687cd4afe53ad438b19fcca38c0897.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/player/sprites/alienYellow.png"
-dest_files=["res://.godot/imported/alienYellow.png-ace7ac1a2d3bf9d6c73cfb7d88ae1df1.ctex"]
+source_file="res://menu/sprite/star.png"
+dest_files=["res://.godot/imported/star.png-bd687cd4afe53ad438b19fcca38c0897.ctex"]
 
 [params]
 

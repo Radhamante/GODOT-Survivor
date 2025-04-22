@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://b023mkq5ccrig"]
+
+[ext_resource type="Texture2D" uid="uid://do3yi5ujqml0" path="res://menu/sprite/button_grey_depth_line_pressed.png" id="1_vhn8i"]
+
+[resource]
+content_margin_left = 20.0
+content_margin_top = 30.0
+content_margin_right = 20.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_vhn8i")
+texture_margin_left = 16.0
+texture_margin_top = 26.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0

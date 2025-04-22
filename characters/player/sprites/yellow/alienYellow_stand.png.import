@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d1lthq2kpo5vl"
-path="res://.godot/imported/alienYellow_walk2.png-175fc19f05e6c0e07dfaaf714b005bdb.ctex"
+uid="uid://d2m0rhcw1wf5e"
+path="res://.godot/imported/alienYellow_stand.png-f764ed3adcfd43853f78daa716fbccbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/player/sprites/alienYellow_walk2.png"
-dest_files=["res://.godot/imported/alienYellow_walk2.png-175fc19f05e6c0e07dfaaf714b005bdb.ctex"]
+source_file="res://characters/player/sprites/yellow/alienYellow_stand.png"
+dest_files=["res://.godot/imported/alienYellow_stand.png-f764ed3adcfd43853f78daa716fbccbf.ctex"]
 
 [params]
 

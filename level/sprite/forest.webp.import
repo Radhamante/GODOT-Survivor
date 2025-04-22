@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bvauk735atflj"
-path="res://.godot/imported/forest.webp-47f8cb188c65cc20d500ab9df5ee12e2.ctex"
+path="res://.godot/imported/forest.webp-63d7a3672b6bdc0a0c1a538071cc6665.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://menu/sprite/forest.webp"
-dest_files=["res://.godot/imported/forest.webp-47f8cb188c65cc20d500ab9df5ee12e2.ctex"]
+source_file="res://level/sprite/forest.webp"
+dest_files=["res://.godot/imported/forest.webp-63d7a3672b6bdc0a0c1a538071cc6665.ctex"]
 
 [params]
 

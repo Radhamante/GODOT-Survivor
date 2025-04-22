@@ -1,0 +1,77 @@
+[gd_scene load_steps=18 format=3 uid="uid://d0jtw05w3xofs"]
+
+[ext_resource type="Script" uid="uid://bswn0csmelkug" path="res://menu/menu_root.gd" id="1_c4kem"]
+[ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="1_t8pbm"]
+[ext_resource type="PackedScene" uid="uid://blyh8cra8at8w" path="res://menu/main_menu/main_menu.tscn" id="3_qvmb4"]
+[ext_resource type="PackedScene" uid="uid://dmmyv728c85ag" path="res://menu/character_select/character_select.tscn" id="4_kdtid"]
+[ext_resource type="PackedScene" uid="uid://c4bc6xi5hptg4" path="res://menu/level_select/level_select.tscn" id="5_i8pwd"]
+[ext_resource type="Script" uid="uid://b2sycb0fk37xf" path="res://characters/player/script/character_info.gd" id="5_pns4a"]
+[ext_resource type="PackedScene" uid="uid://ci1sb54cm4xqh" path="res://characters/player/scene/yellow.tscn" id="6_5ugpf"]
+[ext_resource type="PackedScene" uid="uid://n26qjgtu4ldm" path="res://menu/options_menu/options_menu.tscn" id="6_mvocj"]
+[ext_resource type="Texture2D" uid="uid://dsw7y0enp8lf7" path="res://characters/player/sprites/yellow/alienYellow.png" id="7_uiicw"]
+[ext_resource type="PackedScene" uid="uid://x3e8modtr7fy" path="res://menu/pause_menu/pause_menu.tscn" id="7_wmwb7"]
+[ext_resource type="PackedScene" uid="uid://yi6xlwinuh2e" path="res://weapons/ranged_weapons/gun/scene/gun.tscn" id="8_ps6q3"]
+[ext_resource type="PackedScene" uid="uid://qfmimc27lm15" path="res://menu/game_over_menu/game_over_menu.tscn" id="8_whfxe"]
+[ext_resource type="PackedScene" uid="uid://cxcoswce3vqjx" path="res://characters/player/scene/blue.tscn" id="9_y5c5m"]
+[ext_resource type="Texture2D" uid="uid://61qqpjkva8wa" path="res://characters/player/sprites/blue/alienBlue.png" id="10_6wcgi"]
+[ext_resource type="PackedScene" uid="uid://c1emgqt0boroh" path="res://weapons/melee_weapons/sword/scene/sword.tscn" id="11_pq63d"]
+
+[sub_resource type="Resource" id="Resource_3k4mv"]
+resource_local_to_scene = true
+script = ExtResource("5_pns4a")
+character_name = "Yellow"
+description = "A very basic alien with a very basic gun"
+logo = ExtResource("7_uiicw")
+appearance = ExtResource("6_5ugpf")
+health = 100.0
+speed = 600.0
+armor = 0.0
+weapons = Array[Resource]([ExtResource("8_ps6q3")])
+metadata/_custom_type_script = "uid://b2sycb0fk37xf"
+
+[sub_resource type="Resource" id="Resource_hnu53"]
+resource_local_to_scene = true
+script = ExtResource("5_pns4a")
+character_name = "Blue"
+description = "Alien specialized in mele wepon"
+logo = ExtResource("10_6wcgi")
+appearance = ExtResource("9_y5c5m")
+health = 150.0
+speed = 500.0
+armor = 0.0
+weapons = Array[Resource]([ExtResource("11_pq63d")])
+metadata/_custom_type_script = "uid://b2sycb0fk37xf"
+
+[node name="MenuRoot" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t8pbm")
+script = ExtResource("1_c4kem")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainMenu" parent="." instance=ExtResource("3_qvmb4")]
+layout_mode = 1
+
+[node name="CharacterSelect" parent="." instance=ExtResource("4_kdtid")]
+layout_mode = 1
+characters = Array[ExtResource("5_pns4a")]([SubResource("Resource_3k4mv"), SubResource("Resource_hnu53")])
+
+[node name="LevelSelect" parent="." instance=ExtResource("5_i8pwd")]
+layout_mode = 1
+
+[node name="OptionsMenu" parent="." instance=ExtResource("6_mvocj")]
+
+[node name="GameOverMenu" parent="." instance=ExtResource("8_whfxe")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_wmwb7")]

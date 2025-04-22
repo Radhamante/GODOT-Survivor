@@ -6,7 +6,7 @@ class_name SingleBulletShootBehavior
 @export_range(-180, 180) var accuracy_correction: float = 0
 var shoot_timer: float = 0.0
 
-func shoot(weapon: Weapon) -> void:
+func shoot(weapon: RandedWeapon) -> void:
 	shoot_timer += weapon.get_process_delta_time()
 
 	var mods = weapon.weapon_modifiers

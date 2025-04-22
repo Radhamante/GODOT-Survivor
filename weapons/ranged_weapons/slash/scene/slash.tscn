@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://yirxr18xy6rd"]
 
-[ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/weapon.gd" id="1_7st3x"]
+[ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/ranged_weapon.gd" id="1_7st3x"]
 [ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://weapons/effects/EffectComponent.gd" id="2_atfev"]
 [ext_resource type="Resource" uid="uid://cfkly5r8ilhhy" path="res://weapons/ranged_weapons/slash/slash_overtime_behavior.tres" id="3_37hx6"]
 [ext_resource type="Script" uid="uid://q8u86cpd138c" path="res://weapons/behaviors/move_behaviors/RandomMovement.gd" id="4_7st3x"]

@@ -1,8 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmmyv728c85ag"]
+[gd_scene load_steps=8 format=3 uid="uid://dmmyv728c85ag"]
 
 [ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="1_11xvg"]
 [ext_resource type="Script" uid="uid://cdfr0f7stuieh" path="res://menu/character_select/character_select.gd" id="1_tbvmj"]
+[ext_resource type="Script" uid="uid://b2sycb0fk37xf" path="res://characters/player/script/character_info.gd" id="3_dlf04"]
+[ext_resource type="Resource" uid="uid://ph72dst7pq8j" path="res://characters/player/character_infos/yellow.tres" id="4_5tvcj"]
 [ext_resource type="Texture2D" uid="uid://bwaqb6msenbbp" path="res://menu/sprite/button_grey_depth_line.png" id="5_dlf04"]
+[ext_resource type="Resource" uid="uid://cuhkjxbnomxxg" path="res://characters/player/character_infos/blue.tres" id="5_qxpeq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5tvcj"]
 texture = ExtResource("5_dlf04")
@@ -20,6 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_11xvg")
 script = ExtResource("1_tbvmj")
+characters_infos = Array[ExtResource("3_dlf04")]([ExtResource("4_5tvcj"), ExtResource("5_qxpeq")])
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -35,6 +39,7 @@ theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 10
 alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]

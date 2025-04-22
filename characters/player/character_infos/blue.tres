@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterInfo" load_steps=5 format=3 uid="uid://cuhkjxbnomxxg"]
+
+[ext_resource type="PackedScene" uid="uid://cxcoswce3vqjx" path="res://characters/player/scene/blue.tscn" id="1_csqau"]
+[ext_resource type="Texture2D" uid="uid://61qqpjkva8wa" path="res://characters/player/sprites/blue/alienBlue.png" id="2_4n42a"]
+[ext_resource type="Script" uid="uid://b2sycb0fk37xf" path="res://characters/player/script/character_info.gd" id="2_xa2pi"]
+[ext_resource type="PackedScene" uid="uid://c1emgqt0boroh" path="res://weapons/melee_weapons/sword/scene/sword.tscn" id="5_54ntc"]
+
+[resource]
+script = ExtResource("2_xa2pi")
+character_name = "Blue"
+description = "Alien specialized in mele wepon"
+logo = ExtResource("2_4n42a")
+appearance = ExtResource("1_csqau")
+health = 150.0
+max_health = 150.0
+speed = 500.0
+armor = 0.0
+weapons = Array[Resource]([ExtResource("5_54ntc")])
+metadata/_custom_type_script = "uid://b2sycb0fk37xf"

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CharacterInfo" load_steps=5 format=3 uid="uid://ph72dst7pq8j"]
+
+[ext_resource type="Script" uid="uid://b2sycb0fk37xf" path="res://characters/player/script/character_info.gd" id="1_88hnx"]
+[ext_resource type="PackedScene" uid="uid://ci1sb54cm4xqh" path="res://characters/player/scene/yellow.tscn" id="1_ygkgm"]
+[ext_resource type="Texture2D" uid="uid://dsw7y0enp8lf7" path="res://characters/player/sprites/yellow/alienYellow.png" id="2_stt8y"]
+[ext_resource type="PackedScene" uid="uid://yi6xlwinuh2e" path="res://weapons/ranged_weapons/gun/scene/gun.tscn" id="3_o2reo"]
+
+[resource]
+script = ExtResource("1_88hnx")
+character_name = "Yellow"
+description = "A very basic alien with a very basic gun"
+logo = ExtResource("2_stt8y")
+appearance = ExtResource("1_ygkgm")
+health = 100.0
+max_health = 100.0
+speed = 600.0
+armor = 0.0
+weapons = Array[Resource]([ExtResource("3_o2reo")])
+metadata/_custom_type_script = "uid://b2sycb0fk37xf"

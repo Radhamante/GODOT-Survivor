@@ -1,5 +1,5 @@
-class_name Weapon
 extends Area2D
+class_name RandedWeapon
 
 @export var weapon_modifiers:Array[WeaponModifier] = []
 @export var bullet_modifiers: Array[BulletModifier] = []
