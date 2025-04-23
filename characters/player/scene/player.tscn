@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://deyaebkrhgrx2"]
+[gd_scene load_steps=11 format=3 uid="uid://deyaebkrhgrx2"]
 
 [ext_resource type="Script" uid="uid://x5oxgo5ceols" path="res://characters/player/script/player.gd" id="1_onrkg"]
 [ext_resource type="Resource" uid="uid://ph72dst7pq8j" path="res://characters/player/character_infos/yellow.tres" id="2_0nskp"]
+[ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="3_ow4ck"]
 [ext_resource type="Script" uid="uid://defvp5lyhbaw1" path="res://characters/player/script/weapons.gd" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://bswi3tyvra8or" path="res://level/sprite/progress_green.png" id="4_u7g1b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 21.0238
@@ -10,22 +12,22 @@ radius = 21.0238
 [sub_resource type="CircleShape2D" id="CircleShape2D_i3pqv"]
 radius = 26.0192
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
-bg_color = Color(0.152941, 0.168627, 0.188235, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n5vo5"]
+texture = ExtResource("4_u7g1b")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqtel"]
-bg_color = Color(0.623529, 0.866667, 0.317647, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
+[sub_resource type="CircleShape2D" id="CircleShape2D_0nskp"]
+radius = 150.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ow4ck"]
+radius = 20.0
 
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 8
+collision_mask = 17
 script = ExtResource("1_onrkg")
 character_info = ExtResource("2_0nskp")
 
@@ -37,7 +39,7 @@ shape = SubResource("CircleShape2D_onrkg")
 [node name="HurtBox" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 0
-collision_mask = 2
+collision_mask = 18
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 shape = SubResource("CircleShape2D_i3pqv")
@@ -45,14 +47,43 @@ debug_color = Color(0.98257, 0, 0.360996, 0.42)
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 unique_name_in_owner = true
-offset_left = -67.0
-offset_top = -67.0
-offset_right = 67.0
-offset_bottom = -61.0
-theme_override_styles/background = SubResource("StyleBoxFlat_i3pqv")
-theme_override_styles/fill = SubResource("StyleBoxFlat_hqtel")
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -59.0
+offset_top = -58.0
+offset_right = 541.0
+offset_bottom = -26.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.2, 0.2)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("3_ow4ck")
+theme_override_styles/fill = SubResource("StyleBoxTexture_n5vo5")
 show_percentage = false
-metadata/_edit_use_anchors_ = true
 
 [node name="Weapons" type="Node2D" parent="."]
 script = ExtResource("3_sweqy")
+
+[node name="Magnet" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
+shape = SubResource("CircleShape2D_0nskp")
+
+[node name="Pickup" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
+shape = SubResource("CircleShape2D_ow4ck")
+debug_color = Color(0.592108, 0.555083, 1.92523e-07, 0.42)
+
+[connection signal="area_entered" from="Magnet" to="." method="_on_magnet_area_entered"]
+[connection signal="area_entered" from="Magnet" to="Magnet" method="_on_area_entered"]
+[connection signal="area_entered" from="Pickup" to="." method="_on_pickup_area_entered"]

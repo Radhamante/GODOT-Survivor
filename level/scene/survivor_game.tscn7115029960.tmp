@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cpvj8xnphfau1"]
+[gd_scene load_steps=19 format=3 uid="uid://cpvj8xnphfau1"]
 
 [ext_resource type="Script" uid="uid://bo5ru0gqcwtgi" path="res://level/script/survivor_game.gd" id="1_5mrb7"]
 [ext_resource type="PackedScene" uid="uid://deyaebkrhgrx2" path="res://characters/player/scene/player.tscn" id="1_wkcnj"]
@@ -14,13 +14,11 @@
 [ext_resource type="Texture2D" uid="uid://cyse8wih2xkhe" path="res://shared/theme/panel_brown_damaged.png" id="8_2sip7"]
 [ext_resource type="PackedScene" uid="uid://yi6xlwinuh2e" path="res://weapons/ranged_weapons/gun/scene/gun.tscn" id="8_8cgn3"]
 [ext_resource type="Script" uid="uid://bt7hlidqv1hvl" path="res://level/script/xp_progess_bar.gd" id="14_46rwm"]
-[ext_resource type="Script" uid="uid://cl8jlx6msmnre" path="res://level/script/health_bar.gd" id="16_8cgn3"]
-[ext_resource type="Texture2D" uid="uid://bswi3tyvra8or" path="res://level/sprite/progress_green.png" id="16_npl3b"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i54c3"]
 radius = 200.0
 
-[sub_resource type="Resource" id="Resource_npl3b"]
+[sub_resource type="Resource" id="Resource_46rwm"]
 resource_local_to_scene = true
 script = ExtResource("7_5hofn")
 character_name = "Yellow"
@@ -45,13 +43,6 @@ point_count = 5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbdm8"]
 size = Vector2(5132, 3608)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8cgn3"]
-texture = ExtResource("16_npl3b")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -117,7 +108,7 @@ debug_color = Color(0, 0.647778, 0.201317, 0.42)
 
 [node name="Player" parent="." instance=ExtResource("1_wkcnj")]
 position = Vector2(954, 534)
-character_info = SubResource("Resource_npl3b")
+character_info = SubResource("Resource_46rwm")
 
 [node name="Path2D" type="Path2D" parent="Player"]
 position = Vector2(-954, -534)
@@ -185,37 +176,21 @@ layout_mode = 2
 [node name="DifficultyLabel" type="Label" parent="HUD/MarginContainer/NinePatchRect/VBoxContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="VBoxContainer" parent="HUD"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
+[node name="ProgressBar" type="ProgressBar" parent="HUD"]
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -90.0
-offset_top = 207.0
-offset_right = 323.0
-offset_bottom = 281.0
-grow_horizontal = 0
-grow_vertical = 2
-rotation = -1.5708
-theme = ExtResource("7_bwn4j")
-
-[node name="XpBar" type="ProgressBar" parent="HUD/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+anchor_bottom = 1.0
+offset_top = -4.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 6
 show_percentage = false
 script = ExtResource("14_46rwm")
 
-[node name="HealthBar" type="ProgressBar" parent="HUD/HBoxContainer"]
-layout_mode = 2
-theme_override_styles/fill = SubResource("StyleBoxTexture_8cgn3")
-show_percentage = false
-script = ExtResource("16_8cgn3")
-
 [connection signal="timeout" from="MobGenerator/Timer" to="MobGenerator" method="spawn_mod"]
-[connection signal="health_updated" from="Player" to="HUD/HBoxContainer/HealthBar" method="_on_player_health_updated"]
 [connection signal="heath_depleted" from="Player" to="." method="_on_player_heath_depleted"]
-[connection signal="xp_level" from="Player" to="HUD/HBoxContainer/XpBar" method="_on_player_xp_level"]
+[connection signal="xp_level" from="Player" to="HUD/ProgressBar" method="_on_player_xp_level"]
 [connection signal="body_exited" from="Player/DespawningZone" to="Player/DespawningZone" method="_on_body_exited"]
 [connection signal="difficulty_changed" from="DifficultyManager" to="." method="_on_difficulty_manager_difficulty_changed"]
 [connection signal="timer_updated" from="DifficultyManager" to="HUD/MarginContainer/NinePatchRect/VBoxContainer" method="_on_difficulty_manager_timer_updated"]

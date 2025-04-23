@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxi5mnnwwed2g"]
+
+[ext_resource type="Script" uid="uid://dcxxh33bb5fs1" path="res://drops/xp/script/xp.gd" id="1_5mrfl"]
+[ext_resource type="Texture2D" uid="uid://duw2l16t3ws1e" path="res://drops/xp/sprite/minimap_icon_star_white.png" id="1_fql35"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fql35"]
+radius = 9.0
+
+[node name="Xp" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_5mrfl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_fql35")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fql35")

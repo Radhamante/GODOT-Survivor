@@ -1,6 +1,8 @@
 extends CharacterBody2D
 
 signal heath_depleted
+signal xp_level(xp: int, level: int, xp_for_next_level:int)
+signal health_updated(current_heath: float, max_health: float)
 
 @export var character_info: CharacterInfo
 
@@ -21,6 +23,9 @@ func _ready() -> void:
 	
 	%ProgressBar.max_value = character_info.max_health
 	%ProgressBar.value = character_info.health
+	
+	health_updated.emit(character_info.health, character_info.max_health)
+	xp_level.emit(character_info.xp, character_info.level, character_info.xp_by_level_multipler)
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -38,6 +43,21 @@ func _physics_process(delta: float) -> void:
 	if overlapping_mobs.size() > 0:
 		var overlapping_damages = overlapping_mobs.reduce(func (sum, next): return sum + next.stats.damage, 0)
 		character_info.health -= overlapping_damages * delta
+		health_updated.emit(character_info.health, character_info.max_health)
 		%ProgressBar.value = character_info.health
 		if character_info.health <= 0:
 			heath_depleted.emit()
+
+
+func _on_magnet_area_entered(magnetable: Magnetable) -> void:
+	magnetable.magnet_to(self)
+
+func _on_pickup_area_entered(magnetable: Magnetable) -> void:
+	if magnetable is XPMagnetable:
+		character_info.xp += magnetable.value
+		var xp_for_next_level = character_info.level * character_info.xp_by_level_multipler
+		xp_level.emit(character_info.xp, character_info.level, xp_for_next_level)
+		if character_info.xp >= xp_for_next_level:
+			character_info.xp -= xp_for_next_level
+			character_info.level += 1
+	magnetable.queue_free()

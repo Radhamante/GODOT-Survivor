@@ -73,11 +73,18 @@ func _calculate_damages( damage_source: DamageSource) -> float:
 	return damage
 
 func _kill():
-	queue_free()
+	const XP = preload("res://drops/xp/scene/xp.tscn")
+	var xp_scene = XP.instantiate()
+	xp_scene.global_position = global_position
+	get_parent().add_child(xp_scene)
+
 	const SMOKE_EXPLOSION = preload("res://characters/smoke_explosion/smoke_explosion.tscn")
 	var smoke = SMOKE_EXPLOSION.instantiate()
 	smoke.global_position = global_position
 	get_parent().add_child(smoke)
+
+	call_deferred("queue_free")
+
 
 func take_damage(damage_source: DamageSource):
 	var damage = _calculate_damages(damage_source)
