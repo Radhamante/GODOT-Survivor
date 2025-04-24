@@ -22,12 +22,12 @@ func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
 
 
-func _on_area_entered(area: Area2D) -> void:
-	if merged or not is_instance_valid(area):
+func _on_area_entered(magnetable: Magnetable) -> void:
+	if merged or not is_instance_valid(magnetable):
 		return
 
-	if area is XPMagnetable:
-		var other: XPMagnetable = area
+	if magnetable is XPMagnetable:
+		var other: XPMagnetable = magnetable
 
 		# Évite le double merge
 		if self.get_instance_id() < other.get_instance_id():
