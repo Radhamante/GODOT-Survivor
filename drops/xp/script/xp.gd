@@ -1,8 +1,8 @@
 extends Magnetable
 class_name XPMagnetable
 
-var value: int = 1
-
+var value: float
+	
 func _physics_process(delta: float) -> void:
 	if not entity:
 		return

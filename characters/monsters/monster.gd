@@ -75,6 +75,7 @@ func _calculate_damages( damage_source: DamageSource) -> float:
 func _kill():
 	const XP = preload("res://drops/xp/scene/xp.tscn")
 	var xp_scene = XP.instantiate()
+	xp_scene.value = stats.xp_drop
 	xp_scene.global_position = global_position
 	get_parent().add_child(xp_scene)
 

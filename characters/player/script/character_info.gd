@@ -10,6 +10,6 @@ class_name CharacterInfo
 @export var speed: float
 @export var armor: float
 @export var weapons: Array[Resource]
-@export var xp: int
+@export var xp: float
 @export var level: int
-@export var xp_by_level_multipler: int
+@export var xp_by_level_multipler: float

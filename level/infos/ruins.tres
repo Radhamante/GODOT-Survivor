@@ -1,7 +1,25 @@
-[gd_resource type="Resource" script_class="LevelInfo" load_steps=3 format=3 uid="uid://klg3um3nqw2k"]
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=9 format=3 uid="uid://klg3um3nqw2k"]
 
+[ext_resource type="Script" uid="uid://84yg1uhklpuv" path="res://level/script/difficulty_level.gd" id="1_nlgh7"]
 [ext_resource type="Texture2D" uid="uid://dsd6byfi3je6l" path="res://level/sprite/ruins.webp" id="1_wflpm"]
+[ext_resource type="Script" uid="uid://cv5psvvs0vfxs" path="res://modifiers/monster_modifiers/monster_modifier.gd" id="2_05o5q"]
 [ext_resource type="Script" uid="uid://6282jyup2y6f" path="res://level/script/level_info.gd" id="2_gmix1"]
+[ext_resource type="Script" uid="uid://od4wq4bhanop" path="res://level/script/difficulty_levels.gd" id="2_ncdbu"]
+[ext_resource type="PackedScene" uid="uid://ditg1anxwgsxv" path="res://characters/monsters/ghost/scene/ghost.tscn" id="3_3hcts"]
+
+[sub_resource type="Resource" id="Resource_nxv00"]
+script = ExtResource("1_nlgh7")
+monsters = Array[Resource]([ExtResource("3_3hcts")])
+monster_modifiers = Array[ExtResource("2_05o5q")]([])
+monster_spawn_delay = 0.1
+metadata/_custom_type_script = "uid://84yg1uhklpuv"
+
+[sub_resource type="Resource" id="Resource_05o5q"]
+script = ExtResource("2_ncdbu")
+levels = Dictionary[float, ExtResource("1_nlgh7")]({
+0.0: SubResource("Resource_nxv00")
+})
+metadata/_custom_type_script = "uid://od4wq4bhanop"
 
 [resource]
 script = ExtResource("2_gmix1")
@@ -9,4 +27,5 @@ logo = ExtResource("1_wflpm")
 name = "Ruins"
 description = "Old ruins in the desert"
 dificulty = 2
+difficulty_levels = SubResource("Resource_05o5q")
 metadata/_custom_type_script = "uid://6282jyup2y6f"

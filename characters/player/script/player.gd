@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 signal heath_depleted
-signal xp_level(xp: int, level: int, xp_for_next_level:int)
+signal xp_level(xp: float, level: int, xp_for_next_level:float)
 signal health_updated(current_heath: float, max_health: float)
 
 @export var character_info: CharacterInfo
