@@ -61,7 +61,7 @@ func _on_pickup_area_entered(magnetable: Magnetable) -> void:
 	if magnetable is XPMagnetable:
 		character_info.xp += magnetable.value
 		var xp_for_next_level = character_info.level * character_info.xp_by_level_multipler
-		xp_level.emit(character_info.xp, character_info.level, xp_for_next_level)
 		if character_info.xp >= xp_for_next_level:
 			_level_up()
+		xp_level.emit(character_info.xp, character_info.level, xp_for_next_level)
 	magnetable.queue_free()

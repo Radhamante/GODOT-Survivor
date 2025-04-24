@@ -73,11 +73,7 @@ func _calculate_damages( damage_source: DamageSource) -> float:
 	return damage
 
 func _kill():
-	const XP = preload("res://drops/xp/scene/xp.tscn")
-	var xp_scene = XP.instantiate()
-	xp_scene.value = stats.xp_drop
-	xp_scene.global_position = global_position
-	get_parent().add_child(xp_scene)
+	call_deferred("_generate_xp")
 
 	const SMOKE_EXPLOSION = preload("res://characters/smoke_explosion/smoke_explosion.tscn")
 	var smoke = SMOKE_EXPLOSION.instantiate()
@@ -86,8 +82,18 @@ func _kill():
 
 	call_deferred("queue_free")
 
+func _generate_xp():
+	const XP = preload("res://drops/xp/scene/xp.tscn")
+	var xp_scene = XP.instantiate()
+	xp_scene.value = stats.xp_drop
+	xp_scene.global_position = global_position
+	get_parent().add_child(xp_scene)
 
 func take_damage(damage_source: DamageSource):
+	#Avoid running this function multiple time if multiple bullet kill in the same time
+	if stats.health <= 0:
+		return
+	
 	var damage = _calculate_damages(damage_source)
 	if damage > 0:
 		stats.health -= damage
@@ -96,10 +102,13 @@ func take_damage(damage_source: DamageSource):
 		animation.play("immune")
 	animation.queue("RESET")
 	animation.queue("Move")
+	
 	if stats.health <= 0:
 		_kill()
+		
 	if damage_source.source_position:
 		take_knockback(damage_source.knockback_force, damage_source.source_position)
+	
 	if damage_source.particules:
 		var particules = damage_source.particules.instantiate()
 		if particules is ImpactParticules:

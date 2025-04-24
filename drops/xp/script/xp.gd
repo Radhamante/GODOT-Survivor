@@ -22,12 +22,12 @@ func _physics_process(delta: float) -> void:
 	global_position += direction * speed * delta
 
 
-func _on_area_entered(magnetable: Magnetable) -> void:
-	if merged or not is_instance_valid(magnetable):
+func _on_area_entered(area: Area2D) -> void:
+	if merged or not is_instance_valid(area):
 		return
 
-	if magnetable is XPMagnetable:
-		var other: XPMagnetable = magnetable
+	if area is XPMagnetable:
+		var other: XPMagnetable = area
 
 		# Évite le double merge
 		if self.get_instance_id() < other.get_instance_id():
@@ -36,3 +36,4 @@ func _on_area_entered(magnetable: Magnetable) -> void:
 			other.merged = true
 			other.queue_free()
 			_modulate_on_value()
+	print("megred with : ", value)

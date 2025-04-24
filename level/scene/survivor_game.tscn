@@ -39,12 +39,12 @@ metadata/_custom_type_script = "uid://b2sycb0fk37xf"
 
 [sub_resource type="Curve2D" id="Curve2D_i54c3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -282, -219, 0, 0, 0, 0, 2158, -224, 0, 0, 0, 0, 2159, 1304, 0, 0, 0, 0, -270, 1288, 0, 0, 0, 0, -282, -219)
+"points": PackedVector2Array(0, 0, 0, 0, -282, -219, 0, 0, 0, 0, 2158, -224, 0, 0, 0, 0, 2159, 1304, 0, 0, 0, 0, -270, 1288, 0, 0, 0, 0, -282, -219, 0, 0, 0, 0, -325, -531, 0, 0, 0, 0, 2184, -457, 0, 0, 0, 0, 2709, 1511, 0, 0, 0, 0, 659, 1748, 0, 0, 0, 0, -673, 1423, 0, 0, 0, 0, -813, 401, 0, 0, 0, 0, -1233, -719, 0, 0, 0, 0, 543, -1041, 0, 0, 0, 0, 936, -398, 0, 0, 0, 0, 2164, -982, 0, 0, 0, 0, 3189, -338, 0, 0, 0, 0, 2771, 246, 0, 0, 0, 0, 3153, 1629, 0, 0, 0, 0, 1615, 1926, 0, 0, 0, 0, 1008, 1366, 0, 0, 0, 0, -41, 1891, 0, 0, 0, 0, -303, 937, 0, 0, 0, 0, -1686, 1521, 0, 0, 0, 0, -1019, 651, 0, 0, 0, 0, -411, 353, 0, 0, 0, 0, -1281, -159, 0, 0, 0, 0, -137, -850, 0, 0, 0, 0, 280, -362, 0, 0, 0, 0, 1234, -1065, 0, 0, 0, 0, 1794, -302, 0, 0, 0, 0, 2998, -791, 0, 0, 0, 0, 2676, -219, 0, 0, 0, 0, 3236, 198, 0, 0, 0, 0, 2223, 818, 0, 0, 0, 0, 3224, 901, 0, 0, 0, 0, 2390, 2129, 0, 0, 0, 0, 1496, 1307, 0, 0, 0, 0, 960, 2046, 0, 0, 0, 0, 316, 1271, 0, 0, 0, 0, -899, 1998, 0, 0, 0, 0, -1436, 866, 0, 0, 0, 0, -804, -159, 0, 0, 0, 0, -282, -219)
 }
-point_count = 5
+point_count = 43
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbdm8"]
-size = Vector2(5132, 3608)
+size = Vector2(5427, 3608)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8cgn3"]
 texture = ExtResource("16_npl3b")
@@ -120,7 +120,7 @@ position = Vector2(954, 534)
 character_info = SubResource("Resource_8cgn3")
 
 [node name="Path2D" type="Path2D" parent="Player"]
-position = Vector2(-954, -534)
+position = Vector2(-945, -534)
 curve = SubResource("Curve2D_i54c3")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="Player/Path2D"]
@@ -134,7 +134,7 @@ collision_mask = 3
 script = ExtResource("3_i54c3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/DespawningZone"]
-position = Vector2(7, 0)
+position = Vector2(-147.5, 0)
 shape = SubResource("RectangleShape2D_kbdm8")
 
 [node name="DifficultyManager" type="Node2D" parent="."]
