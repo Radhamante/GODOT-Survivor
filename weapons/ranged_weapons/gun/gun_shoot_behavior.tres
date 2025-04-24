@@ -6,6 +6,5 @@
 [resource]
 script = ExtResource("2_gb2ii")
 bullet_scene = ExtResource("1_5dx1m")
-shoot_delay = 0.5
 accuracy_correction = -37.0
 metadata/_custom_type_script = "uid://ba1j1ueuxeg5p"

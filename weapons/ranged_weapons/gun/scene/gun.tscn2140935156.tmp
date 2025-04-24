@@ -1,9 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://yi6xlwinuh2e"]
+[gd_scene load_steps=13 format=3 uid="uid://yi6xlwinuh2e"]
 
 [ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/ranged_weapon.gd" id="1_6h5ka"]
+[ext_resource type="Script" uid="uid://bh1kaj35dkkan" path="res://modifiers/bullet_modifiers/bullet_modifier.gd" id="2_0v2ip"]
+[ext_resource type="Script" uid="uid://bqmyv7ijto1eu" path="res://modifiers/weapon_modifiers/weapon_modifier.gd" id="2_4fcqa"]
 [ext_resource type="Resource" uid="uid://cjpkg01wgihko" path="res://weapons/ranged_weapons/gun/gun_shoot_behavior.tres" id="2_6h5ka"]
 [ext_resource type="Texture2D" uid="uid://b2cd5ft4gom6d" path="res://weapons/ranged_weapons/gun/sprite/hand_yellow_point.png" id="2_buta8"]
 [ext_resource type="Script" uid="uid://eiececv5s1s8" path="res://weapons/behaviors/move_behaviors/FollowClosestEnemyMovement.gd" id="3_1uysu"]
+[ext_resource type="Script" uid="uid://bfhidfuwnbvtq" path="res://modifiers/weapon_modifiers/flat_weapon_modifier.gd" id="3_xieyg"]
+[ext_resource type="Script" uid="uid://waa5yrm6yeh6" path="res://modifiers/bullet_modifiers/flat_bullet_modifier.gd" id="5_xieyg"]
+
+[sub_resource type="Resource" id="Resource_klw7j"]
+script = ExtResource("3_xieyg")
+bonus = 30.0
+property_name = 0
+metadata/_custom_type_script = "uid://bfhidfuwnbvtq"
+
+[sub_resource type="Resource" id="Resource_as0l5"]
+script = ExtResource("5_xieyg")
+bonus = 1000.0
+property = "speed"
+metadata/_custom_type_script = "uid://waa5yrm6yeh6"
 
 [sub_resource type="Resource" id="Resource_3htep"]
 script = ExtResource("3_1uysu")
@@ -16,6 +32,9 @@ radius = 600.0
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_6h5ka")
+weapon_modifiers = Array[ExtResource("2_4fcqa")]([SubResource("Resource_klw7j")])
+bullet_modifiers = Array[ExtResource("2_0v2ip")]([SubResource("Resource_as0l5")])
+hit_effects = null
 shoot_behavior = ExtResource("2_6h5ka")
 movement_behavior = SubResource("Resource_3htep")
 metadata/_custom_type_script = "uid://culhnjwum6js5"

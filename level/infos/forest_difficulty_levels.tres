@@ -1,16 +1,14 @@
-[gd_resource type="Resource" script_class="DifficultyLevels" load_steps=26 format=3 uid="uid://cnu6kgpn63wt3"]
+[gd_resource type="Resource" script_class="DifficultyLevels" load_steps=18 format=3 uid="uid://cnu6kgpn63wt3"]
 
 [ext_resource type="Script" uid="uid://84yg1uhklpuv" path="res://level/script/difficulty_level.gd" id="1_2yljy"]
 [ext_resource type="Script" uid="uid://od4wq4bhanop" path="res://level/script/difficulty_levels.gd" id="2_0pwum"]
 [ext_resource type="Script" uid="uid://cv5psvvs0vfxs" path="res://modifiers/monster_modifiers/monster_modifier.gd" id="2_od8jp"]
 [ext_resource type="PackedScene" uid="uid://fk84spmwptye" path="res://characters/monsters/bat/scene/bat.tscn" id="3_br1jc"]
 [ext_resource type="PackedScene" uid="uid://c6uupk6osn1pe" path="res://characters/monsters/slime/scene/slime.tscn" id="4_5n3xt"]
-[ext_resource type="Script" uid="uid://q70wyk1d7152" path="res://modifiers/monster_modifiers/flat_monster_modifier.gd" id="5_5n3xt"]
 [ext_resource type="PackedScene" uid="uid://bitkbagvnnqr7" path="res://characters/monsters/sausage/scene/sausage.tscn" id="5_8bv23"]
 [ext_resource type="PackedScene" uid="uid://31522nj1m35x" path="res://characters/monsters/snail/scene/snail.tscn" id="6_8bv23"]
 [ext_resource type="PackedScene" uid="uid://c6jaayc62hs4u" path="res://characters/monsters/spider/scene/spider.tscn" id="6_pefc8"]
 [ext_resource type="PackedScene" uid="uid://ditg1anxwgsxv" path="res://characters/monsters/ghost/scene/ghost.tscn" id="7_6qa1h"]
-[ext_resource type="Script" uid="uid://bhdyhy1w4te6f" path="res://modifiers/monster_modifiers/mult_monster_modifier.gd" id="9_dj6mk"]
 [ext_resource type="PackedScene" uid="uid://c8aos4h2rhckw" path="res://characters/monsters/snake/scene/snake.tscn" id="10_qpa7c"]
 
 [sub_resource type="Resource" id="Resource_qpa7c"]
@@ -41,60 +39,24 @@ monster_modifiers = Array[ExtResource("2_od8jp")]([])
 monster_spawn_delay = 1.0
 metadata/_custom_type_script = "uid://84yg1uhklpuv"
 
-[sub_resource type="Resource" id="Resource_14ba2"]
-script = ExtResource("5_5n3xt")
-bonus = 1.0
-property_name = 2
-metadata/_custom_type_script = "uid://q70wyk1d7152"
-
 [sub_resource type="Resource" id="Resource_64raq"]
 script = ExtResource("1_2yljy")
 monsters = Array[Resource]([ExtResource("7_6qa1h"), ExtResource("5_8bv23"), ExtResource("6_pefc8"), ExtResource("6_8bv23")])
-monster_modifiers = Array[ExtResource("2_od8jp")]([SubResource("Resource_14ba2")])
+monster_modifiers = Array[ExtResource("2_od8jp")]([])
 monster_spawn_delay = 1.0
 metadata/_custom_type_script = "uid://84yg1uhklpuv"
-
-[sub_resource type="Resource" id="Resource_rk84y"]
-script = ExtResource("5_5n3xt")
-bonus = 2.0
-property_name = 0
-metadata/_custom_type_script = "uid://q70wyk1d7152"
-
-[sub_resource type="Resource" id="Resource_qci3m"]
-script = ExtResource("5_5n3xt")
-bonus = 2.0
-property_name = 2
-metadata/_custom_type_script = "uid://q70wyk1d7152"
 
 [sub_resource type="Resource" id="Resource_qitw0"]
 script = ExtResource("1_2yljy")
 monsters = Array[Resource]([ExtResource("7_6qa1h")])
-monster_modifiers = Array[ExtResource("2_od8jp")]([SubResource("Resource_rk84y"), SubResource("Resource_qci3m")])
+monster_modifiers = Array[ExtResource("2_od8jp")]([])
 monster_spawn_delay = 1.0
 metadata/_custom_type_script = "uid://84yg1uhklpuv"
-
-[sub_resource type="Resource" id="Resource_wp8ux"]
-script = ExtResource("5_5n3xt")
-bonus = 2.0
-property_name = 0
-metadata/_custom_type_script = "uid://q70wyk1d7152"
-
-[sub_resource type="Resource" id="Resource_0e5ao"]
-script = ExtResource("9_dj6mk")
-bonus = 1.5
-property_name = 0
-metadata/_custom_type_script = "uid://bhdyhy1w4te6f"
-
-[sub_resource type="Resource" id="Resource_urcrl"]
-script = ExtResource("5_5n3xt")
-bonus = 3.0
-property_name = 2
-metadata/_custom_type_script = "uid://q70wyk1d7152"
 
 [sub_resource type="Resource" id="Resource_65gsh"]
 script = ExtResource("1_2yljy")
 monsters = Array[Resource]([ExtResource("3_br1jc"), ExtResource("7_6qa1h"), ExtResource("5_8bv23"), ExtResource("4_5n3xt"), ExtResource("6_8bv23"), ExtResource("10_qpa7c"), ExtResource("6_pefc8")])
-monster_modifiers = Array[ExtResource("2_od8jp")]([SubResource("Resource_wp8ux"), SubResource("Resource_0e5ao"), SubResource("Resource_urcrl")])
+monster_modifiers = Array[ExtResource("2_od8jp")]([])
 monster_spawn_delay = 0.0
 metadata/_custom_type_script = "uid://84yg1uhklpuv"
 

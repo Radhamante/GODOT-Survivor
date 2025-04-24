@@ -9,22 +9,31 @@ class_name RandedWeapon
 
 
 # Function to apply modifiers to a given value
-func apply_weapon_modifiers(mods: Array[WeaponModifier], target_value: Variant, modifier_type) -> Variant:
-	var result = target_value
-	for mod in mods:
-		if is_instance_of(mod,modifier_type):
-			result = mod.apply(result)
-	return result
+func apply_weapon_modifiers():
+	for mod in weapon_modifiers:
+		if mod.operation == "add":
+			mod.apply(self)
+	for mod in weapon_modifiers:
+		if mod.operation == "mult":
+			mod.apply(self)
+	for mod in weapon_modifiers:
+		if mod.operation == "set":
+			mod.apply(self)
 	
-func apply_bullet_modifier(mods: Array[BulletModifier], bullet: Bullet, modifier_type) -> Bullet:
-	for mod in mods:
-		if is_instance_of(mod,modifier_type):
-			bullet = mod.apply(bullet)
-	return bullet
-	
+func apply_bullet_modifier(bullet: Bullet):
+	for mod in bullet_modifiers:
+		if mod.operation == "add":
+			mod.apply(bullet)
+	for mod in bullet_modifiers:
+		if mod.operation == "mult":
+			mod.apply(bullet)
+	for mod in bullet_modifiers:
+		if mod.operation == "set":
+			mod.apply(bullet)
+
 func _process(delta: float) -> void:
 	if shoot_behavior:
-		shoot_behavior.shoot(self)
+		shoot_behavior.shoot(self, delta)
 
 
 func _physics_process(delta: float) -> void:

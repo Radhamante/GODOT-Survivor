@@ -29,9 +29,8 @@ func _on_area_entered(magnetable: Magnetable) -> void:
 	if magnetable is XPMagnetable:
 		var other: XPMagnetable = magnetable
 
-		# Évite le double merge
+		# avoid double merge
 		if self.get_instance_id() < other.get_instance_id():
-			# On garde celui avec l'ID le plus bas
 			value += other.value
 			other.merged = true
 			other.queue_free()

@@ -2,17 +2,17 @@ extends ShootBehavior
 class_name MultipleBulletShootBehavior
 
 @export var bullet_scene: PackedScene
-@export var shoot_delay: float = 0.7
 @export var bullet_count: int = 4
 @export var spread_angle: float = 25.0  # Total angle covered by spread
 @export var accuracy_bias: float = 0.7
 @export_range(-180, 180) var accuracy_correction: float = 0
 
-
+var accuracy: float = 0
+var shoot_delay: float = 0.5
 var shoot_timer: float = 0.0
 
-func shoot(weapon: RandedWeapon) -> void:
-	shoot_timer += weapon.get_process_delta_time()
+func shoot(weapon: RandedWeapon, delta: float) -> void:
+	shoot_timer += delta
 	var mods = weapon.weapon_modifiers
 	var final_delay = weapon.apply_weapon_modifiers(mods, weapon.apply_weapon_modifiers(mods, shoot_delay, FlatShotspeedModifier), MultShotspeedModifier)
 
@@ -45,6 +45,5 @@ func shoot(weapon: RandedWeapon) -> void:
 		weapon.apply_bullet_modifier(weapon.bullet_modifiers, bullet, FlatBulletModifier)
 		weapon.apply_bullet_modifier(weapon.bullet_modifiers, bullet, MultBulletModifier)
 		weapon.apply_bullet_modifier(weapon.bullet_modifiers, bullet, SetBulletModifier)
-		weapon.apply_bullet_modifier(weapon.bullet_modifiers, bullet, ProcessBulletModifier)
 
 		weapon.get_node("%ShootingPoint").add_child(bullet)

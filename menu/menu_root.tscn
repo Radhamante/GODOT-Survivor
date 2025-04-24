@@ -28,16 +28,59 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MainMenu" parent="." instance=ExtResource("3_qvmb4")]
+visible = false
 layout_mode = 1
 
 [node name="CharacterSelect" parent="." instance=ExtResource("4_kdtid")]
+visible = false
 layout_mode = 1
 
 [node name="LevelSelect" parent="." instance=ExtResource("5_i8pwd")]
+visible = false
 layout_mode = 1
 
 [node name="OptionsMenu" parent="." instance=ExtResource("6_mvocj")]
+visible = false
 
 [node name="GameOverMenu" parent="." instance=ExtResource("8_whfxe")]
+visible = false
 
 [node name="PauseMenu" parent="." instance=ExtResource("7_wmwb7")]
+visible = false
+
+[node name="LevelUpMenu" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="LevelUpMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelUpMenu/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="Button" type="Button" parent="LevelUpMenu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button2" type="Button" parent="LevelUpMenu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Button3" type="Button" parent="LevelUpMenu/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3

@@ -1,9 +1,36 @@
-[gd_scene load_steps=7 format=3 uid="uid://yi6xlwinuh2e"]
+[gd_scene load_steps=15 format=3 uid="uid://yi6xlwinuh2e"]
 
 [ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/ranged_weapon.gd" id="1_6h5ka"]
+[ext_resource type="Script" uid="uid://bh1kaj35dkkan" path="res://modifiers/bullet_modifiers/bullet_modifier.gd" id="2_0v2ip"]
 [ext_resource type="Resource" uid="uid://cjpkg01wgihko" path="res://weapons/ranged_weapons/gun/gun_shoot_behavior.tres" id="2_6h5ka"]
 [ext_resource type="Texture2D" uid="uid://b2cd5ft4gom6d" path="res://weapons/ranged_weapons/gun/sprite/hand_yellow_point.png" id="2_buta8"]
 [ext_resource type="Script" uid="uid://eiececv5s1s8" path="res://weapons/behaviors/move_behaviors/FollowClosestEnemyMovement.gd" id="3_1uysu"]
+[ext_resource type="PackedScene" uid="uid://nnfm6c1iau8x" path="res://weapons/impact/bleed_hit/bleed_hit.tscn" id="3_as0l5"]
+[ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/script/damageSource.gd" id="4_klw7j"]
+[ext_resource type="Script" uid="uid://c0kuifl8ndn83" path="res://weapons/effects/DamageEffect.gd" id="5_f5bmh"]
+[ext_resource type="Script" uid="uid://cm7pxr7dc7hue" path="res://modifiers/bullet_modifiers/add_effect_bullet_modifier.gd" id="6_akfxx"]
+
+[sub_resource type="Resource" id="Resource_aq5q1"]
+script = ExtResource("4_klw7j")
+damage = 1.0
+armor_penetration = 0.0
+crit_chance = 0.0
+crit_damage = 1.5
+types = Array[int]([4])
+particules = ExtResource("3_as0l5")
+damage_reduction_on_piercing = 0.0
+knockback_force = 0.0
+metadata/_custom_type_script = "uid://cdu8jjauvfhnp"
+
+[sub_resource type="Resource" id="Resource_mvd1o"]
+script = ExtResource("5_f5bmh")
+damage_source = SubResource("Resource_aq5q1")
+metadata/_custom_type_script = "uid://c0kuifl8ndn83"
+
+[sub_resource type="Resource" id="Resource_cwss2"]
+script = ExtResource("6_akfxx")
+effect = SubResource("Resource_mvd1o")
+metadata/_custom_type_script = "uid://cm7pxr7dc7hue"
 
 [sub_resource type="Resource" id="Resource_3htep"]
 script = ExtResource("3_1uysu")
@@ -16,6 +43,7 @@ radius = 600.0
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_6h5ka")
+bullet_modifiers = Array[ExtResource("2_0v2ip")]([SubResource("Resource_cwss2")])
 shoot_behavior = ExtResource("2_6h5ka")
 movement_behavior = SubResource("Resource_3htep")
 metadata/_custom_type_script = "uid://culhnjwum6js5"
