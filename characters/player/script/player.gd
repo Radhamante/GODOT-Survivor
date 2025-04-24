@@ -48,9 +48,14 @@ func _physics_process(delta: float) -> void:
 		if character_info.health <= 0:
 			heath_depleted.emit()
 
+func _level_up():
+	$LevelUpParticules.emitting = true
+	character_info.xp -= character_info.level * character_info.xp_by_level_multipler
+	character_info.level += 1
 
 func _on_magnet_area_entered(magnetable: Magnetable) -> void:
 	magnetable.magnet_to(self)
+	
 
 func _on_pickup_area_entered(magnetable: Magnetable) -> void:
 	if magnetable is XPMagnetable:
@@ -58,6 +63,5 @@ func _on_pickup_area_entered(magnetable: Magnetable) -> void:
 		var xp_for_next_level = character_info.level * character_info.xp_by_level_multipler
 		xp_level.emit(character_info.xp, character_info.level, xp_for_next_level)
 		if character_info.xp >= xp_for_next_level:
-			character_info.xp -= xp_for_next_level
-			character_info.level += 1
+			_level_up()
 	magnetable.queue_free()

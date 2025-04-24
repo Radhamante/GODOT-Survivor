@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://deyaebkrhgrx2"]
+[gd_scene load_steps=13 format=3 uid="uid://deyaebkrhgrx2"]
 
 [ext_resource type="Script" uid="uid://x5oxgo5ceols" path="res://characters/player/script/player.gd" id="1_onrkg"]
 [ext_resource type="Resource" uid="uid://ph72dst7pq8j" path="res://characters/player/character_infos/yellow.tres" id="2_0nskp"]
 [ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="3_ow4ck"]
 [ext_resource type="Script" uid="uid://defvp5lyhbaw1" path="res://characters/player/script/weapons.gd" id="3_sweqy"]
 [ext_resource type="Texture2D" uid="uid://bswi3tyvra8or" path="res://level/sprite/progress_green.png" id="4_u7g1b"]
+[ext_resource type="Material" uid="uid://bs3417ynvhjyi" path="res://characters/player/level_up_process_material.tres" id="6_n5vo5"]
+[ext_resource type="Texture2D" uid="uid://okn5sngoaf6w" path="res://characters/player/sprites/level_up.png" id="6_sar8d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 21.0238
@@ -30,6 +32,14 @@ collision_layer = 8
 collision_mask = 17
 script = ExtResource("1_onrkg")
 character_info = ExtResource("2_0nskp")
+
+[node name="LevelUpParticules" type="GPUParticles2D" parent="."]
+emitting = false
+texture = ExtResource("6_sar8d")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource("6_n5vo5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_onrkg")
@@ -75,6 +85,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Magnet"]
 shape = SubResource("CircleShape2D_0nskp")
+debug_color = Color(0.94902, 0.898039, 0, 0.0196078)
 
 [node name="Pickup" type="Area2D" parent="."]
 collision_layer = 0
