@@ -17,6 +17,6 @@ speed = 500.0
 armor = 0.0
 weapons = Array[Resource]([ExtResource("5_54ntc")])
 xp = 0.0
-level = 0
+level = 1
 xp_by_level_multipler = 10.0
 metadata/_custom_type_script = "uid://b2sycb0fk37xf"

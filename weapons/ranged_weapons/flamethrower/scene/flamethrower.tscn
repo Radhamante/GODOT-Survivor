@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://b1j5fo84ar6nd"]
 
 [ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/ranged_weapon.gd" id="1_vvost"]
-[ext_resource type="Script" uid="uid://bqmyv7ijto1eu" path="res://modifiers/weapon_modifiers/weapon_modifier.gd" id="2_5udj4"]
+[ext_resource type="Script" uid="uid://bqmyv7ijto1eu" path="res://modifiers/weapon_modifier.gd" id="2_5udj4"]
 [ext_resource type="Texture2D" uid="uid://cl6d7e32ws30d" path="res://weapons/ranged_weapons/flamethrower/sprite/hand_yellow_rock.png" id="2_fvnwn"]
 [ext_resource type="Resource" uid="uid://0scfpfftqqja" path="res://weapons/ranged_weapons/flamethrower/flamethrower_accuracy_modifier.tres" id="3_a2ba3"]
 [ext_resource type="Resource" uid="uid://bsroa0q7irv60" path="res://weapons/ranged_weapons/flamethrower/flamethrower_behavior.tres" id="4_5udj4"]

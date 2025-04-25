@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dmml3kt2amqjr"]
 
-[ext_resource type="Script" uid="uid://c7uhlo51epgvr" path="res://weapons/melee_weapons/MeleeWeapon.gd" id="1_5r41l"]
+[ext_resource type="Script" uid="uid://c7uhlo51epgvr" path="res://weapons/melee_weapons/melee_weapon.gd" id="1_5r41l"]
 [ext_resource type="Resource" uid="uid://c1rpbh7tolnwl" path="res://weapons/melee_weapons/forcefield/forcefield_damage_source.tres" id="2_p0un4"]
 [ext_resource type="Script" uid="uid://dcqb0eircmei1" path="res://weapons/behaviors/move_behaviors/OrbitPlayerMovement.gd" id="3_qk1go"]
 [ext_resource type="Texture2D" uid="uid://dl438kjuhl06j" path="res://weapons/melee_weapons/forcefield/sprite/circle_01.png" id="4_p0un4"]

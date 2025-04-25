@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://84yg1uhklpuv" path="res://level/script/difficulty_level.gd" id="1_2yljy"]
 [ext_resource type="Script" uid="uid://od4wq4bhanop" path="res://level/script/difficulty_levels.gd" id="2_0pwum"]
-[ext_resource type="Script" uid="uid://cv5psvvs0vfxs" path="res://modifiers/monster_modifiers/monster_modifier.gd" id="2_od8jp"]
+[ext_resource type="Script" uid="uid://cv5psvvs0vfxs" path="res://modifiers/monster_modifier.gd" id="2_od8jp"]
 [ext_resource type="PackedScene" uid="uid://fk84spmwptye" path="res://characters/monsters/bat/scene/bat.tscn" id="3_br1jc"]
 [ext_resource type="PackedScene" uid="uid://c6uupk6osn1pe" path="res://characters/monsters/slime/scene/slime.tscn" id="4_5n3xt"]
 [ext_resource type="PackedScene" uid="uid://bitkbagvnnqr7" path="res://characters/monsters/sausage/scene/sausage.tscn" id="5_8bv23"]

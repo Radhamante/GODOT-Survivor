@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="SingleBulletShootBehavior" load_steps=3 format=3 uid="uid://cjpkg01wgihko"]
+[gd_resource type="Resource" script_class="ShootBehavior" load_steps=3 format=3 uid="uid://byqyk35c22kde"]
 
 [ext_resource type="PackedScene" uid="uid://dbbrr6nrivh0k" path="res://weapons/ranged_weapons/gun/scene/gun_bullet.tscn" id="1_5dx1m"]
-[ext_resource type="Script" uid="uid://ba1j1ueuxeg5p" path="res://weapons/behaviors/SingleBulletShotBehavior.gd" id="2_gb2ii"]
+[ext_resource type="Script" uid="uid://b8cyifd2w58xg" path="res://weapons/behaviors/shot_behavior.gd" id="2_4p73a"]
 
 [resource]
-script = ExtResource("2_gb2ii")
+script = ExtResource("2_4p73a")
 bullet_scene = ExtResource("1_5dx1m")
+bullet_count = 1
+spread_angle = 0.0
+accuracy_bias = 0.7
 accuracy_correction = -37.0
-metadata/_custom_type_script = "uid://ba1j1ueuxeg5p"
+metadata/_custom_type_script = "uid://b8cyifd2w58xg"

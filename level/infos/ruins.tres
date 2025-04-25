@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://84yg1uhklpuv" path="res://level/script/difficulty_level.gd" id="1_nlgh7"]
 [ext_resource type="Texture2D" uid="uid://dsd6byfi3je6l" path="res://level/sprite/ruins.webp" id="1_wflpm"]
-[ext_resource type="Script" uid="uid://cv5psvvs0vfxs" path="res://modifiers/monster_modifiers/monster_modifier.gd" id="2_05o5q"]
+[ext_resource type="Script" uid="uid://cv5psvvs0vfxs" path="res://modifiers/monster_modifier.gd" id="2_05o5q"]
 [ext_resource type="Script" uid="uid://6282jyup2y6f" path="res://level/script/level_info.gd" id="2_gmix1"]
 [ext_resource type="Script" uid="uid://od4wq4bhanop" path="res://level/script/difficulty_levels.gd" id="2_ncdbu"]
 [ext_resource type="PackedScene" uid="uid://ditg1anxwgsxv" path="res://characters/monsters/ghost/scene/ghost.tscn" id="3_3hcts"]
