@@ -75,7 +75,7 @@ Settings/Show_Tooltips=true
 [application]
 
 config/name="simple-survivor"
-run/main_scene="uid://d0jtw05w3xofs"
+run/main_scene="uid://dqlt7wd8em612"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://dsw7y0enp8lf7"
 
@@ -87,6 +87,7 @@ buses/default_bus_layout=""
 
 Enums="*res://shared/script/enums.gd"
 Variables="*res://shared/script/variables.gd"
+MenuRoot="*res://menu/menu_root.tscn"
 
 [display]
 

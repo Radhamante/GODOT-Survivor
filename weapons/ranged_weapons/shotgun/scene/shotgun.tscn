@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/ranged_weapon.gd" id="1_dfr8x"]
 [ext_resource type="Texture2D" uid="uid://d0aqseyrpi2c6" path="res://weapons/ranged_weapons/shotgun/sprite/hand_yellow_open.png" id="2_5ihko"]
-[ext_resource type="Resource" uid="uid://dhjgcowert321" path="res://weapons/ranged_weapons/shotgun/shotgun_shoot_behavior.tres" id="2_p66vu"]
+[ext_resource type="Resource" uid="uid://d3kmlj6w650um" path="res://weapons/ranged_weapons/shotgun/shotgun_shoot_behavior.tres" id="2_p66vu"]
 [ext_resource type="Script" uid="uid://eiececv5s1s8" path="res://weapons/behaviors/move_behaviors/FollowClosestEnemyMovement.gd" id="3_eiyg2"]
 
 [sub_resource type="Resource" id="Resource_jyntk"]

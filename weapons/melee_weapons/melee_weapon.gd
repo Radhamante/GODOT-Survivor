@@ -12,6 +12,9 @@ var movement_behavior: WeaponMovementBehavior
 var overtime_delay: float = .2
 @onready var _overtime_timer = overtime_delay
 
+@export var upgrade_tree: WeaponUpgradeNode
+@onready var next_upgrades: Array[WeaponUpgradeNode] = [upgrade_tree] as Array[WeaponUpgradeNode] if upgrade_tree else []
+
 func _ready() -> void:
 	_apply_weapon_modifiers()
 

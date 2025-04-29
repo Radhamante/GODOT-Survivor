@@ -7,6 +7,8 @@ class_name RandedWeapon
 @export var shoot_behavior: ShootBehavior
 @export var movement_behavior: WeaponMovementBehavior
 
+@export var upgrade_tree: WeaponUpgradeNode
+@onready var next_upgrades: Array[WeaponUpgradeNode] = [upgrade_tree]
 
 func apply_weapon_modifiers():
 	for mod in weapon_modifiers:
@@ -18,17 +20,6 @@ func apply_weapon_modifiers():
 	for mod in weapon_modifiers:
 		if mod.operation == "set":
 			mod.apply(self)
-	
-func apply_bullet_modifier(bullet: Bullet):
-	for mod in bullet_modifiers:
-		if mod.operation == "add":
-			mod.apply(bullet)
-	for mod in bullet_modifiers:
-		if mod.operation == "mult":
-			mod.apply(bullet)
-	for mod in bullet_modifiers:
-		if mod.operation == "set":
-			mod.apply(bullet)
 
 func add_modifier(modifier: RangedWeaponModifier):
 	weapon_modifiers.push_back(modifier)

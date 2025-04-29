@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://bl0xb7yg5qst5"]
+[gd_scene load_steps=12 format=3 uid="uid://bl0xb7yg5qst5"]
 
 [ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/ranged_weapon.gd" id="1_tbhaj"]
 [ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://weapons/effects/EffectComponent.gd" id="2_nw1gx"]
 [ext_resource type="Script" uid="uid://eiececv5s1s8" path="res://weapons/behaviors/move_behaviors/FollowClosestEnemyMovement.gd" id="3_b88v1"]
 [ext_resource type="Script" uid="uid://b71xs3q6hes2f" path="res://weapons/effects/BoucingEffect.gd" id="3_rbmqr"]
-[ext_resource type="Resource" uid="uid://vf75m62xa46b" path="res://weapons/ranged_weapons/boucing_bolt/bouncing_bolt_shoot_behavior.tres" id="4_nw1gx"]
+[ext_resource type="PackedScene" uid="uid://bkkoyofa4wnyw" path="res://weapons/ranged_weapons/boucing_bolt/scene/bouncing_bolt_bullet.tscn" id="4_1kiw1"]
+[ext_resource type="Script" uid="uid://b8cyifd2w58xg" path="res://weapons/behaviors/shot_behavior.gd" id="5_hc7ws"]
 [ext_resource type="Texture2D" uid="uid://dp8hyyc5klhsd" path="res://weapons/ranged_weapons/boucing_bolt/sprite/waterbolt.png" id="6_rbmqr"]
 
 [sub_resource type="Resource" id="Resource_hc7ws"]
@@ -12,6 +13,16 @@ script = ExtResource("3_rbmqr")
 bounce_radius = 300.0
 max_bouce = 3
 metadata/_custom_type_script = "uid://b71xs3q6hes2f"
+
+[sub_resource type="Resource" id="Resource_xrty8"]
+script = ExtResource("5_hc7ws")
+bullet_scene = ExtResource("4_1kiw1")
+bullet_count = 1
+spread_angle = 0.0
+accuracy_correction = 0.0
+shoot_delay = 0.5
+accuracy = 0.0
+metadata/_custom_type_script = "uid://b8cyifd2w58xg"
 
 [sub_resource type="Resource" id="Resource_1kiw1"]
 script = ExtResource("3_b88v1")
@@ -25,7 +36,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_tbhaj")
 hit_effects = Array[ExtResource("2_nw1gx")]([SubResource("Resource_hc7ws")])
-shoot_behavior = ExtResource("4_nw1gx")
+shoot_behavior = SubResource("Resource_xrty8")
 movement_behavior = SubResource("Resource_1kiw1")
 metadata/_custom_type_script = "uid://culhnjwum6js5"
 

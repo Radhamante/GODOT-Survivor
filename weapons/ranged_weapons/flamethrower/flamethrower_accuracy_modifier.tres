@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="FlatAccuracyModifier" load_steps=2 format=3 uid="uid://0scfpfftqqja"]
-
-[ext_resource type="Script" uid="uid://c7ry4asbxqrt8" path="res://modifiers/weapon_modifiers/flat_accuracy_modifier.gd" id="1_141oj"]
-
-[resource]
-script = ExtResource("1_141oj")
-bonus = 50.0
-metadata/_custom_type_script = "uid://c7ry4asbxqrt8"

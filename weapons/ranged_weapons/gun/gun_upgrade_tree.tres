@@ -1,0 +1,107 @@
+[gd_resource type="Resource" script_class="WeaponUpgradeNode" load_steps=20 format=3 uid="uid://b3ayu8pvggejh"]
+
+[ext_resource type="Script" uid="uid://bgr31s8pkpehu" path="res://weapons/upgrade/weaponUpgradeNode.gd" id="1_8c1yt"]
+[ext_resource type="Script" uid="uid://bqmyv7ijto1eu" path="res://modifiers/weapon_modifier.gd" id="1_x5utv"]
+[ext_resource type="Script" uid="uid://bh1kaj35dkkan" path="res://modifiers/bullet_modifier.gd" id="2_5v17w"]
+[ext_resource type="Script" uid="uid://djemock204iuk" path="res://modifiers/float_or_bullet_modifier.gd" id="3_aj501"]
+[ext_resource type="Script" uid="uid://0arbfjfw4ycv" path="res://modifiers/randed_weapon_modifier.gd" id="4_j7y5t"]
+
+[sub_resource type="Resource" id="Resource_qgoom"]
+script = ExtResource("2_5v17w")
+bonus = 1.0
+property_name = 0
+operation = "add"
+metadata/_custom_type_script = "uid://bh1kaj35dkkan"
+
+[sub_resource type="Resource" id="Resource_jpbnt"]
+script = ExtResource("3_aj501")
+type_choice = "BulletModifier"
+Float_value = 0.0
+BulletModifier_value = SubResource("Resource_qgoom")
+metadata/_custom_type_script = "uid://djemock204iuk"
+
+[sub_resource type="Resource" id="Resource_2vbqr"]
+script = ExtResource("4_j7y5t")
+property_name = 5
+bonus = SubResource("Resource_jpbnt")
+operation = "add"
+metadata/_custom_type_script = "uid://0arbfjfw4ycv"
+
+[sub_resource type="Resource" id="Resource_aj501"]
+script = ExtResource("2_5v17w")
+bonus = 1.0
+property_name = 0
+operation = "add"
+metadata/_custom_type_script = "uid://bh1kaj35dkkan"
+
+[sub_resource type="Resource" id="Resource_j7y5t"]
+script = ExtResource("3_aj501")
+type_choice = "BulletModifier"
+Float_value = 0.0
+BulletModifier_value = SubResource("Resource_aj501")
+metadata/_custom_type_script = "uid://djemock204iuk"
+
+[sub_resource type="Resource" id="Resource_71xlw"]
+script = ExtResource("4_j7y5t")
+property_name = 5
+bonus = SubResource("Resource_j7y5t")
+operation = "add"
+metadata/_custom_type_script = "uid://0arbfjfw4ycv"
+
+[sub_resource type="Resource" id="Resource_5v17w"]
+script = ExtResource("1_8c1yt")
+modifiers = Array[ExtResource("1_x5utv")]([SubResource("Resource_71xlw")])
+nexts = Array[ExtResource("1_8c1yt")]([])
+metadata/_custom_type_script = "uid://bgr31s8pkpehu"
+
+[sub_resource type="Resource" id="Resource_gqbjt"]
+script = ExtResource("2_5v17w")
+bonus = 0.2
+property_name = 2
+operation = "add"
+metadata/_custom_type_script = "uid://bh1kaj35dkkan"
+
+[sub_resource type="Resource" id="Resource_nbdlj"]
+script = ExtResource("3_aj501")
+type_choice = "BulletModifier"
+Float_value = 0.0
+BulletModifier_value = SubResource("Resource_gqbjt")
+metadata/_custom_type_script = "uid://djemock204iuk"
+
+[sub_resource type="Resource" id="Resource_s3sm2"]
+script = ExtResource("4_j7y5t")
+property_name = 5
+bonus = SubResource("Resource_nbdlj")
+operation = "add"
+metadata/_custom_type_script = "uid://0arbfjfw4ycv"
+
+[sub_resource type="Resource" id="Resource_fagdi"]
+script = ExtResource("1_8c1yt")
+modifiers = Array[ExtResource("1_x5utv")]([SubResource("Resource_s3sm2")])
+nexts = Array[ExtResource("1_8c1yt")]([])
+metadata/_custom_type_script = "uid://bgr31s8pkpehu"
+
+[sub_resource type="Resource" id="Resource_odenx"]
+script = ExtResource("3_aj501")
+type_choice = "Float"
+Float_value = -0.1
+metadata/_custom_type_script = "uid://djemock204iuk"
+
+[sub_resource type="Resource" id="Resource_athi3"]
+script = ExtResource("4_j7y5t")
+property_name = 1
+bonus = SubResource("Resource_odenx")
+operation = "add"
+metadata/_custom_type_script = "uid://0arbfjfw4ycv"
+
+[sub_resource type="Resource" id="Resource_add2e"]
+script = ExtResource("1_8c1yt")
+modifiers = Array[ExtResource("1_x5utv")]([SubResource("Resource_athi3")])
+nexts = Array[ExtResource("1_8c1yt")]([])
+metadata/_custom_type_script = "uid://bgr31s8pkpehu"
+
+[resource]
+script = ExtResource("1_8c1yt")
+modifiers = Array[ExtResource("1_x5utv")]([SubResource("Resource_2vbqr")])
+nexts = Array[ExtResource("1_8c1yt")]([SubResource("Resource_5v17w"), SubResource("Resource_fagdi"), SubResource("Resource_add2e")])
+metadata/_custom_type_script = "uid://bgr31s8pkpehu"

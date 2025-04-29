@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://b8cyifd2w58xg" path="res://weapons/behaviors/shot_behavior.gd" id="2_4p73a"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("2_4p73a")
 bullet_scene = ExtResource("1_5dx1m")
 bullet_count = 1
 spread_angle = 0.0
-accuracy_bias = 0.7
 accuracy_correction = -37.0
 metadata/_custom_type_script = "uid://b8cyifd2w58xg"

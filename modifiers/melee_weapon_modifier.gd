@@ -12,24 +12,46 @@ enum MeleeWeaponStatsName {
 	ORBIT_SPEED,
 }
 
-func _get_stats_name(selected_stat: MeleeWeaponStatsName) -> Array[String]:
-	match selected_stat:
+func _init() -> void:
+	call_deferred("setup")
+
+func setup() -> void:
+	var operation_icon: String
+	match operation:
+		"add":
+			operation_icon = "+" if bonus.Float_value >= 0 else "-"
+		"multiply":
+			operation_icon = "*"
+		"set":
+			operation_icon = "="
+	match property_name:
 		MeleeWeaponStatsName.DAMAGE:
-			return ["modified_damage_source","damage"]
+			property = ["modified_damage_source","damage"]
+			display_logo = preload("res://modifiers/sprites/damage.png")
+			display_value = "Damage : " + operation_icon + str(abs(bonus.Float_value))
 		MeleeWeaponStatsName.ARMOR_PENETRATION:
-			return ["modified_damage_source","armor_penetration"]
+			property = ["modified_damage_source","armor_penetration"]
+			display_logo = preload("res://modifiers/sprites/armor_penetration.png")
+			display_value = "Armor penetration : " + operation_icon + str(abs(bonus.Float_value))
 		MeleeWeaponStatsName.CRIT_CHANCE:
-			return ["modified_damage_source","crit_chance"]
+			property = ["modified_damage_source","crit_chance"]
+			display_logo = preload("res://modifiers/sprites/crit_chance.png")
+			display_value = "Critical hit chances : " + operation_icon + str(abs(bonus.Float_value))
 		MeleeWeaponStatsName.CRIT_DAMAGE:
-			return ["modified_damage_source","crit_damage"]
+			property = ["modified_damage_source","crit_damage"]
+			display_logo = preload("res://modifiers/sprites/crit_damage.png")
+			display_value = "Cricital hit damages : " + operation_icon + str(abs(bonus.Float_value))
 		MeleeWeaponStatsName.KNOCKBACK_FORCE:
-			return ["modified_damage_source","knockback_force"]
+			property = ["modified_damage_source","knockback_force"]
+			display_logo = preload("res://modifiers/sprites/hexagon.png")
+			display_value = "Knockback : " + operation_icon + str(abs(bonus.Float_value))
 		MeleeWeaponStatsName.ORBIT_SPEED:
-			return ["movement_behavior","orbit_speed"]
+			property = ["movement_behavior","orbit_speed"]
+			display_logo = preload("res://modifiers/sprites/orbit_speed.png")
+			display_value = "Orbit speed : " + operation_icon + str(abs(bonus.Float_value))
 		_:
-			push_error("Invalid MeleeWeaponStatsName value: " + str(selected_stat))
-			return []
+			push_error("Invalid MeleeWeaponStatsName value: " + str(property_name))
+			property = []
 
 func apply(weapon: MeleeWeapon):
-	property = _get_stats_name(property_name)
 	super._apply(weapon)

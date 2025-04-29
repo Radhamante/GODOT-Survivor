@@ -6,7 +6,8 @@ class_name BulletModifier
 @export_enum("add", "multiply", "set") var operation := "add"
 
 var property: Array[String]
-
+var display_value: String
+var display_logo: CompressedTexture2D
 
 enum ModifiedPropertyEnum {
 	DAMAGE,
@@ -21,36 +22,65 @@ enum ModifiedPropertyEnum {
 	PIERCING
 }
 
-func _get_stats_name(selected_stat: ModifiedPropertyEnum) -> Array[String]:
-	match selected_stat:
+func _init() -> void:
+	call_deferred("setup")
+
+func setup() -> void:
+	var operation_icon: String
+	match operation:
+		"add":
+			operation_icon = "+" if bonus >= 0 else "-"
+		"multiply":
+			operation_icon = "*"
+		"set":
+			operation_icon = "="
+	match property_name:
 		ModifiedPropertyEnum.DAMAGE:
-			return ["damageSource","damage"]
+			property = ["damageSource","damage"]
+			display_logo = preload("res://modifiers/sprites/damage.png")
+			display_value = "Damage : "  + operation_icon + str(abs(bonus))
 		ModifiedPropertyEnum.ARMOR_PENETRATION:
-			return ["damageSource","armor_penetration"]
+			property = ["damageSource","armor_penetration"]
+			display_logo = preload("res://modifiers/sprites/armor_penetration.png")
+			display_value = "Armore penetration"  + operation_icon + str(abs(bonus))
 		ModifiedPropertyEnum.CRIT_CHANCE:
-			return ["damageSource","crit_chance"]
+			property = ["damageSource","crit_chance"]
+			display_logo = preload("res://modifiers/sprites/crit_chance.png")
+			display_value = "Critical hit chances"  + operation_icon + str(abs(bonus))
 		ModifiedPropertyEnum.CRIT_DAMAGE:
-			return ["damageSource","crit_damage"]
+			property = ["damageSource","crit_damage"]
+			display_logo = preload("res://modifiers/sprites/crit_damage.png")
+			display_value = "Critical hit damages"  + operation_icon + str(abs(bonus))
 		ModifiedPropertyEnum.TYPES:
-			return ["damageSource","types"]
+			property = ["damageSource","types"]
+			display_logo = preload("res://modifiers/sprites/damage_type.png")
+			display_value = "Damage type : "  + operation_icon + str(abs(bonus))
 		ModifiedPropertyEnum.DAMAGE_REDUCTION_ON_PIERCING:
-			return ["damageSource","damage_reduction_on_piercing"]
+			property = ["damageSource","damage_reduction_on_piercing"]
+			display_logo = preload("res://modifiers/sprites/hexagon.png")
+			display_value = "Piercing damage reduction"  + operation_icon + str(abs(bonus))
 		ModifiedPropertyEnum.KNOCKBACK_FORCE:
-			return ["damageSource","knockback_force"]
+			property = ["damageSource","knockback_force"]
+			display_logo = preload("res://modifiers/sprites/hexagon.png")
+			display_value = "Knockback"  + operation_icon + str(abs(bonus))
 		ModifiedPropertyEnum.SPEED:
-			return ["bulletStats","speed"]
+			property = ["bulletStats","speed"]
+			display_logo = preload("res://modifiers/sprites/bullet_speed.png")
+			display_value = "Bullet speed"  + operation_icon + str(abs(bonus))
 		ModifiedPropertyEnum.RANGE:
-			return ["bulletStats","range"]
+			property = ["bulletStats","range"]
+			display_logo = preload("res://modifiers/sprites/hexagon.png")
+			display_value = "Range"  + operation_icon + str(abs(bonus))
 		ModifiedPropertyEnum.PIERCING:
-			return ["bulletStats","piercing"]
+			property = ["bulletStats","piercing"]
+			display_logo = preload("res://modifiers/sprites/hexagon.png")
+			display_value = "Piercing"  + operation_icon + str(abs(bonus))
 		_:
-			push_error("Invalid selected_stat value: " + str(selected_stat))
-			return []
+			push_error("Invalid selected_stat value: " + str(property_name))
+			
 
 
 func apply(bullet: Bullet):
-	property = _get_stats_name(property_name)
-	
 	if property.is_empty():
 		push_error("No valid property path to apply modifier.")
 		return

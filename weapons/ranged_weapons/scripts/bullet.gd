@@ -8,16 +8,32 @@ var travelled_distance = 0
 @export var damageSource: DamageSource
 @export var bulletStats: BulletStats
 
-var hit_effects: Array[EffectComponent] = []
+@export var modifiers: Array[BulletModifier] = []
+@export var hit_effects: Array[EffectComponent] = []
+
 
 func _ready() -> void:
 	damageSource.source_position = global_position
 
-func apply_modifier(modifier: BulletModifier):
-	modifier.apply(self)
+func setup(
+	_modifiers: Array[BulletModifier] = [], 
+	_hit_effects: Array[EffectComponent] = []
+) -> void:
+	await ready
+	modifiers += _modifiers
+	hit_effects += _hit_effects
+	_apply_modifier()
 
-func get_piercing_damage_reduction() -> float:
-	return 0.0
+func _apply_modifier():
+	for mod in modifiers:
+		if mod.operation == "add":
+			mod.apply(self)
+	for mod in modifiers:
+		if mod.operation == "mult":
+			mod.apply(self)
+	for mod in modifiers:
+		if mod.operation == "set":
+			mod.apply(self)
 
 func _physics_process(delta: float) -> void:
 	var direction = Vector2.RIGHT.rotated(rotation)
@@ -26,7 +42,6 @@ func _physics_process(delta: float) -> void:
 	travelled_distance += bulletStats.speed * delta
 	if travelled_distance > bulletStats.range:
 		queue_free()
-
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is not Monster:

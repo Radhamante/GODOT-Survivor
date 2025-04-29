@@ -1,26 +1,20 @@
 [gd_scene load_steps=9 format=3 uid="uid://d0jtw05w3xofs"]
 
 [ext_resource type="Script" uid="uid://bswn0csmelkug" path="res://menu/menu_root.gd" id="1_c4kem"]
-[ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="1_t8pbm"]
 [ext_resource type="PackedScene" uid="uid://blyh8cra8at8w" path="res://menu/main_menu/main_menu.tscn" id="3_qvmb4"]
 [ext_resource type="PackedScene" uid="uid://dmmyv728c85ag" path="res://menu/character_select/character_select.tscn" id="4_kdtid"]
 [ext_resource type="PackedScene" uid="uid://c4bc6xi5hptg4" path="res://menu/level_select/level_select.tscn" id="5_i8pwd"]
 [ext_resource type="PackedScene" uid="uid://n26qjgtu4ldm" path="res://menu/options_menu/options_menu.tscn" id="6_mvocj"]
 [ext_resource type="PackedScene" uid="uid://x3e8modtr7fy" path="res://menu/pause_menu/pause_menu.tscn" id="7_wmwb7"]
 [ext_resource type="PackedScene" uid="uid://qfmimc27lm15" path="res://menu/game_over_menu/game_over_menu.tscn" id="8_whfxe"]
+[ext_resource type="PackedScene" uid="uid://cv8fwsrr1gglv" path="res://menu/level_up_menu/level_up_menu.tscn" id="9_kdtid"]
 
-[node name="MenuRoot" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme = ExtResource("1_t8pbm")
+[node name="MenuRoot" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_c4kem")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -29,15 +23,12 @@ grow_vertical = 2
 
 [node name="MainMenu" parent="." instance=ExtResource("3_qvmb4")]
 visible = false
-layout_mode = 1
 
-[node name="CharacterSelect" parent="." instance=ExtResource("4_kdtid")]
+[node name="CharacterSelectMenu" parent="." instance=ExtResource("4_kdtid")]
 visible = false
-layout_mode = 1
 
-[node name="LevelSelect" parent="." instance=ExtResource("5_i8pwd")]
+[node name="LevelSelectMenu" parent="." instance=ExtResource("5_i8pwd")]
 visible = false
-layout_mode = 1
 
 [node name="OptionsMenu" parent="." instance=ExtResource("6_mvocj")]
 visible = false
@@ -48,39 +39,8 @@ visible = false
 [node name="PauseMenu" parent="." instance=ExtResource("7_wmwb7")]
 visible = false
 
-[node name="LevelUpMenu" type="Control" parent="."]
+[node name="LevelUpMenu" parent="." instance=ExtResource("9_kdtid")]
 visible = false
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="LevelUpMenu"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 200
-theme_override_constants/margin_top = 200
-theme_override_constants/margin_right = 200
-theme_override_constants/margin_bottom = 200
-
-[node name="HBoxContainer" type="HBoxContainer" parent="LevelUpMenu/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 100
-
-[node name="Button" type="Button" parent="LevelUpMenu/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Button2" type="Button" parent="LevelUpMenu/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="Button3" type="Button" parent="LevelUpMenu/MarginContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
+[connection signal="resume_pressed" from="PauseMenu" to="." method="_on_pause_menu_resume_pressed"]
+[connection signal="upgrade_selected" from="LevelUpMenu" to="." method="_on_level_up_menu_upgrade_selected"]

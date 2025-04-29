@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://weapons/effects/EffectComponent.gd" id="2_atfev"]
 [ext_resource type="Resource" uid="uid://cfkly5r8ilhhy" path="res://weapons/ranged_weapons/slash/slash_overtime_behavior.tres" id="3_37hx6"]
 [ext_resource type="Script" uid="uid://q8u86cpd138c" path="res://weapons/behaviors/move_behaviors/RandomMovement.gd" id="4_7st3x"]
-[ext_resource type="Resource" uid="uid://cw700igjex3e3" path="res://weapons/ranged_weapons/slash/slash_shoot_behavior.tres" id="6_umhg1"]
+[ext_resource type="Resource" uid="uid://8qp1q2v160ql" path="res://weapons/ranged_weapons/slash/slash_shoot_behavior.tres" id="6_umhg1"]
 
 [sub_resource type="Resource" id="Resource_37hx6"]
 script = ExtResource("4_7st3x")

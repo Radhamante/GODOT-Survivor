@@ -13,3 +13,4 @@ class_name CharacterInfo
 @export var xp: float
 @export var level: int
 @export var xp_by_level_multipler: float
+@export var upgrade_by_level: int = 3

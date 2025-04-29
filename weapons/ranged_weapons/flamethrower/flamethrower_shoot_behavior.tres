@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ShootBehavior" load_steps=3 format=3 uid="uid://cct6nsfj6yqeo"]
+
+[ext_resource type="PackedScene" uid="uid://bx0kgwffybo3w" path="res://weapons/ranged_weapons/flamethrower/scene/flamethrower_bullet.tscn" id="1_uksat"]
+[ext_resource type="Script" uid="uid://b8cyifd2w58xg" path="res://weapons/behaviors/shot_behavior.gd" id="2_6hw40"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("2_6hw40")
+bullet_scene = ExtResource("1_uksat")
+bullet_count = 1
+spread_angle = 0.0
+accuracy_correction = -90.0
+shoot_delay = 0.05
+accuracy = 50.0
+metadata/_custom_type_script = "uid://b8cyifd2w58xg"

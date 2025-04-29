@@ -1,9 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://wqtcmssf1m0k"]
+[gd_scene load_steps=9 format=3 uid="uid://wqtcmssf1m0k"]
 
 [ext_resource type="Texture2D" uid="uid://drydquut0g84k" path="res://weapons/ranged_weapons/machinegun/sprite/hand_yellow_peace.png" id="1_j2kgv"]
 [ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/ranged_weapon.gd" id="1_m0wau"]
-[ext_resource type="Resource" uid="uid://dhmvivclxyxuq" path="res://weapons/ranged_weapons/machinegun/machinegun_shoot_behavior.tres" id="2_2c8fh"]
+[ext_resource type="PackedScene" uid="uid://d1vrowuf1cnpf" path="res://weapons/ranged_weapons/machinegun/scene/machinegun_bullet.tscn" id="2_speje"]
 [ext_resource type="Script" uid="uid://dcqb0eircmei1" path="res://weapons/behaviors/move_behaviors/OrbitPlayerMovement.gd" id="3_i1xmd"]
+[ext_resource type="Script" uid="uid://b8cyifd2w58xg" path="res://weapons/behaviors/shot_behavior.gd" id="3_q060w"]
+
+[sub_resource type="Resource" id="Resource_speje"]
+script = ExtResource("3_q060w")
+bullet_scene = ExtResource("2_speje")
+bullet_count = 1
+spread_angle = 0.0
+accuracy_correction = 0.0
+shoot_delay = 0.5
+accuracy = 0.0
+metadata/_custom_type_script = "uid://b8cyifd2w58xg"
 
 [sub_resource type="Resource" id="Resource_2t52x"]
 script = ExtResource("3_i1xmd")
@@ -17,7 +28,7 @@ radius = 515.123
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_m0wau")
-shoot_behavior = ExtResource("2_2c8fh")
+shoot_behavior = SubResource("Resource_speje")
 movement_behavior = SubResource("Resource_2t52x")
 metadata/_custom_type_script = "uid://culhnjwum6js5"
 

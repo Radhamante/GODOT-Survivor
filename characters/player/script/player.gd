@@ -52,6 +52,18 @@ func _level_up():
 	$LevelUpParticules.emitting = true
 	character_info.xp -= character_info.level * character_info.xp_by_level_multipler
 	character_info.level += 1
+	var upgrade_list = []
+	for weapon in $Weapons.get_children():
+		for upgrade in weapon.next_upgrades:
+			upgrade_list.push_back([weapon, upgrade])
+	var selected_upgrades = []
+	for i in range(character_info.upgrade_by_level):
+		var random_index =  randi() % upgrade_list.size() if upgrade_list.size() > 0 else -1
+		if random_index >= 0:
+			selected_upgrades.push_back(upgrade_list[random_index])
+			upgrade_list.remove_at(random_index)
+
+	MenuRoot.show_level_up_menu(selected_upgrades)
 
 func _on_magnet_area_entered(magnetable: Magnetable) -> void:
 	magnetable.magnet_to(self)
