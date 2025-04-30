@@ -1,15 +1,11 @@
-extends Area2D
+extends Weapon
 class_name RandedWeapon
 
-@export var weapon_name:String
 @export var weapon_modifiers:Array[RangedWeaponModifier] = []
 @export var bullet_modifiers: Array[BulletModifier] = []
-@export var hit_effects: Array[EffectComponent] = []
 @export var shoot_behavior: ShootBehavior
 @export var movement_behavior: WeaponMovementBehavior
 
-@export var upgrade_tree: WeaponUpgradeNode
-@onready var next_upgrades: Array[WeaponUpgradeNode] = [upgrade_tree]
 
 func apply_weapon_modifiers():
 	for mod in weapon_modifiers:

@@ -1,9 +1,7 @@
-extends Area2D
+extends Weapon
 class_name MeleeWeapon
 
-@export var weapon_name: String
 @export var weapon_modifiers:Array[MeleeWeaponModifier] = []
-@export var hit_effects: Array[EffectComponent] = []
 @export var base_damage_source: DamageSource
 @export var base_movement_behavior: WeaponMovementBehavior
 
@@ -12,9 +10,6 @@ var movement_behavior: WeaponMovementBehavior
 
 var overtime_delay: float = .2
 @onready var _overtime_timer = overtime_delay
-
-@export var upgrade_tree: WeaponUpgradeNode
-@onready var next_upgrades: Array[WeaponUpgradeNode] = [upgrade_tree] as Array[WeaponUpgradeNode] if upgrade_tree else []
 
 func _ready() -> void:
 	_apply_weapon_modifiers()

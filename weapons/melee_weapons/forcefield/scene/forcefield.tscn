@@ -17,9 +17,9 @@ radius = 94.0479
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_5r41l")
-weapon_name = "Force field"
 base_damage_source = ExtResource("2_p0un4")
 base_movement_behavior = SubResource("Resource_008xr")
+weapon_name = "Force field"
 upgrade_tree = ExtResource("4_008xr")
 metadata/_custom_type_script = "uid://c7uhlo51epgvr"
 
