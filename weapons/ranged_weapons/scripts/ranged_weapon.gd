@@ -1,5 +1,5 @@
 extends Weapon
-class_name RandedWeapon
+class_name RangedWeapon
 
 @export var weapon_modifiers:Array[RangedWeaponModifier] = []
 @export var bullet_modifiers: Array[BulletModifier] = []

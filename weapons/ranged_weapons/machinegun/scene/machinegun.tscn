@@ -28,9 +28,9 @@ radius = 515.123
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_m0wau")
-weapon_name = "Machine gun"
 shoot_behavior = SubResource("Resource_speje")
 movement_behavior = SubResource("Resource_2t52x")
+weapon_name = "Machine gun"
 metadata/_custom_type_script = "uid://culhnjwum6js5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -36,7 +36,7 @@ func setup() -> void:
 		MeleeWeaponStatsName.CRIT_CHANCE:
 			property = ["damage_source","crit_chance"]
 			display_logo = preload("res://modifiers/sprites/crit_chance.png")
-			display_value = "Critical hit chances : " + operation_icon + str(abs(bonus.Float_value))
+			display_value = "Critical hit chances : " + operation_icon + str(abs(bonus.Float_value*100)) + "%"
 		MeleeWeaponStatsName.CRIT_DAMAGE:
 			property = ["damage_source","crit_damage"]
 			display_logo = preload("res://modifiers/sprites/crit_damage.png")

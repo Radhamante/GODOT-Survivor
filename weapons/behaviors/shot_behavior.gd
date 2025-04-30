@@ -22,18 +22,16 @@ func setup() -> void:
 	base_shoot_delay = shoot_delay
 	base_accuracy = accuracy
 
-func shoot(weapon: RandedWeapon, delta: float) -> void:
+func shoot(weapon: RangedWeapon, delta: float) -> void:
 	shoot_timer += delta
 	
 	if shoot_timer < shoot_delay:
 		return
+	shoot_timer = 0.0
 		
 	accuracy = base_accuracy
 	shoot_delay = base_shoot_delay
 	weapon.apply_weapon_modifiers()
-	
-	
-	shoot_timer = 0.0
 
 	var base_position = weapon.get_node("%ShootingPoint").global_position
 	var base_angle = weapon.get_node("%ShootingPoint").global_rotation_degrees

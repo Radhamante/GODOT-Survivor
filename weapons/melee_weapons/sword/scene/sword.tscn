@@ -80,10 +80,10 @@ height = 52.2141
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_ql4h4")
-weapon_name = "Sword"
-hit_effects = Array[ExtResource("2_g6loa")]([ExtResource("3_g6loa")])
 base_damage_source = ExtResource("4_10x5j")
 base_movement_behavior = SubResource("Resource_g6loa")
+weapon_name = "Sword"
+hit_effects = Array[ExtResource("2_g6loa")]([ExtResource("3_g6loa")])
 upgrade_tree = SubResource("Resource_xhdon")
 metadata/_custom_type_script = "uid://c7uhlo51epgvr"
 

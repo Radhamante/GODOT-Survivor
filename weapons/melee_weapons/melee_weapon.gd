@@ -36,7 +36,7 @@ func _process(delta: float) -> void:
 	_overtime_timer -= delta
 	if _overtime_timer <= 0:
 		_overtime_timer = overtime_delay
-		damage_source.source_position = Variables.Player.global_position
+		damage_source.source_position = Variables.player.global_position
 		for body in get_overlapping_bodies():
 			if body is Monster:
 				body.take_damage(damage_source)
@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Monster:
-		damage_source.source_position = Variables.Player.global_position
+		damage_source.source_position = Variables.player.global_position
 		body.take_damage(damage_source)
 		for effect in hit_effects:
 			effect.apply(self, body)

@@ -1,0 +1,56 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvrjnoyu68xhl"]
+
+[ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="1_cs2eu"]
+[ext_resource type="Texture2D" uid="uid://b0sxh58wy5bw1" path="res://modifiers/sprites/damage.png" id="1_imevw"]
+[ext_resource type="Texture2D" uid="uid://beg6v5yybtb4h" path="res://menu/sprite/square_flat.png" id="2_t2gcu"]
+[ext_resource type="Script" uid="uid://bvg2mejc8ymle" path="res://menu/pause_menu/pause_weapon.gd" id="3_t2gcu"]
+
+[node name="NinePatchRect" type="NinePatchRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_cs2eu")
+texture = ExtResource("2_t2gcu")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+script = ExtResource("3_t2gcu")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -131.0
+offset_top = -81.0
+offset_right = 131.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="WeaponName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Force field"
+horizontal_alignment = 1
+
+[node name="ModifiersList" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+
+[node name="_TextureRect_254" type="TextureRect" parent="VBoxContainer/ModifiersList"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_imevw")
+stretch_mode = 5
+
+[node name="_Label_255" type="Label" parent="VBoxContainer/ModifiersList"]
+layout_mode = 2
+text = "Damage : +1.0"

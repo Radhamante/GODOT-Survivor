@@ -56,5 +56,5 @@ func setup() -> void:
 			push_error("Invalid RangedWeaponStatsName value: " + str(property_name))
 			property = []
 
-func apply(weapon: RandedWeapon):
+func apply(weapon: RangedWeapon):
 	super._apply(weapon)

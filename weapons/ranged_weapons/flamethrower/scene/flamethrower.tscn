@@ -1,101 +1,16 @@
-[gd_scene load_steps=26 format=3 uid="uid://b1j5fo84ar6nd"]
+[gd_scene load_steps=10 format=3 uid="uid://b1j5fo84ar6nd"]
 
 [ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/ranged_weapon.gd" id="1_vvost"]
-[ext_resource type="Script" uid="uid://bqmyv7ijto1eu" path="res://modifiers/weapon_modifier.gd" id="2_5udj4"]
 [ext_resource type="Texture2D" uid="uid://cl6d7e32ws30d" path="res://weapons/ranged_weapons/flamethrower/sprite/hand_yellow_rock.png" id="2_fvnwn"]
-[ext_resource type="Script" uid="uid://0arbfjfw4ycv" path="res://modifiers/randed_weapon_modifier.gd" id="2_uprcx"]
-[ext_resource type="Script" uid="uid://djemock204iuk" path="res://modifiers/float_or_bullet_modifier.gd" id="3_6rltb"]
 [ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://weapons/effects/EffectComponent.gd" id="4_6rltb"]
 [ext_resource type="Script" uid="uid://eiececv5s1s8" path="res://weapons/behaviors/move_behaviors/FollowClosestEnemyMovement.gd" id="5_5udj4"]
 [ext_resource type="Resource" uid="uid://bp4d5ygpv1rrx" path="res://weapons/ranged_weapons/flamethrower/flamethrower_fire_effect.tres" id="5_uprcx"]
+[ext_resource type="Resource" uid="uid://lb1hchmbc8l7" path="res://weapons/ranged_weapons/flamethrower/flamethrower_upgrade_tree.tres" id="6_85gue"]
 [ext_resource type="Resource" uid="uid://cct6nsfj6yqeo" path="res://weapons/ranged_weapons/flamethrower/flamethrower_shoot_behavior.tres" id="6_i6aht"]
-[ext_resource type="Script" uid="uid://bh1kaj35dkkan" path="res://modifiers/bullet_modifier.gd" id="7_6c8u4"]
-[ext_resource type="Script" uid="uid://bgr31s8pkpehu" path="res://weapons/upgrade/weaponUpgradeNode.gd" id="10_6d4n5"]
 
 [sub_resource type="Resource" id="Resource_jaclb"]
 script = ExtResource("5_5udj4")
 metadata/_custom_type_script = "uid://eiececv5s1s8"
-
-[sub_resource type="Resource" id="Resource_ycl14"]
-script = ExtResource("7_6c8u4")
-bonus = 0.1
-property_name = 0
-operation = "add"
-metadata/_custom_type_script = "uid://bh1kaj35dkkan"
-
-[sub_resource type="Resource" id="Resource_rodka"]
-script = ExtResource("3_6rltb")
-type_choice = "BulletModifier"
-Float_value = 0.0
-BulletModifier_value = SubResource("Resource_ycl14")
-metadata/_custom_type_script = "uid://djemock204iuk"
-
-[sub_resource type="Resource" id="Resource_44pfr"]
-script = ExtResource("2_uprcx")
-property_name = 5
-bonus = SubResource("Resource_rodka")
-operation = "add"
-metadata/_custom_type_script = "uid://0arbfjfw4ycv"
-
-[sub_resource type="Resource" id="Resource_bop56"]
-script = ExtResource("7_6c8u4")
-bonus = 0.1
-property_name = 0
-operation = "add"
-metadata/_custom_type_script = "uid://bh1kaj35dkkan"
-
-[sub_resource type="Resource" id="Resource_fqhhg"]
-script = ExtResource("3_6rltb")
-type_choice = "BulletModifier"
-Float_value = 0.0
-BulletModifier_value = SubResource("Resource_bop56")
-metadata/_custom_type_script = "uid://djemock204iuk"
-
-[sub_resource type="Resource" id="Resource_t5cuf"]
-script = ExtResource("2_uprcx")
-property_name = 5
-bonus = SubResource("Resource_fqhhg")
-operation = "add"
-metadata/_custom_type_script = "uid://0arbfjfw4ycv"
-
-[sub_resource type="Resource" id="Resource_f1an8"]
-script = ExtResource("10_6d4n5")
-modifiers = Array[ExtResource("2_5udj4")]([SubResource("Resource_t5cuf")])
-nexts = Array[ExtResource("10_6d4n5")]([])
-metadata/_custom_type_script = "uid://bgr31s8pkpehu"
-
-[sub_resource type="Resource" id="Resource_onl6q"]
-script = ExtResource("7_6c8u4")
-bonus = 0.1
-property_name = 2
-operation = "add"
-metadata/_custom_type_script = "uid://bh1kaj35dkkan"
-
-[sub_resource type="Resource" id="Resource_2hhre"]
-script = ExtResource("3_6rltb")
-type_choice = "BulletModifier"
-Float_value = 0.0
-BulletModifier_value = SubResource("Resource_onl6q")
-metadata/_custom_type_script = "uid://djemock204iuk"
-
-[sub_resource type="Resource" id="Resource_qnc0q"]
-script = ExtResource("2_uprcx")
-property_name = 5
-bonus = SubResource("Resource_2hhre")
-operation = "add"
-metadata/_custom_type_script = "uid://0arbfjfw4ycv"
-
-[sub_resource type="Resource" id="Resource_fffxf"]
-script = ExtResource("10_6d4n5")
-modifiers = Array[ExtResource("2_5udj4")]([SubResource("Resource_qnc0q")])
-nexts = Array[ExtResource("10_6d4n5")]([])
-metadata/_custom_type_script = "uid://bgr31s8pkpehu"
-
-[sub_resource type="Resource" id="Resource_gsr63"]
-script = ExtResource("10_6d4n5")
-modifiers = Array[ExtResource("2_5udj4")]([SubResource("Resource_44pfr")])
-nexts = Array[ExtResource("10_6d4n5")]([SubResource("Resource_f1an8"), SubResource("Resource_fffxf")])
-metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dk5gl"]
 radius = 515.123
@@ -104,11 +19,11 @@ radius = 515.123
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_vvost")
-weapon_name = "Flamethrower"
-hit_effects = Array[ExtResource("4_6rltb")]([ExtResource("5_uprcx")])
 shoot_behavior = ExtResource("6_i6aht")
 movement_behavior = SubResource("Resource_jaclb")
-upgrade_tree = SubResource("Resource_gsr63")
+weapon_name = "Flamethrower"
+hit_effects = Array[ExtResource("4_6rltb")]([ExtResource("5_uprcx")])
+upgrade_tree = ExtResource("6_85gue")
 metadata/_custom_type_script = "uid://culhnjwum6js5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

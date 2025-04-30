@@ -7,8 +7,17 @@ signal health_updated(current_heath: float, max_health: float)
 
 @export var character_info: CharacterInfo
 
+var weapons: Array[Weapon]:
+	get = _get_weapon
+
+func _get_weapon() -> Array[Weapon]:
+	var weapons:Array[Weapon] = []
+	for weapon_child in $Weapons.get_children():
+		weapons.push_back(weapon_child as Weapon)
+	return weapons
+
 func _ready() -> void:
-	Variables.Player = self
+	Variables.player = self
 	
 	if character_info.appearance is PackedScene:
 		add_child(character_info.appearance.instantiate())

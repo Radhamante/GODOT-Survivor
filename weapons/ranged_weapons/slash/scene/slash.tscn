@@ -17,10 +17,10 @@ radius = 344.981
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_7st3x")
-weapon_name = "Slash"
-hit_effects = Array[ExtResource("2_atfev")]([ExtResource("3_37hx6")])
 shoot_behavior = ExtResource("6_umhg1")
 movement_behavior = SubResource("Resource_37hx6")
+weapon_name = "Slash"
+hit_effects = Array[ExtResource("2_atfev")]([ExtResource("3_37hx6")])
 metadata/_custom_type_script = "uid://culhnjwum6js5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
