@@ -42,5 +42,6 @@ visible = false
 [node name="LevelUpMenu" parent="." instance=ExtResource("9_kdtid")]
 visible = false
 
+[connection signal="main_menu_pressed" from="PauseMenu" to="." method="_on_pause_menu_main_menu_pressed"]
 [connection signal="resume_pressed" from="PauseMenu" to="." method="_on_pause_menu_resume_pressed"]
 [connection signal="upgrade_selected" from="LevelUpMenu" to="." method="_on_level_up_menu_upgrade_selected"]

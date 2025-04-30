@@ -15,6 +15,7 @@ var selected_level_info: LevelInfo
 @onready var level_up_menu = $LevelUpMenu
 
 var player: Player
+var game_scene: Node2D
 
 enum menus_enum {
 	MAIN,
@@ -85,11 +86,12 @@ func _on_ButtonQuit_pressed():
 	get_tree().quit()
 
 func start_game():
-	var scene = preload("res://level/scene/survivor_game.tscn").instantiate()
-	player = scene.get_node("Player")
+	get_tree().paused = false
+	game_scene = preload("res://level/scene/survivor_game.tscn").instantiate()
+	player = game_scene.get_node("Player")
 	player.character_info = selected_character_info
-	scene.get_node("DifficultyManager").difficulty_levels = selected_level_info.difficulty_levels
-	get_tree().root.add_child(scene)
+	game_scene.get_node("DifficultyManager").difficulty_levels = selected_level_info.difficulty_levels
+	get_tree().root.add_child(game_scene)
 	hide_all_menu()
 
 
@@ -102,3 +104,10 @@ func _on_level_up_menu_upgrade_selected(_weapon: Variant, _upgrade: WeaponUpgrad
 	get_tree().paused = false
 	hide_all_menu()
 	player.level_up_upgrade_selected(_weapon,_upgrade)
+
+
+func _on_pause_menu_main_menu_pressed() -> void:
+	get_tree().paused = true
+	game_scene.queue_free()
+	show_menu(menus_enum.MAIN)
+	
