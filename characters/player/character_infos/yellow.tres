@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dmml3kt2amqjr" path="res://weapons/melee_weapons/forcefield/scene/forcefield.tscn" id="6_84xkf"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_88hnx")
 character_name = "Yellow"
 description = "A very basic alien with a very basic gun"

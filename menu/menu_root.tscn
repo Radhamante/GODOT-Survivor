@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0jtw05w3xofs"]
+[gd_scene load_steps=12 format=3 uid="uid://d0jtw05w3xofs"]
 
 [ext_resource type="Script" uid="uid://bswn0csmelkug" path="res://menu/menu_root.gd" id="1_c4kem"]
 [ext_resource type="PackedScene" uid="uid://blyh8cra8at8w" path="res://menu/main_menu/main_menu.tscn" id="3_qvmb4"]
 [ext_resource type="PackedScene" uid="uid://dmmyv728c85ag" path="res://menu/character_select/character_select.tscn" id="4_kdtid"]
+[ext_resource type="Script" uid="uid://b2sycb0fk37xf" path="res://characters/player/script/character_info.gd" id="4_mvocj"]
 [ext_resource type="PackedScene" uid="uid://c4bc6xi5hptg4" path="res://menu/level_select/level_select.tscn" id="5_i8pwd"]
+[ext_resource type="Resource" uid="uid://ph72dst7pq8j" path="res://characters/player/character_infos/yellow.tres" id="5_wmwb7"]
 [ext_resource type="PackedScene" uid="uid://n26qjgtu4ldm" path="res://menu/options_menu/options_menu.tscn" id="6_mvocj"]
+[ext_resource type="Resource" uid="uid://cuhkjxbnomxxg" path="res://characters/player/character_infos/blue.tres" id="6_whfxe"]
 [ext_resource type="PackedScene" uid="uid://x3e8modtr7fy" path="res://menu/pause_menu/pause_menu.tscn" id="7_wmwb7"]
 [ext_resource type="PackedScene" uid="uid://qfmimc27lm15" path="res://menu/game_over_menu/game_over_menu.tscn" id="8_whfxe"]
 [ext_resource type="PackedScene" uid="uid://cv8fwsrr1gglv" path="res://menu/level_up_menu/level_up_menu.tscn" id="9_kdtid"]
@@ -26,6 +29,7 @@ visible = false
 
 [node name="CharacterSelectMenu" parent="." instance=ExtResource("4_kdtid")]
 visible = false
+characters_infos = Array[ExtResource("4_mvocj")]([ExtResource("5_wmwb7"), ExtResource("6_whfxe")])
 
 [node name="LevelSelectMenu" parent="." instance=ExtResource("5_i8pwd")]
 visible = false

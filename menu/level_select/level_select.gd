@@ -26,4 +26,4 @@ func _on_level_selected(level_info: LevelInfo):
 
 func _on_start_run():
 	if selected_level_info:
-		level_selected.emit(selected_level_info)
+		level_selected.emit(selected_level_info.duplicate(true))

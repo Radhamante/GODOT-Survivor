@@ -41,4 +41,4 @@ func _on_back_pressed():
 
 func _on_continue_pressed():
 	if selected_character:
-		continue_pressed.emit(selected_character)
+		continue_pressed.emit(selected_character.duplicate(true))

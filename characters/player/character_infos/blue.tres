@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://c1emgqt0boroh" path="res://weapons/melee_weapons/sword/scene/sword.tscn" id="5_54ntc"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("2_xa2pi")
 character_name = "Blue"
 description = "Alien specialized in mele wepon"
