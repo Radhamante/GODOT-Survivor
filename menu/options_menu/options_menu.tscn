@@ -1,10 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://n26qjgtu4ldm"]
+[gd_scene load_steps=3 format=3 uid="uid://n26qjgtu4ldm"]
 
 [ext_resource type="Script" uid="uid://whfkpmpjlisn" path="res://menu/options_menu/options_menu.gd" id="1_f3be3"]
+[ext_resource type="PackedScene" uid="uid://hnyipcnxxx0n" path="res://menu/background.tscn" id="2_md36l"]
 
 [node name="OptionsMenu" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_f3be3")
+
+[node name="Background" parent="." instance=ExtResource("2_md36l")]
+layout_mode = 1

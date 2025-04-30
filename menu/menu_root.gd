@@ -6,6 +6,8 @@ var menus
 var selected_character_info: CharacterInfo
 var selected_level_info: LevelInfo
 
+@onready var background: ColorRect = $Background
+
 @onready var main_menu = $MainMenu
 @onready var character_select_menu = $CharacterSelectMenu
 @onready var level_select_menu = $LevelSelectMenu

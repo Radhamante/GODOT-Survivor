@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c4bc6xi5hptg4"]
+[gd_scene load_steps=7 format=3 uid="uid://c4bc6xi5hptg4"]
 
 [ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="1_ir2rh"]
 [ext_resource type="Script" uid="uid://c7v33h7aobcjc" path="res://menu/level_select/level_select.gd" id="1_p1nwb"]
 [ext_resource type="Script" uid="uid://6282jyup2y6f" path="res://level/script/level_info.gd" id="3_xtwcx"]
 [ext_resource type="Resource" uid="uid://d4ddhd6ae4l15" path="res://level/infos/forest.tres" id="4_rwc30"]
 [ext_resource type="Resource" uid="uid://klg3um3nqw2k" path="res://level/infos/ruins.tres" id="5_rwc30"]
+[ext_resource type="PackedScene" uid="uid://hnyipcnxxx0n" path="res://menu/background.tscn" id="6_f1yjd"]
 
 [node name="LevelSelectMenu" type="Control"]
 layout_mode = 3
@@ -17,26 +18,37 @@ theme = ExtResource("1_ir2rh")
 script = ExtResource("1_p1nwb")
 levels_infos = Array[ExtResource("3_xtwcx")]([ExtResource("4_rwc30"), ExtResource("5_rwc30")])
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 0
-anchor_left = 0.25
-anchor_top = 0.1
-anchor_right = 0.75
-anchor_bottom = 0.9
+[node name="Background" parent="." instance=ExtResource("6_f1yjd")]
+layout_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 70
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
 alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 400)
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="LevelList" type="VBoxContainer" parent="VBoxContainer/ScrollContainer"]
+[node name="LevelList" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3
 alignment = 1
 
-[node name="StartRunButton" type="Button" parent="VBoxContainer"]
+[node name="StartRunButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 0
 text = "Start Run"

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://blyh8cra8at8w"]
+[gd_scene load_steps=4 format=3 uid="uid://blyh8cra8at8w"]
 
 [ext_resource type="Script" uid="uid://dl5hr1vnp7t0f" path="res://menu/main_menu/main_menu.gd" id="2_7r8i1"]
 [ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="2_qs6vt"]
+[ext_resource type="PackedScene" uid="uid://hnyipcnxxx0n" path="res://menu/background.tscn" id="3_qs6vt"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +13,9 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("2_qs6vt")
 script = ExtResource("2_7r8i1")
+
+[node name="Background" parent="." instance=ExtResource("3_qs6vt")]
+layout_mode = 1
 
 [node name="HBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -42,6 +46,7 @@ layout_mode = 2
 
 [node name="ButtonOptions" type="Button" parent="HBoxContainer/MarginContainer2"]
 layout_mode = 2
+disabled = true
 text = "Options"
 
 [node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]

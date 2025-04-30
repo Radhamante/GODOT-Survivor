@@ -8,7 +8,7 @@ signal continue_pressed(character_info: CharacterInfo)
 @onready var details_panel = $MarginContainer/HBoxContainer/DetailsPanel
 @onready var character_name_label = details_panel.get_node("CharacterName")
 @onready var character_description_label = details_panel.get_node("ScrollContainer/CharacterDescription")
-@onready var continue_button = details_panel.get_node("ContinueButton")
+@onready var continue_button: Button = $MarginContainer/HBoxContainer/DetailsPanel/MarginContainer/ContinueButton
 
 @export var characters_infos : Array[CharacterInfo]
 
@@ -24,16 +24,14 @@ func _ready() -> void:
 		character_list.add_child(btn)
 		btn.pressed.connect(_on_character_pressed.bind(character_info.duplicate()))
 
-	# Hide right panel at first
-	details_panel.visible = false
-	continue_button.visible = false
+	continue_button.disabled = true
 
 func _on_character_pressed(character_info: CharacterInfo):
 	selected_character = character_info
 	details_panel.visible = true
 	character_name_label.text = character_info.character_name
 	character_description_label.text = character_info.description
-	continue_button.visible = true
+	continue_button.disabled = false
 	character_selected.emit(character_info.character_name)
 
 func _on_back_pressed():

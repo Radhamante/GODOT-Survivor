@@ -50,7 +50,7 @@ func setup() -> void:
 		ModifiedPropertyEnum.CRIT_DAMAGE:
 			property = ["damageSource","crit_damage"]
 			display_logo = preload("res://modifiers/sprites/crit_damage.png")
-			display_value = "Critical hit damages"  + operation_icon + str(abs(bonus))
+			display_value = "Critical damages multiplier"  + operation_icon + str(abs(bonus))
 		ModifiedPropertyEnum.TYPES:
 			property = ["damageSource","types"]
 			display_logo = preload("res://modifiers/sprites/damage_type.png")
