@@ -16,6 +16,7 @@ radius = 300.0
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_dfr8x")
+weapon_name = "Shotgun"
 shoot_behavior = ExtResource("2_p66vu")
 movement_behavior = SubResource("Resource_jyntk")
 metadata/_custom_type_script = "uid://culhnjwum6js5"

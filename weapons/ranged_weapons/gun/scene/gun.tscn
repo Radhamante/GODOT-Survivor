@@ -17,6 +17,7 @@ radius = 600.0
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_6h5ka")
+weapon_name = "Gun"
 shoot_behavior = ExtResource("2_6h5ka")
 movement_behavior = SubResource("Resource_3htep")
 upgrade_tree = ExtResource("4_0v2ip")

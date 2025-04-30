@@ -10,4 +10,6 @@ bullet_scene = ExtResource("1_5dx1m")
 bullet_count = 1
 spread_angle = 0.0
 accuracy_correction = -37.0
+shoot_delay = 0.5
+accuracy = 0.0
 metadata/_custom_type_script = "uid://b8cyifd2w58xg"

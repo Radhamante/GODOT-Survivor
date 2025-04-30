@@ -26,23 +26,23 @@ func setup() -> void:
 			operation_icon = "="
 	match property_name:
 		MeleeWeaponStatsName.DAMAGE:
-			property = ["modified_damage_source","damage"]
+			property = ["damage_source","damage"]
 			display_logo = preload("res://modifiers/sprites/damage.png")
 			display_value = "Damage : " + operation_icon + str(abs(bonus.Float_value))
 		MeleeWeaponStatsName.ARMOR_PENETRATION:
-			property = ["modified_damage_source","armor_penetration"]
+			property = ["damage_source","armor_penetration"]
 			display_logo = preload("res://modifiers/sprites/armor_penetration.png")
 			display_value = "Armor penetration : " + operation_icon + str(abs(bonus.Float_value))
 		MeleeWeaponStatsName.CRIT_CHANCE:
-			property = ["modified_damage_source","crit_chance"]
+			property = ["damage_source","crit_chance"]
 			display_logo = preload("res://modifiers/sprites/crit_chance.png")
 			display_value = "Critical hit chances : " + operation_icon + str(abs(bonus.Float_value))
 		MeleeWeaponStatsName.CRIT_DAMAGE:
-			property = ["modified_damage_source","crit_damage"]
+			property = ["damage_source","crit_damage"]
 			display_logo = preload("res://modifiers/sprites/crit_damage.png")
 			display_value = "Cricital hit damages : " + operation_icon + str(abs(bonus.Float_value))
 		MeleeWeaponStatsName.KNOCKBACK_FORCE:
-			property = ["modified_damage_source","knockback_force"]
+			property = ["damage_source","knockback_force"]
 			display_logo = preload("res://modifiers/sprites/hexagon.png")
 			display_value = "Knockback : " + operation_icon + str(abs(bonus.Float_value))
 		MeleeWeaponStatsName.ORBIT_SPEED:

@@ -1,6 +1,7 @@
 extends Area2D
 class_name MeleeWeapon
 
+@export var weapon_name: String
 @export var weapon_modifiers:Array[MeleeWeaponModifier] = []
 @export var hit_effects: Array[EffectComponent] = []
 @export var base_damage_source: DamageSource

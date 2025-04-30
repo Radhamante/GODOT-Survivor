@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 signal heath_depleted
 signal xp_level(xp: float, level: int, xp_for_next_level:float)
@@ -52,10 +53,15 @@ func _level_up():
 	$LevelUpParticules.emitting = true
 	character_info.xp -= character_info.level * character_info.xp_by_level_multipler
 	character_info.level += 1
+	
 	var upgrade_list = []
 	for weapon in $Weapons.get_children():
 		for upgrade in weapon.next_upgrades:
 			upgrade_list.push_back([weapon, upgrade])
+			
+	if upgrade_list.is_empty():
+		return
+		
 	var selected_upgrades = []
 	for i in range(character_info.upgrade_by_level):
 		var random_index =  randi() % upgrade_list.size() if upgrade_list.size() > 0 else -1
@@ -64,6 +70,14 @@ func _level_up():
 			upgrade_list.remove_at(random_index)
 
 	MenuRoot.show_level_up_menu(selected_upgrades)
+	
+func level_up_upgrade_selected(_weapon: Variant, _upgrade: WeaponUpgradeNode):
+	for mod in _upgrade.modifiers:
+		_weapon.add_modifier(mod)
+	var index = _weapon.next_upgrades.find(_upgrade)
+	_weapon.next_upgrades.remove_at(index)
+	_weapon.next_upgrades += _upgrade.nexts
+	
 
 func _on_magnet_area_entered(magnetable: Magnetable) -> void:
 	magnetable.magnet_to(self)
