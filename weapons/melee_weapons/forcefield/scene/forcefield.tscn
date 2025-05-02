@@ -20,6 +20,7 @@ script = ExtResource("1_5r41l")
 base_damage_source = ExtResource("2_p0un4")
 base_movement_behavior = SubResource("Resource_008xr")
 weapon_name = "Force field"
+logo = ExtResource("4_p0un4")
 upgrade_tree = ExtResource("4_008xr")
 metadata/_custom_type_script = "uid://c7uhlo51epgvr"
 

@@ -1,0 +1,60 @@
+[gd_scene load_steps=13 format=3 uid="uid://bl0xb7yg5qst5"]
+
+[ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/ranged_weapon.gd" id="1_nwnxw"]
+[ext_resource type="PackedScene" uid="uid://bkkoyofa4wnyw" path="res://weapons/ranged_weapons/bouncing_bolt/scene/bouncing_bolt_bullet.tscn" id="2_akx6e"]
+[ext_resource type="Script" uid="uid://b8cyifd2w58xg" path="res://weapons/behaviors/shot_behavior.gd" id="3_l5q5x"]
+[ext_resource type="Script" uid="uid://eiececv5s1s8" path="res://weapons/behaviors/move_behaviors/FollowClosestEnemyMovement.gd" id="4_sf1u3"]
+[ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://weapons/effects/EffectComponent.gd" id="5_igjwi"]
+[ext_resource type="Script" uid="uid://b71xs3q6hes2f" path="res://weapons/effects/BoucingEffect.gd" id="6_n0eey"]
+[ext_resource type="Resource" uid="uid://873evmao2pie" path="res://weapons/ranged_weapons/bouncing_bolt/bouncing_bolt_upgrade_tree.tres" id="7_u0c3q"]
+[ext_resource type="Texture2D" uid="uid://dp8hyyc5klhsd" path="res://weapons/ranged_weapons/bouncing_bolt/sprite/waterbolt.png" id="8_yd86v"]
+
+[sub_resource type="Resource" id="Resource_xrty8"]
+resource_local_to_scene = true
+script = ExtResource("3_l5q5x")
+bullet_scene = ExtResource("2_akx6e")
+accuracy_correction = 0.0
+bullet_count = 1
+spread_angle = 0.0
+shoot_delay = 0.5
+accuracy = 0.0
+metadata/_custom_type_script = "uid://b8cyifd2w58xg"
+
+[sub_resource type="Resource" id="Resource_1kiw1"]
+script = ExtResource("4_sf1u3")
+metadata/_custom_type_script = "uid://eiececv5s1s8"
+
+[sub_resource type="Resource" id="Resource_hc7ws"]
+script = ExtResource("6_n0eey")
+bounce_radius = 300.0
+max_bouce = 3
+metadata/_custom_type_script = "uid://b71xs3q6hes2f"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dk5gl"]
+radius = 600.0
+
+[node name="BouncingBolt" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_nwnxw")
+shoot_behavior = SubResource("Resource_xrty8")
+movement_behavior = SubResource("Resource_1kiw1")
+weapon_name = "Bouncing bolt"
+logo = ExtResource("8_yd86v")
+hit_effects = Array[ExtResource("5_igjwi")]([SubResource("Resource_hc7ws")])
+upgrade_tree = ExtResource("7_u0c3q")
+metadata/_custom_type_script = "uid://culhnjwum6js5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_dk5gl")
+
+[node name="WeaponPivot" type="Marker2D" parent="."]
+
+[node name="Pistol" type="Sprite2D" parent="WeaponPivot"]
+position = Vector2(69.5616, -2.34974)
+scale = Vector2(0.0837437, 0.0837438)
+texture = ExtResource("8_yd86v")
+
+[node name="ShootingPoint" type="Marker2D" parent="WeaponPivot/Pistol"]
+unique_name_in_owner = true
+position = Vector2(31.359, -31.3865)

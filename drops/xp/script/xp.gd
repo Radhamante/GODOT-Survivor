@@ -35,4 +35,3 @@ func _on_area_entered(magnetable: Magnetable) -> void:
 			other.merged = true
 			other.queue_free()
 			_modulate_on_value()
-	print("megred with : ", value)

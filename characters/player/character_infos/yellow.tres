@@ -1,11 +1,9 @@
-[gd_resource type="Resource" script_class="CharacterInfo" load_steps=7 format=3 uid="uid://ph72dst7pq8j"]
+[gd_resource type="Resource" script_class="CharacterInfo" load_steps=5 format=3 uid="uid://ph72dst7pq8j"]
 
 [ext_resource type="Script" uid="uid://b2sycb0fk37xf" path="res://characters/player/script/character_info.gd" id="1_88hnx"]
 [ext_resource type="PackedScene" uid="uid://ci1sb54cm4xqh" path="res://characters/player/scene/yellow.tscn" id="1_ygkgm"]
 [ext_resource type="Texture2D" uid="uid://dsw7y0enp8lf7" path="res://characters/player/sprites/yellow/alienYellow.png" id="2_stt8y"]
-[ext_resource type="PackedScene" uid="uid://b1j5fo84ar6nd" path="res://weapons/ranged_weapons/flamethrower/scene/flamethrower.tscn" id="5_g6tlj"]
-[ext_resource type="PackedScene" uid="uid://c1emgqt0boroh" path="res://weapons/melee_weapons/sword/scene/sword.tscn" id="5_scpum"]
-[ext_resource type="PackedScene" uid="uid://dmml3kt2amqjr" path="res://weapons/melee_weapons/forcefield/scene/forcefield.tscn" id="6_84xkf"]
+[ext_resource type="PackedScene" uid="uid://yi6xlwinuh2e" path="res://weapons/ranged_weapons/gun/scene/gun.tscn" id="4_stt8y"]
 
 [resource]
 resource_local_to_scene = true
@@ -18,9 +16,10 @@ health = 100.0
 max_health = 100.0
 speed = 600.0
 armor = 0.0
-weapons = Array[Resource]([ExtResource("5_g6tlj"), ExtResource("5_scpum"), ExtResource("6_84xkf")])
+weapons = Array[PackedScene]([ExtResource("4_stt8y")])
 xp = 0.0
 level = 1
 xp_by_level_multipler = 2.0
 upgrade_by_level = 3
+max_weapons = 5
 metadata/_custom_type_script = "uid://b2sycb0fk37xf"

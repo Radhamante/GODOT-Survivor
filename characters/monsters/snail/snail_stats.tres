@@ -12,5 +12,5 @@ resistance = Dictionary[int, float]({
 3: 1.5
 })
 knockback_resitance = 0.5
-xp_drop = 1.0
+xp_drop = 2.0
 metadata/_custom_type_script = "uid://c8p46qwnr2g7d"

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="ShootBehavior" load_steps=3 format=3 uid="uid://vf75m62xa46b"]
 
-[ext_resource type="PackedScene" uid="uid://bkkoyofa4wnyw" path="res://weapons/ranged_weapons/boucing_bolt/scene/bouncing_bolt_bullet.tscn" id="1_t7qmg"]
+[ext_resource type="PackedScene" uid="uid://bkkoyofa4wnyw" path="res://weapons/ranged_weapons/bouncing_bolt/scene/bouncing_bolt_bullet.tscn" id="1_t7qmg"]
 [ext_resource type="Script" uid="uid://b8cyifd2w58xg" path="res://weapons/behaviors/shot_behavior.gd" id="2_t7qmg"]
 
 [resource]

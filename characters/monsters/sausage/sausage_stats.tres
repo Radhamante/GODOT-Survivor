@@ -10,5 +10,5 @@ damage = 10.0
 armor = 0.0
 resistance = Dictionary[int, float]({})
 knockback_resitance = 0.1
-xp_drop = 1.0
+xp_drop = 3.0
 metadata/_custom_type_script = "uid://c8p46qwnr2g7d"

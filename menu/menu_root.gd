@@ -15,6 +15,7 @@ var selected_level_info: LevelInfo
 @onready var pause_menu = $PauseMenu
 @onready var game_over_menu = $GameOverMenu
 @onready var level_up_menu = $LevelUpMenu
+@onready var weapon_select_menu: Control = $WeaponSelectMenu
 
 var player: Player
 var game_scene: Node2D
@@ -27,6 +28,7 @@ enum menus_enum {
 	PAUSE,
 	GAMEOVER,
 	LEVELUP,
+	WEAPONSELECT
 }
 
 func _ready():
@@ -38,6 +40,7 @@ func _ready():
 		menus_enum.PAUSE: pause_menu,
 		menus_enum.GAMEOVER: game_over_menu,
 		menus_enum.LEVELUP: level_up_menu,
+		menus_enum.WEAPONSELECT: weapon_select_menu
 	}
 	show_menu(menus_enum.MAIN)
 		
@@ -64,7 +67,11 @@ func show_level_up_menu(_selected_upgrades: Array):
 	level_up_menu.setup(_selected_upgrades)
 	show_menu(menus_enum.LEVELUP)
 	get_tree().paused = true
-	
+
+func show_weapon_select_menu(_available_weapons: Array[Weapon]):
+	weapon_select_menu.setup(_available_weapons)
+	show_menu(menus_enum.WEAPONSELECT)
+	get_tree().paused = true
 
 func _on_ButtonStart_pressed():
 	show_menu(menus_enum.CHARACTER)
@@ -113,3 +120,9 @@ func _on_pause_menu_main_menu_pressed() -> void:
 	game_scene.queue_free()
 	show_menu(menus_enum.MAIN)
 	
+
+
+func _on_weapon_select_menu_weapon_selected(_weapon: Weapon) -> void:
+	get_tree().paused = false
+	hide_all_menu()
+	player.level_up_selected_weapon(_weapon)

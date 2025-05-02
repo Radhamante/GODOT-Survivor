@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://yirxr18xy6rd"]
+[gd_scene load_steps=10 format=3 uid="uid://yirxr18xy6rd"]
 
 [ext_resource type="Script" uid="uid://culhnjwum6js5" path="res://weapons/ranged_weapons/scripts/ranged_weapon.gd" id="1_7st3x"]
 [ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://weapons/effects/EffectComponent.gd" id="2_atfev"]
 [ext_resource type="Resource" uid="uid://cfkly5r8ilhhy" path="res://weapons/ranged_weapons/slash/slash_overtime_behavior.tres" id="3_37hx6"]
 [ext_resource type="Script" uid="uid://q8u86cpd138c" path="res://weapons/behaviors/move_behaviors/RandomMovement.gd" id="4_7st3x"]
+[ext_resource type="Texture2D" uid="uid://dv2y8d01pblr2" path="res://weapons/ranged_weapons/slash/sprite/slash_01.png" id="4_umhg1"]
+[ext_resource type="Resource" uid="uid://dtogoyhffgrue" path="res://weapons/ranged_weapons/slash/slash_upgrade_tree.tres" id="6_7yr4f"]
 [ext_resource type="Resource" uid="uid://8qp1q2v160ql" path="res://weapons/ranged_weapons/slash/slash_shoot_behavior.tres" id="6_umhg1"]
 
 [sub_resource type="Resource" id="Resource_37hx6"]
@@ -20,7 +22,9 @@ script = ExtResource("1_7st3x")
 shoot_behavior = ExtResource("6_umhg1")
 movement_behavior = SubResource("Resource_37hx6")
 weapon_name = "Slash"
+logo = ExtResource("4_umhg1")
 hit_effects = Array[ExtResource("2_atfev")]([ExtResource("3_37hx6")])
+upgrade_tree = ExtResource("6_7yr4f")
 metadata/_custom_type_script = "uid://culhnjwum6js5"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

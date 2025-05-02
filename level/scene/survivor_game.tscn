@@ -36,11 +36,12 @@ xp = 0.0
 level = 0
 xp_by_level_multipler = 0.0
 upgrade_by_level = 3
+max_weapons = 5
 metadata/_custom_type_script = "uid://b2sycb0fk37xf"
 
 [sub_resource type="Curve2D" id="Curve2D_i54c3"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, -282, -219, 0, 0, 0, 0, 2158, -224, 0, 0, 0, 0, 2159, 1304, 0, 0, 0, 0, -270, 1288, 0, 0, 0, 0, -282, -219, 0, 0, 0, 0, -325, -531, 0, 0, 0, 0, 2184, -457, 0, 0, 0, 0, 2709, 1511, 0, 0, 0, 0, 659, 1748, 0, 0, 0, 0, -673, 1423, 0, 0, 0, 0, -813, 401, 0, 0, 0, 0, -1233, -719, 0, 0, 0, 0, 543, -1041, 0, 0, 0, 0, 936, -398, 0, 0, 0, 0, 2164, -982, 0, 0, 0, 0, 3189, -338, 0, 0, 0, 0, 2771, 246, 0, 0, 0, 0, 3153, 1629, 0, 0, 0, 0, 1615, 1926, 0, 0, 0, 0, 1008, 1366, 0, 0, 0, 0, -41, 1891, 0, 0, 0, 0, -303, 937, 0, 0, 0, 0, -1686, 1521, 0, 0, 0, 0, -1019, 651, 0, 0, 0, 0, -411, 353, 0, 0, 0, 0, -1281, -159, 0, 0, 0, 0, -137, -850, 0, 0, 0, 0, 280, -362, 0, 0, 0, 0, 1234, -1065, 0, 0, 0, 0, 1794, -302, 0, 0, 0, 0, 2998, -791, 0, 0, 0, 0, 2676, -219, 0, 0, 0, 0, 3236, 198, 0, 0, 0, 0, 2223, 818, 0, 0, 0, 0, 3224, 901, 0, 0, 0, 0, 2390, 2129, 0, 0, 0, 0, 1496, 1307, 0, 0, 0, 0, 960, 2046, 0, 0, 0, 0, 316, 1271, 0, 0, 0, 0, -899, 1998, 0, 0, 0, 0, -1436, 866, 0, 0, 0, 0, -804, -159, 0, 0, 0, 0, -282, -219)
+"points": PackedVector2Array(0, 0, 0, 0, -282, -219, 0, 0, 0, 0, 2158, -224, 0, 0, 0, 0, 2159, 1304, 0, 0, 0, 0, -270, 1288, 0, 0, 0, 0, -282, -219, 0, 0, 0, 0, -325, -531, 0, 0, 0, 0, 2184, -457, 0, 0, 0, 0, 2709, 1511, 0, 0, 0, 0, 659, 1748, 0, 0, 0, 0, -673, 1423, 0, 0, 0, 0, -813, 401, 0, 0, 0, 0, -1233, -719, 0, 0, 0, 0, 543, -1041, 0, 0, 0, 0, 936, -398, 0, 0, 0, 0, 2164, -982, 0, 0, 0, 0, 3189, -338, 0, 0, 0, 0, 2771, 246, 0, 0, 0, 0, 3153, 1629, 0, 0, 0, 0, 1615, 1926, 0, 0, 0, 0, 1008, 1366, 0, 0, 0, 0, -41, 1891, 0, 0, 0, 0, -646, 1568, 0, 0, 0, 0, -1686, 1521, 0, 0, 0, 0, -1019, 651, 0, 0, 0, 0, -411, 353, 0, 0, 0, 0, -1281, -159, 0, 0, 0, 0, -137, -850, 0, 0, 0, 0, 567, -571, 0, 0, 0, 0, 1234, -1065, 0, 0, 0, 0, 1751, -548, 0, 0, 0, 0, 2998, -791, 0, 0, 0, 0, 2676, -219, 0, 0, 0, 0, 3236, 198, 0, 0, 0, 0, 2410, 695, 0, 0, 0, 0, 3224, 901, 0, 0, 0, 0, 2691, 1383, 0, 0, 0, 0, 1496, 1307, 0, 0, 0, 0, 960, 2046, 0, 0, 0, 0, 316, 1271, 0, 0, 0, 0, -899, 1998, 0, 0, 0, 0, -1436, 866, 0, 0, 0, 0, -804, -159, 0, 0, 0, 0, -282, -219)
 }
 point_count = 43
 
@@ -149,7 +150,7 @@ anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
 offset_left = -225.0
-offset_bottom = 135.0
+offset_bottom = 156.0
 grow_horizontal = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -172,9 +173,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -0.5
-offset_top = -26.0
+offset_top = -48.5
 offset_right = 0.5
-offset_bottom = 26.0
+offset_bottom = 48.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("7_bwn4j")
@@ -182,9 +183,15 @@ script = ExtResource("2_j618h")
 
 [node name="TimerLabel" type="Label" parent="HUD/MarginContainer/NinePatchRect/VBoxContainer"]
 layout_mode = 2
+text = "a"
 
 [node name="DifficultyLabel" type="Label" parent="HUD/MarginContainer/NinePatchRect/VBoxContainer"]
 layout_mode = 2
+text = "a"
+
+[node name="LevelLabel" type="Label" parent="HUD/MarginContainer/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Level : 1"
 
 [node name="HBoxContainer" type="VBoxContainer" parent="HUD"]
 anchors_preset = 6
@@ -216,6 +223,7 @@ script = ExtResource("16_8cgn3")
 [connection signal="timeout" from="MobGenerator/Timer" to="MobGenerator" method="spawn_mod"]
 [connection signal="health_updated" from="Player" to="HUD/HBoxContainer/HealthBar" method="_on_player_health_updated"]
 [connection signal="heath_depleted" from="Player" to="." method="_on_player_heath_depleted"]
+[connection signal="xp_level" from="Player" to="HUD/MarginContainer/NinePatchRect/VBoxContainer" method="_on_player_xp_level"]
 [connection signal="xp_level" from="Player" to="HUD/HBoxContainer/XpBar" method="_on_player_xp_level"]
 [connection signal="body_exited" from="Player/DespawningZone" to="Player/DespawningZone" method="_on_body_exited"]
 [connection signal="difficulty_changed" from="DifficultyManager" to="." method="_on_difficulty_manager_difficulty_changed"]

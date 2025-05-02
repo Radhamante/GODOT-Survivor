@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c8sl1sdwfuq8i"
-path="res://.godot/imported/trace_05.png-82ab7058af872d90e090acdf052aca1d.ctex"
+path="res://.godot/imported/trace_05.png-23388c26552a704ef5ae6a3305ad9576.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://weapons/ranged_weapons/boucing_bolt/sprite/trace_05.png"
-dest_files=["res://.godot/imported/trace_05.png-82ab7058af872d90e090acdf052aca1d.ctex"]
+source_file="res://weapons/ranged_weapons/bouncing_bolt/sprite/trace_05.png"
+dest_files=["res://.godot/imported/trace_05.png-23388c26552a704ef5ae6a3305ad9576.ctex"]
 
 [params]
 

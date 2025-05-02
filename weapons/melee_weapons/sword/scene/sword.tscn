@@ -1,77 +1,17 @@
-[gd_scene load_steps=22 format=3 uid="uid://c1emgqt0boroh"]
+[gd_scene load_steps=10 format=3 uid="uid://c1emgqt0boroh"]
 
 [ext_resource type="Script" uid="uid://c7uhlo51epgvr" path="res://weapons/melee_weapons/melee_weapon.gd" id="1_ql4h4"]
 [ext_resource type="Texture2D" uid="uid://cwya3dyjd8m8i" path="res://weapons/melee_weapons/sword/sprite/swordSilver.png" id="1_v35pk"]
-[ext_resource type="Script" uid="uid://brjaud8fccae3" path="res://modifiers/melee_weapon_modifier.gd" id="2_10x5j"]
 [ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://weapons/effects/EffectComponent.gd" id="2_g6loa"]
 [ext_resource type="Script" uid="uid://dcqb0eircmei1" path="res://weapons/behaviors/move_behaviors/OrbitPlayerMovement.gd" id="3_ficgy"]
 [ext_resource type="Resource" uid="uid://bnoriwrqs71rf" path="res://weapons/melee_weapons/sword/sword_hit_effect.tres" id="3_g6loa"]
 [ext_resource type="Resource" uid="uid://bip80hbk2n8t5" path="res://weapons/melee_weapons/sword/sword_damage_source.tres" id="4_10x5j"]
-[ext_resource type="Script" uid="uid://bqmyv7ijto1eu" path="res://modifiers/weapon_modifier.gd" id="6_qytv3"]
-[ext_resource type="Script" uid="uid://djemock204iuk" path="res://modifiers/float_or_bullet_modifier.gd" id="7_tus20"]
-[ext_resource type="Script" uid="uid://bgr31s8pkpehu" path="res://weapons/upgrade/weaponUpgradeNode.gd" id="9_s1m4w"]
+[ext_resource type="Resource" uid="uid://0y2ycrmotev8" path="res://weapons/melee_weapons/sword/sword_upgrade_tree.tres" id="6_g6loa"]
 
 [sub_resource type="Resource" id="Resource_g6loa"]
 script = ExtResource("3_ficgy")
-orbit_speed = 3.0
+orbit_speed = 4.0
 metadata/_custom_type_script = "uid://dcqb0eircmei1"
-
-[sub_resource type="Resource" id="Resource_l4l75"]
-script = ExtResource("7_tus20")
-type_choice = "Float"
-Float_value = 1.0
-metadata/_custom_type_script = "uid://djemock204iuk"
-
-[sub_resource type="Resource" id="Resource_ia1h4"]
-script = ExtResource("2_10x5j")
-property_name = 0
-bonus = SubResource("Resource_l4l75")
-operation = "add"
-metadata/_custom_type_script = "uid://brjaud8fccae3"
-
-[sub_resource type="Resource" id="Resource_qav4d"]
-script = ExtResource("7_tus20")
-type_choice = "Float"
-Float_value = 1.0
-metadata/_custom_type_script = "uid://djemock204iuk"
-
-[sub_resource type="Resource" id="Resource_58csn"]
-script = ExtResource("2_10x5j")
-property_name = 0
-bonus = SubResource("Resource_qav4d")
-operation = "add"
-metadata/_custom_type_script = "uid://brjaud8fccae3"
-
-[sub_resource type="Resource" id="Resource_ye5uy"]
-script = ExtResource("9_s1m4w")
-modifiers = Array[ExtResource("6_qytv3")]([SubResource("Resource_58csn")])
-nexts = Array[ExtResource("9_s1m4w")]([])
-metadata/_custom_type_script = "uid://bgr31s8pkpehu"
-
-[sub_resource type="Resource" id="Resource_aromr"]
-script = ExtResource("7_tus20")
-type_choice = "Float"
-Float_value = 1.5
-metadata/_custom_type_script = "uid://djemock204iuk"
-
-[sub_resource type="Resource" id="Resource_oe4xi"]
-script = ExtResource("2_10x5j")
-property_name = 5
-bonus = SubResource("Resource_aromr")
-operation = "multiply"
-metadata/_custom_type_script = "uid://brjaud8fccae3"
-
-[sub_resource type="Resource" id="Resource_qbola"]
-script = ExtResource("9_s1m4w")
-modifiers = Array[ExtResource("6_qytv3")]([SubResource("Resource_oe4xi")])
-nexts = Array[ExtResource("9_s1m4w")]([])
-metadata/_custom_type_script = "uid://bgr31s8pkpehu"
-
-[sub_resource type="Resource" id="Resource_xhdon"]
-script = ExtResource("9_s1m4w")
-modifiers = Array[ExtResource("6_qytv3")]([SubResource("Resource_ia1h4")])
-nexts = Array[ExtResource("9_s1m4w")]([SubResource("Resource_ye5uy"), SubResource("Resource_qbola")])
-metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v35pk"]
 height = 52.2141
@@ -83,8 +23,9 @@ script = ExtResource("1_ql4h4")
 base_damage_source = ExtResource("4_10x5j")
 base_movement_behavior = SubResource("Resource_g6loa")
 weapon_name = "Sword"
+logo = ExtResource("1_v35pk")
 hit_effects = Array[ExtResource("2_g6loa")]([ExtResource("3_g6loa")])
-upgrade_tree = SubResource("Resource_xhdon")
+upgrade_tree = ExtResource("6_g6loa")
 metadata/_custom_type_script = "uid://c7uhlo51epgvr"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

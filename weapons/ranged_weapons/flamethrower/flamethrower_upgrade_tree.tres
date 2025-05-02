@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponUpgradeNode" load_steps=20 format=3 uid="uid://lb1hchmbc8l7"]
+[gd_resource type="Resource" script_class="WeaponUpgradeNode" load_steps=24 format=3 uid="uid://lb1hchmbc8l7"]
 
 [ext_resource type="Script" uid="uid://bqmyv7ijto1eu" path="res://modifiers/weapon_modifier.gd" id="1_3e62r"]
 [ext_resource type="Script" uid="uid://bh1kaj35dkkan" path="res://modifiers/bullet_modifier.gd" id="2_ljfyn"]
@@ -8,7 +8,7 @@
 
 [sub_resource type="Resource" id="Resource_6c8u4"]
 script = ExtResource("2_ljfyn")
-bonus = 0.1
+bonus = 0.2
 property_name = 0
 operation = "add"
 metadata/_custom_type_script = "uid://bh1kaj35dkkan"
@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://0arbfjfw4ycv"
 
 [sub_resource type="Resource" id="Resource_44pfr"]
 script = ExtResource("2_ljfyn")
-bonus = 0.1
+bonus = 0.2
 property_name = 0
 operation = "add"
 metadata/_custom_type_script = "uid://bh1kaj35dkkan"
@@ -48,10 +48,37 @@ bonus = SubResource("Resource_bop56")
 operation = "add"
 metadata/_custom_type_script = "uid://0arbfjfw4ycv"
 
+[sub_resource type="Resource" id="Resource_3e62r"]
+script = ExtResource("2_ljfyn")
+bonus = 0.4
+property_name = 0
+operation = "add"
+metadata/_custom_type_script = "uid://bh1kaj35dkkan"
+
+[sub_resource type="Resource" id="Resource_ljfyn"]
+script = ExtResource("3_ognim")
+type_choice = "BulletModifier"
+Float_value = 0.0
+BulletModifier_value = SubResource("Resource_3e62r")
+metadata/_custom_type_script = "uid://djemock204iuk"
+
+[sub_resource type="Resource" id="Resource_ognim"]
+script = ExtResource("4_eymnt")
+property_name = 5
+bonus = SubResource("Resource_ljfyn")
+operation = "add"
+metadata/_custom_type_script = "uid://0arbfjfw4ycv"
+
+[sub_resource type="Resource" id="Resource_eymnt"]
+script = ExtResource("5_08o7q")
+modifiers = Array[ExtResource("1_3e62r")]([SubResource("Resource_ognim")])
+nexts = Array[ExtResource("5_08o7q")]([])
+metadata/_custom_type_script = "uid://bgr31s8pkpehu"
+
 [sub_resource type="Resource" id="Resource_t5cuf"]
 script = ExtResource("5_08o7q")
 modifiers = Array[ExtResource("1_3e62r")]([SubResource("Resource_fqhhg")])
-nexts = Array[ExtResource("5_08o7q")]([])
+nexts = Array[ExtResource("5_08o7q")]([SubResource("Resource_eymnt")])
 metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
 [sub_resource type="Resource" id="Resource_f1an8"]

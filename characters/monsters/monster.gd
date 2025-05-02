@@ -27,12 +27,7 @@ func apply_modifiers() -> void:
 func _physics_process(delta: float) -> void:
 	external_velocity = external_velocity.move_toward(Vector2.ZERO, 800 * delta)
 	move_behavior.move(self, delta)
-	var collision = move_and_slide()
-	if collision:
-		for i in range(get_slide_collision_count()):
-			var col = get_slide_collision(i)
-			if col.get_collider() == player:
-				velocity = Vector2.ZERO
+	move_and_slide()
 
 func look_at_player():
 	if player.global_position.x < global_position.x:

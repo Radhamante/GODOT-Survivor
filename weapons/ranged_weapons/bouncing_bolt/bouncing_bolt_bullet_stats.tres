@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://be6uvph2adm82" path="res://weapons/ranged_weapons/scripts/bullet_stats.gd" id="1_1w3fx"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_1w3fx")
 speed = 1500.0
 range = 2000.0

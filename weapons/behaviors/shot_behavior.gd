@@ -2,9 +2,13 @@ extends Resource
 class_name ShootBehavior
 
 @export var bullet_scene: PackedScene
-@export var bullet_count: int = 1
-@export var spread_angle: float = 0.0  # Total angle covered by spread
 @export_range(-180, 180) var accuracy_correction: float = 0
+
+@export var bullet_count: int = 1
+var base_bullet_count: int
+
+@export var spread_angle: float = 0.0 
+var base_spread_angle: float
 
 @export var shoot_delay: float = 0.5
 var base_shoot_delay: float
@@ -21,6 +25,8 @@ func _init() -> void:
 func setup() -> void:
 	base_shoot_delay = shoot_delay
 	base_accuracy = accuracy
+	base_bullet_count = bullet_count
+	base_spread_angle = spread_angle
 
 func shoot(weapon: RangedWeapon, delta: float) -> void:
 	shoot_timer += delta
@@ -31,6 +37,8 @@ func shoot(weapon: RangedWeapon, delta: float) -> void:
 		
 	accuracy = base_accuracy
 	shoot_delay = base_shoot_delay
+	bullet_count = base_bullet_count
+	spread_angle = base_spread_angle
 	weapon.apply_weapon_modifiers()
 
 	var base_position = weapon.get_node("%ShootingPoint").global_position

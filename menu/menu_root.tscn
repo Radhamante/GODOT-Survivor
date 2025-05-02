@@ -1,57 +1,17 @@
-[gd_scene load_steps=19 format=3 uid="uid://d0jtw05w3xofs"]
+[gd_scene load_steps=13 format=3 uid="uid://d0jtw05w3xofs"]
 
 [ext_resource type="Script" uid="uid://bswn0csmelkug" path="res://menu/menu_root.gd" id="1_c4kem"]
 [ext_resource type="PackedScene" uid="uid://blyh8cra8at8w" path="res://menu/main_menu/main_menu.tscn" id="3_qvmb4"]
 [ext_resource type="PackedScene" uid="uid://dmmyv728c85ag" path="res://menu/character_select/character_select.tscn" id="4_kdtid"]
 [ext_resource type="Script" uid="uid://b2sycb0fk37xf" path="res://characters/player/script/character_info.gd" id="4_mvocj"]
-[ext_resource type="PackedScene" uid="uid://ci1sb54cm4xqh" path="res://characters/player/scene/yellow.tscn" id="5_5ugpf"]
 [ext_resource type="PackedScene" uid="uid://c4bc6xi5hptg4" path="res://menu/level_select/level_select.tscn" id="5_i8pwd"]
+[ext_resource type="Resource" uid="uid://ph72dst7pq8j" path="res://characters/player/character_infos/yellow.tres" id="5_wmwb7"]
 [ext_resource type="PackedScene" uid="uid://n26qjgtu4ldm" path="res://menu/options_menu/options_menu.tscn" id="6_mvocj"]
-[ext_resource type="Texture2D" uid="uid://dsw7y0enp8lf7" path="res://characters/player/sprites/yellow/alienYellow.png" id="6_uiicw"]
-[ext_resource type="PackedScene" uid="uid://b1j5fo84ar6nd" path="res://weapons/ranged_weapons/flamethrower/scene/flamethrower.tscn" id="7_ps6q3"]
+[ext_resource type="Resource" uid="uid://cuhkjxbnomxxg" path="res://characters/player/character_infos/blue.tres" id="6_whfxe"]
 [ext_resource type="PackedScene" uid="uid://x3e8modtr7fy" path="res://menu/pause_menu/pause_menu.tscn" id="7_wmwb7"]
 [ext_resource type="PackedScene" uid="uid://qfmimc27lm15" path="res://menu/game_over_menu/game_over_menu.tscn" id="8_whfxe"]
-[ext_resource type="PackedScene" uid="uid://c1emgqt0boroh" path="res://weapons/melee_weapons/sword/scene/sword.tscn" id="8_y5c5m"]
-[ext_resource type="PackedScene" uid="uid://dmml3kt2amqjr" path="res://weapons/melee_weapons/forcefield/scene/forcefield.tscn" id="9_6wcgi"]
 [ext_resource type="PackedScene" uid="uid://cv8fwsrr1gglv" path="res://menu/level_up_menu/level_up_menu.tscn" id="9_kdtid"]
-[ext_resource type="PackedScene" uid="uid://cxcoswce3vqjx" path="res://characters/player/scene/blue.tscn" id="10_pq63d"]
-[ext_resource type="Texture2D" uid="uid://61qqpjkva8wa" path="res://characters/player/sprites/blue/alienBlue.png" id="11_3k4mv"]
-
-[sub_resource type="Resource" id="Resource_hnu53"]
-resource_local_to_scene = true
-script = ExtResource("4_mvocj")
-character_name = "Yellow"
-description = "A very basic alien with a very basic gun"
-logo = ExtResource("6_uiicw")
-appearance = ExtResource("5_5ugpf")
-health = 100.0
-max_health = 100.0
-speed = 600.0
-armor = 0.0
-weapons = Array[Resource]([ExtResource("7_ps6q3"), ExtResource("8_y5c5m"), ExtResource("9_6wcgi")])
-xp = 0.0
-level = 1
-xp_by_level_multipler = 2.0
-upgrade_by_level = 3
-metadata/_custom_type_script = "uid://b2sycb0fk37xf"
-
-[sub_resource type="Resource" id="Resource_kruti"]
-resource_local_to_scene = true
-script = ExtResource("4_mvocj")
-character_name = "Blue"
-description = "Alien specialized in mele wepon"
-logo = ExtResource("11_3k4mv")
-appearance = ExtResource("10_pq63d")
-health = 150.0
-max_health = 150.0
-speed = 500.0
-armor = 0.0
-weapons = Array[Resource]([ExtResource("8_y5c5m")])
-xp = 0.0
-level = 1
-xp_by_level_multipler = 10.0
-upgrade_by_level = 3
-metadata/_custom_type_script = "uid://b2sycb0fk37xf"
+[ext_resource type="PackedScene" uid="uid://c1x03tehiym1y" path="res://menu/weapoon_select_menu/weapon_select_menu.tscn" id="17_uiicw"]
 
 [node name="MenuRoot" type="CanvasLayer"]
 process_mode = 3
@@ -61,8 +21,7 @@ script = ExtResource("1_c4kem")
 visible = false
 
 [node name="CharacterSelectMenu" parent="." instance=ExtResource("4_kdtid")]
-visible = false
-characters_infos = Array[ExtResource("4_mvocj")]([SubResource("Resource_hnu53"), SubResource("Resource_kruti")])
+characters_infos = Array[ExtResource("4_mvocj")]([ExtResource("5_wmwb7"), ExtResource("6_whfxe")])
 
 [node name="LevelSelectMenu" parent="." instance=ExtResource("5_i8pwd")]
 visible = false
@@ -79,6 +38,9 @@ visible = false
 [node name="LevelUpMenu" parent="." instance=ExtResource("9_kdtid")]
 visible = false
 
+[node name="WeaponSelectMenu" parent="." instance=ExtResource("17_uiicw")]
+
 [connection signal="main_menu_pressed" from="PauseMenu" to="." method="_on_pause_menu_main_menu_pressed"]
 [connection signal="resume_pressed" from="PauseMenu" to="." method="_on_pause_menu_resume_pressed"]
 [connection signal="upgrade_selected" from="LevelUpMenu" to="." method="_on_level_up_menu_upgrade_selected"]
+[connection signal="weapon_selected" from="WeaponSelectMenu" to="." method="_on_weapon_select_menu_weapon_selected"]

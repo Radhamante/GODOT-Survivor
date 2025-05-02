@@ -35,7 +35,7 @@ func setup() -> void:
 		RangedWeaponStatsName.SHOT_SPEED:
 			property = ["shoot_behavior","shoot_delay"]
 			display_logo = preload("res://modifiers/sprites/shoot_delay.png")
-			display_value = "Shot delay : " + operation_icon + "seconds"
+			display_value = "Shot delay : " + operation_icon + str(abs(bonus.Float_value)) + " seconds"
 		RangedWeaponStatsName.BULLET_COUNT:
 			property = ["shoot_behavior","bullet_count"]
 			display_logo = preload("res://modifiers/sprites/bullet_count.png")

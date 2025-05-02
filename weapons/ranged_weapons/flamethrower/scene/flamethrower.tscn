@@ -22,6 +22,7 @@ script = ExtResource("1_vvost")
 shoot_behavior = ExtResource("6_i6aht")
 movement_behavior = SubResource("Resource_jaclb")
 weapon_name = "Flamethrower"
+logo = ExtResource("2_fvnwn")
 hit_effects = Array[ExtResource("4_6rltb")]([ExtResource("5_uprcx")])
 upgrade_tree = ExtResource("6_85gue")
 metadata/_custom_type_script = "uid://culhnjwum6js5"

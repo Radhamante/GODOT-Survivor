@@ -10,9 +10,9 @@ signal continue_pressed(character_info: CharacterInfo)
 @onready var character_description_label = details_panel.get_node("ScrollContainer/CharacterDescription")
 @onready var continue_button: Button = $MarginContainer/HBoxContainer/DetailsPanel/MarginContainer/ContinueButton
 
-@export var characters_infos : Array[CharacterInfo]
+@export var characters_infos: Array[CharacterInfo]
 
-var selected_character = null
+var selected_character: CharacterInfo = null
 
 func _ready() -> void:
 	# Clear & populate list

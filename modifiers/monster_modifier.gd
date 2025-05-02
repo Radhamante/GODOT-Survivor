@@ -13,7 +13,8 @@ enum MonsterStatsName {
 	SPEED,
 	DAMAGE,
 	ARMOR,
-	KNOCKBACK_RESISTANCE
+	KNOCKBACK_RESISTANCE,
+	XP
 }
 
 func _get_stats_name(selected_stat: MonsterStatsName) -> String:
@@ -28,6 +29,8 @@ func _get_stats_name(selected_stat: MonsterStatsName) -> String:
 			return "armor"
 		MonsterStatsName.KNOCKBACK_RESISTANCE:
 			return "knockback_resistance"
+		MonsterStatsName.XP:
+			return "xp_drop"
 		_:
 			push_error("Invalid MonsterStatsName value: " + str(selected_stat))
 			return ""

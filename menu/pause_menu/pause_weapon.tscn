@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bvg2mejc8ymle" path="res://menu/pause_menu/pause_weapon.gd" id="3_t2gcu"]
 
 [node name="Control" type="Control"]
-custom_minimum_size = Vector2(300, 0)
+custom_minimum_size = Vector2(350, 0)
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -55,5 +55,4 @@ alignment = 1
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 40
-text = "FlameThrower"
 horizontal_alignment = 1

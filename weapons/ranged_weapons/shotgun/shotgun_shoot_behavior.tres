@@ -1,12 +1,15 @@
 [gd_resource type="Resource" script_class="ShootBehavior" load_steps=3 format=3 uid="uid://d3kmlj6w650um"]
 
 [ext_resource type="Script" uid="uid://b8cyifd2w58xg" path="res://weapons/behaviors/shot_behavior.gd" id="1_0uvkt"]
-[ext_resource type="PackedScene" uid="uid://d1vrowuf1cnpf" path="res://weapons/ranged_weapons/machinegun/scene/machinegun_bullet.tscn" id="1_kdrmo"]
+[ext_resource type="PackedScene" uid="uid://bf0okcbmlw82x" path="res://weapons/ranged_weapons/shotgun/scene/shotgun_bullet.tscn" id="1_kdrmo"]
 
 [resource]
+resource_local_to_scene = true
 script = ExtResource("1_0uvkt")
 bullet_scene = ExtResource("1_kdrmo")
-bullet_count = 1
-spread_angle = 0.0
-accuracy_correction = 0.0
+bullet_count = 4
+spread_angle = 30.0
+accuracy_correction = 100.0
+shoot_delay = 0.7
+accuracy = 0.0
 metadata/_custom_type_script = "uid://b8cyifd2w58xg"

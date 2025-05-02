@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponUpgradeNode" load_steps=13 format=3 uid="uid://caq7csffyc5sf"]
+[gd_resource type="Resource" script_class="WeaponUpgradeNode" load_steps=19 format=3 uid="uid://caq7csffyc5sf"]
 
 [ext_resource type="Script" uid="uid://bqmyv7ijto1eu" path="res://modifiers/weapon_modifier.gd" id="1_tvyyb"]
 [ext_resource type="Script" uid="uid://djemock204iuk" path="res://modifiers/float_or_bullet_modifier.gd" id="2_o8ihc"]
@@ -56,8 +56,46 @@ modifiers = Array[ExtResource("1_tvyyb")]([SubResource("Resource_p8tbh")])
 nexts = Array[ExtResource("4_w3feb")]([])
 metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
+[sub_resource type="Resource" id="Resource_tvyyb"]
+script = ExtResource("2_o8ihc")
+type_choice = "Float"
+Float_value = 100.0
+metadata/_custom_type_script = "uid://djemock204iuk"
+
+[sub_resource type="Resource" id="Resource_o8ihc"]
+script = ExtResource("3_jfq6e")
+property_name = 4
+bonus = SubResource("Resource_tvyyb")
+operation = "add"
+metadata/_custom_type_script = "uid://brjaud8fccae3"
+
+[sub_resource type="Resource" id="Resource_w3feb"]
+script = ExtResource("2_o8ihc")
+type_choice = "Float"
+Float_value = 150.0
+metadata/_custom_type_script = "uid://djemock204iuk"
+
+[sub_resource type="Resource" id="Resource_423cr"]
+script = ExtResource("3_jfq6e")
+property_name = 4
+bonus = SubResource("Resource_w3feb")
+operation = "add"
+metadata/_custom_type_script = "uid://brjaud8fccae3"
+
+[sub_resource type="Resource" id="Resource_daiv3"]
+script = ExtResource("4_w3feb")
+modifiers = Array[ExtResource("1_tvyyb")]([SubResource("Resource_423cr")])
+nexts = Array[ExtResource("4_w3feb")]([])
+metadata/_custom_type_script = "uid://bgr31s8pkpehu"
+
+[sub_resource type="Resource" id="Resource_jfq6e"]
+script = ExtResource("4_w3feb")
+modifiers = Array[ExtResource("1_tvyyb")]([SubResource("Resource_o8ihc")])
+nexts = Array[ExtResource("4_w3feb")]([SubResource("Resource_daiv3")])
+metadata/_custom_type_script = "uid://bgr31s8pkpehu"
+
 [resource]
 script = ExtResource("4_w3feb")
 modifiers = Array[ExtResource("1_tvyyb")]([SubResource("Resource_hnqoy")])
-nexts = Array[ExtResource("4_w3feb")]([SubResource("Resource_m7b1l"), SubResource("Resource_gjw2y")])
+nexts = Array[ExtResource("4_w3feb")]([SubResource("Resource_m7b1l"), SubResource("Resource_gjw2y"), SubResource("Resource_jfq6e")])
 metadata/_custom_type_script = "uid://bgr31s8pkpehu"
