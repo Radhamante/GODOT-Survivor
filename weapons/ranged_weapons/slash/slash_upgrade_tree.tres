@@ -29,7 +29,7 @@ metadata/_custom_type_script = "uid://0arbfjfw4ycv"
 
 [sub_resource type="Resource" id="Resource_llsy4"]
 script = ExtResource("2_llsy4")
-bonus = 150.0
+bonus = 75.0
 property_name = 8
 operation = "add"
 metadata/_custom_type_script = "uid://bh1kaj35dkkan"
@@ -126,7 +126,7 @@ metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 [sub_resource type="Resource" id="Resource_ps5lb"]
 script = ExtResource("3_fqj3s")
 type_choice = "Float"
-Float_value = 0.15
+Float_value = -0.5
 metadata/_custom_type_script = "uid://djemock204iuk"
 
 [sub_resource type="Resource" id="Resource_1hjoa"]
@@ -139,7 +139,7 @@ metadata/_custom_type_script = "uid://0arbfjfw4ycv"
 [sub_resource type="Resource" id="Resource_8w0sl"]
 script = ExtResource("3_fqj3s")
 type_choice = "Float"
-Float_value = 0.15
+Float_value = -0.1
 metadata/_custom_type_script = "uid://djemock204iuk"
 
 [sub_resource type="Resource" id="Resource_3heke"]
