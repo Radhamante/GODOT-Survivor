@@ -14,7 +14,7 @@ scale = Vector2(1.38297, 1.38297)
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_7j1ra")
-damageSource = ExtResource("2_u84tw")
+damage_source = ExtResource("2_u84tw")
 bulletStats = ExtResource("3_u84tw")
 metadata/_custom_type_script = "uid://cjl2m57tt2bcp"
 

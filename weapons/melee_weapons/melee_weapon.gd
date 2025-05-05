@@ -1,7 +1,6 @@
 extends Weapon
 class_name MeleeWeapon
 
-@export var weapon_modifiers:Array[MeleeWeaponModifier] = []
 @export var base_damage_source: DamageSource
 @export var base_movement_behavior: WeaponMovementBehavior
 
@@ -27,7 +26,7 @@ func _apply_weapon_modifiers():
 		if mod.operation == "set":
 			mod.apply(self)
 
-func add_modifier(modifier: MeleeWeaponModifier):
+func add_modifier(modifier: Modifier):
 	weapon_modifiers.push_back(modifier)
 	_apply_weapon_modifiers()
 

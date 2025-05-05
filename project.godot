@@ -88,6 +88,7 @@ buses/default_bus_layout=""
 Enums="*res://shared/script/enums.gd"
 Variables="*res://shared/script/variables.gd"
 MenuRoot="*res://menu/menu_root.tscn"
+test="*res://root.tscn"
 
 [display]
 

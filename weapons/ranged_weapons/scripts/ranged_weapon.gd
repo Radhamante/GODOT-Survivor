@@ -1,8 +1,7 @@
 extends Weapon
 class_name RangedWeapon
 
-@export var weapon_modifiers:Array[RangedWeaponModifier] = []
-@export var bullet_modifiers: Array[BulletModifier] = []
+@export var bullet_modifiers: Array[Modifier] = []
 @export var shoot_behavior: ShootBehavior
 @export var movement_behavior: WeaponMovementBehavior
 
@@ -18,8 +17,11 @@ func apply_weapon_modifiers():
 		if mod.operation == "set":
 			mod.apply(self)
 
-func add_modifier(modifier: RangedWeaponModifier):
-	weapon_modifiers.push_back(modifier)
+func add_modifier(modifier: Modifier):
+	if modifier.modifier_target_type == "BULLET":
+		bullet_modifiers.push_back(modifier)
+	else:
+		weapon_modifiers.push_back(modifier)
 
 func _process(delta: float) -> void:
 	if shoot_behavior:

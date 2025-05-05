@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1emgqt0boroh"]
+[gd_scene load_steps=12 format=3 uid="uid://c1emgqt0boroh"]
 
 [ext_resource type="Script" uid="uid://c7uhlo51epgvr" path="res://weapons/melee_weapons/melee_weapon.gd" id="1_ql4h4"]
 [ext_resource type="Texture2D" uid="uid://cwya3dyjd8m8i" path="res://weapons/melee_weapons/sword/sprite/swordSilver.png" id="1_v35pk"]
+[ext_resource type="Script" uid="uid://dy57yv2agufk2" path="res://modifiers/modifier.gd" id="2_10x5j"]
 [ext_resource type="Script" uid="uid://b6fo6c2of2h81" path="res://weapons/effects/EffectComponent.gd" id="2_g6loa"]
 [ext_resource type="Script" uid="uid://dcqb0eircmei1" path="res://weapons/behaviors/move_behaviors/OrbitPlayerMovement.gd" id="3_ficgy"]
 [ext_resource type="Resource" uid="uid://bnoriwrqs71rf" path="res://weapons/melee_weapons/sword/sword_hit_effect.tres" id="3_g6loa"]
@@ -12,6 +13,14 @@
 script = ExtResource("3_ficgy")
 orbit_speed = 4.0
 metadata/_custom_type_script = "uid://dcqb0eircmei1"
+
+[sub_resource type="Resource" id="Resource_10x5j"]
+script = ExtResource("2_10x5j")
+operation = "set"
+modifier_target_type = "MELEE"
+modifier_property = "TYPES"
+property_value = 2
+metadata/_custom_type_script = "uid://dy57yv2agufk2"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_v35pk"]
 height = 52.2141
@@ -24,6 +33,7 @@ base_damage_source = ExtResource("4_10x5j")
 base_movement_behavior = SubResource("Resource_g6loa")
 weapon_name = "Sword"
 logo = ExtResource("1_v35pk")
+weapon_modifiers = Array[ExtResource("2_10x5j")]([SubResource("Resource_10x5j")])
 hit_effects = Array[ExtResource("2_g6loa")]([ExtResource("3_g6loa")])
 upgrade_tree = ExtResource("6_g6loa")
 metadata/_custom_type_script = "uid://c7uhlo51epgvr"

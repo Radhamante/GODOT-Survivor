@@ -17,7 +17,7 @@ func setup(_weapon: Variant, _upgrade: WeaponUpgradeNode):
 	
 	weapon_name.text = weapon.weapon_name
 	
-	for upgrade in _upgrade.modifiers:
+	for upgrade: Modifier in _upgrade.modifiers:
 		var upgrade_value = Label.new()
 		var upgrade_logo = TextureRect.new()
 		upgrade_logo.texture = upgrade.display_logo

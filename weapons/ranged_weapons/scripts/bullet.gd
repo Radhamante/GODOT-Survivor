@@ -5,18 +5,18 @@ signal before_monster_hited(bullet: Bullet, monster: Monster)
 signal after_monster_hited(bullet: Bullet, monster: Monster)
 var travelled_distance = 0
 
-@export var damageSource: DamageSource
+@export var damage_source: DamageSource
 @export var bulletStats: BulletStats
 
-@export var modifiers: Array[BulletModifier] = []
+@export var modifiers: Array[Modifier] = []
 @export var hit_effects: Array[EffectComponent] = []
 
 
 func _ready() -> void:
-	damageSource.source_position = global_position
+	damage_source.source_position = global_position
 
 func setup(
-	_modifiers: Array[BulletModifier] = [], 
+	_modifiers: Array[Modifier] = [], 
 	_hit_effects: Array[EffectComponent] = []
 ) -> void:
 	await ready
@@ -47,13 +47,13 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is not Monster:
 		return
 	before_monster_hited.emit(self, body)
-	body.take_damage(damageSource)
+	body.take_damage(damage_source)
 	for effect in hit_effects:
 		effect.apply(self, body)
 	if not bulletStats.piercing:
 		queue_free()
 	else:
-		damageSource.damage *= 1 - damageSource.damage_reduction_on_piercing
-	if damageSource.damage < 0.1:
+		damage_source.damage *= 1 - damage_source.damage_reduction_on_piercing
+	if damage_source.damage < 0.1:
 		queue_free()
 	after_monster_hited.emit(self, body)

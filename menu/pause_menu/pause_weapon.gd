@@ -7,10 +7,9 @@ extends Control
 func setup(weapon: Weapon):
 	await ready
 	weapon_name.text = weapon.weapon_name
-	for modifier: WeaponModifier in weapon.weapon_modifiers:
+	for modifier: Modifier in weapon.weapon_modifiers:
 		var modifier_container = HBoxContainer.new()
 		
-		# Wrapper qui contraint la taille
 		var logo_wrapper = Control.new()
 		logo_wrapper.custom_minimum_size = Vector2(30, 30)
 		logo_wrapper.size_flags_horizontal = Control.SIZE_SHRINK_CENTER

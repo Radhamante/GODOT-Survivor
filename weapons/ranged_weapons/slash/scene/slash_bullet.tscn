@@ -10,7 +10,7 @@ top_level = true
 collision_layer = 0
 collision_mask = 3
 script = ExtResource("1_bp5qk")
-damageSource = ExtResource("2_gtvw1")
+damage_source = ExtResource("2_gtvw1")
 bulletStats = ExtResource("3_x64pp")
 metadata/_custom_type_script = "uid://cjl2m57tt2bcp"
 

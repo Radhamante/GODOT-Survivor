@@ -3,6 +3,7 @@ class_name Weapon
 
 @export var weapon_name:String
 @export var logo: CompressedTexture2D
+@export var weapon_modifiers:Array[Modifier] = []
 @export var hit_effects: Array[EffectComponent] = []
 
 @export var upgrade_tree: WeaponUpgradeNode

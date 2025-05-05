@@ -1,226 +1,144 @@
-[gd_resource type="Resource" script_class="WeaponUpgradeNode" load_steps=38 format=3 uid="uid://873evmao2pie"]
+[gd_resource type="Resource" script_class="WeaponUpgradeNode" load_steps=22 format=3 uid="uid://873evmao2pie"]
 
-[ext_resource type="Script" uid="uid://bqmyv7ijto1eu" path="res://modifiers/weapon_modifier.gd" id="1_0dtom"]
-[ext_resource type="Script" uid="uid://bh1kaj35dkkan" path="res://modifiers/bullet_modifier.gd" id="2_477vt"]
-[ext_resource type="Script" uid="uid://djemock204iuk" path="res://modifiers/float_or_bullet_modifier.gd" id="3_xrdel"]
-[ext_resource type="Script" uid="uid://0arbfjfw4ycv" path="res://modifiers/randed_weapon_modifier.gd" id="4_g3ebc"]
+[ext_resource type="Script" uid="uid://dy57yv2agufk2" path="res://modifiers/modifier.gd" id="1_c8dfq"]
 [ext_resource type="Script" uid="uid://bgr31s8pkpehu" path="res://weapons/upgrade/weaponUpgradeNode.gd" id="5_j50xo"]
 
-[sub_resource type="Resource" id="Resource_nfpq8"]
-script = ExtResource("2_477vt")
-bonus = 1.0
-property_name = 0
+[sub_resource type="Resource" id="Resource_ji3mq"]
+script = ExtResource("1_c8dfq")
 operation = "add"
-metadata/_custom_type_script = "uid://bh1kaj35dkkan"
+modifier_target_type = "BULLET"
+modifier_property = "DAMAGE"
+property_value = 1.0
+metadata/_custom_type_script = "uid://dy57yv2agufk2"
 
-[sub_resource type="Resource" id="Resource_ewqt7"]
-script = ExtResource("3_xrdel")
-type_choice = "BulletModifier"
-Float_value = 0.0
-BulletModifier_value = SubResource("Resource_nfpq8")
-metadata/_custom_type_script = "uid://djemock204iuk"
-
-[sub_resource type="Resource" id="Resource_l6hin"]
-script = ExtResource("4_g3ebc")
-property_name = 5
-bonus = SubResource("Resource_ewqt7")
+[sub_resource type="Resource" id="Resource_7v27b"]
+script = ExtResource("1_c8dfq")
 operation = "add"
-metadata/_custom_type_script = "uid://0arbfjfw4ycv"
-
-[sub_resource type="Resource" id="Resource_xxx66"]
-script = ExtResource("2_477vt")
-bonus = 250.0
-property_name = 7
-operation = "add"
-metadata/_custom_type_script = "uid://bh1kaj35dkkan"
-
-[sub_resource type="Resource" id="Resource_0tsxj"]
-script = ExtResource("3_xrdel")
-type_choice = "BulletModifier"
-Float_value = 0.0
-BulletModifier_value = SubResource("Resource_xxx66")
-metadata/_custom_type_script = "uid://djemock204iuk"
-
-[sub_resource type="Resource" id="Resource_hof3n"]
-script = ExtResource("4_g3ebc")
-property_name = 5
-bonus = SubResource("Resource_0tsxj")
-operation = "add"
-metadata/_custom_type_script = "uid://0arbfjfw4ycv"
+modifier_target_type = "BULLET"
+modifier_property = "DAMAGE"
+property_value = 1.0
+metadata/_custom_type_script = "uid://dy57yv2agufk2"
 
 [sub_resource type="Resource" id="Resource_0dtom"]
-script = ExtResource("2_477vt")
-bonus = 250.0
-property_name = 7
+script = ExtResource("1_c8dfq")
 operation = "add"
-metadata/_custom_type_script = "uid://bh1kaj35dkkan"
+modifier_target_type = "BULLET"
+modifier_property = "DAMAGE"
+property_value = 1.0
+metadata/_custom_type_script = "uid://dy57yv2agufk2"
 
 [sub_resource type="Resource" id="Resource_477vt"]
-script = ExtResource("3_xrdel")
-type_choice = "BulletModifier"
-Float_value = 0.0
-BulletModifier_value = SubResource("Resource_0dtom")
-metadata/_custom_type_script = "uid://djemock204iuk"
+script = ExtResource("1_c8dfq")
+operation = "add"
+modifier_target_type = "BULLET"
+modifier_property = "DAMAGE"
+property_value = 1.0
+metadata/_custom_type_script = "uid://dy57yv2agufk2"
 
 [sub_resource type="Resource" id="Resource_xrdel"]
-script = ExtResource("4_g3ebc")
-property_name = 5
-bonus = SubResource("Resource_477vt")
-operation = "add"
-metadata/_custom_type_script = "uid://0arbfjfw4ycv"
-
-[sub_resource type="Resource" id="Resource_j50xo"]
-script = ExtResource("2_477vt")
-bonus = 500.0
-property_name = 7
-operation = "add"
-metadata/_custom_type_script = "uid://bh1kaj35dkkan"
-
-[sub_resource type="Resource" id="Resource_2c7v8"]
-script = ExtResource("3_xrdel")
-type_choice = "BulletModifier"
-Float_value = 0.0
-BulletModifier_value = SubResource("Resource_j50xo")
-metadata/_custom_type_script = "uid://djemock204iuk"
-
-[sub_resource type="Resource" id="Resource_nr6uf"]
-script = ExtResource("4_g3ebc")
-property_name = 5
-bonus = SubResource("Resource_2c7v8")
-operation = "add"
-metadata/_custom_type_script = "uid://0arbfjfw4ycv"
-
-[sub_resource type="Resource" id="Resource_qodcj"]
 script = ExtResource("5_j50xo")
-modifiers = Array[ExtResource("1_0dtom")]([SubResource("Resource_nr6uf")])
+modifiers = Array[ExtResource("1_c8dfq")]([SubResource("Resource_477vt")])
 nexts = Array[ExtResource("5_j50xo")]([])
 metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
 [sub_resource type="Resource" id="Resource_g3ebc"]
 script = ExtResource("5_j50xo")
-modifiers = Array[ExtResource("1_0dtom")]([SubResource("Resource_xrdel")])
-nexts = Array[ExtResource("5_j50xo")]([SubResource("Resource_qodcj")])
+modifiers = Array[ExtResource("1_c8dfq")]([SubResource("Resource_0dtom")])
+nexts = Array[ExtResource("5_j50xo")]([SubResource("Resource_xrdel")])
 metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
-[sub_resource type="Resource" id="Resource_5okd8"]
+[sub_resource type="Resource" id="Resource_j50xo"]
 script = ExtResource("5_j50xo")
-modifiers = Array[ExtResource("1_0dtom")]([SubResource("Resource_hof3n")])
+modifiers = Array[ExtResource("1_c8dfq")]([SubResource("Resource_7v27b")])
 nexts = Array[ExtResource("5_j50xo")]([SubResource("Resource_g3ebc")])
 metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
-[sub_resource type="Resource" id="Resource_iaqse"]
-script = ExtResource("2_477vt")
-bonus = 1.0
-property_name = 0
+[sub_resource type="Resource" id="Resource_2c7v8"]
+script = ExtResource("1_c8dfq")
 operation = "add"
-metadata/_custom_type_script = "uid://bh1kaj35dkkan"
+modifier_target_type = "BULLET"
+modifier_property = "SPEED"
+property_value = 250.0
+metadata/_custom_type_script = "uid://dy57yv2agufk2"
 
-[sub_resource type="Resource" id="Resource_kka46"]
-script = ExtResource("3_xrdel")
-type_choice = "BulletModifier"
-Float_value = 0.0
-BulletModifier_value = SubResource("Resource_iaqse")
-metadata/_custom_type_script = "uid://djemock204iuk"
-
-[sub_resource type="Resource" id="Resource_km3ex"]
-script = ExtResource("4_g3ebc")
-property_name = 5
-bonus = SubResource("Resource_kka46")
+[sub_resource type="Resource" id="Resource_nr6uf"]
+script = ExtResource("1_c8dfq")
 operation = "add"
-metadata/_custom_type_script = "uid://0arbfjfw4ycv"
+modifier_target_type = "BULLET"
+modifier_property = "SPEED"
+property_value = 250.0
+metadata/_custom_type_script = "uid://dy57yv2agufk2"
+
+[sub_resource type="Resource" id="Resource_qodcj"]
+script = ExtResource("1_c8dfq")
+operation = "add"
+modifier_target_type = "BULLET"
+modifier_property = "SPEED"
+property_value = 250.0
+metadata/_custom_type_script = "uid://dy57yv2agufk2"
 
 [sub_resource type="Resource" id="Resource_run1f"]
-script = ExtResource("2_477vt")
-bonus = 1.0
-property_name = 0
-operation = "add"
-metadata/_custom_type_script = "uid://bh1kaj35dkkan"
+script = ExtResource("5_j50xo")
+modifiers = Array[ExtResource("1_c8dfq")]([SubResource("Resource_qodcj")])
+nexts = Array[ExtResource("5_j50xo")]([])
+metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
 [sub_resource type="Resource" id="Resource_8owmu"]
-script = ExtResource("3_xrdel")
-type_choice = "BulletModifier"
-Float_value = 0.0
-BulletModifier_value = SubResource("Resource_run1f")
-metadata/_custom_type_script = "uid://djemock204iuk"
+script = ExtResource("5_j50xo")
+modifiers = Array[ExtResource("1_c8dfq")]([SubResource("Resource_nr6uf")])
+nexts = Array[ExtResource("5_j50xo")]([SubResource("Resource_run1f")])
+metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
 [sub_resource type="Resource" id="Resource_5st23"]
-script = ExtResource("4_g3ebc")
-property_name = 5
-bonus = SubResource("Resource_8owmu")
-operation = "add"
-metadata/_custom_type_script = "uid://0arbfjfw4ycv"
+script = ExtResource("5_j50xo")
+modifiers = Array[ExtResource("1_c8dfq")]([SubResource("Resource_2c7v8")])
+nexts = Array[ExtResource("5_j50xo")]([SubResource("Resource_8owmu")])
+metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
 [sub_resource type="Resource" id="Resource_b7ayg"]
-script = ExtResource("5_j50xo")
-modifiers = Array[ExtResource("1_0dtom")]([SubResource("Resource_5st23")])
-nexts = Array[ExtResource("5_j50xo")]([])
-metadata/_custom_type_script = "uid://bgr31s8pkpehu"
-
-[sub_resource type="Resource" id="Resource_ao1s4"]
-script = ExtResource("5_j50xo")
-modifiers = Array[ExtResource("1_0dtom")]([SubResource("Resource_km3ex")])
-nexts = Array[ExtResource("5_j50xo")]([SubResource("Resource_b7ayg")])
-metadata/_custom_type_script = "uid://bgr31s8pkpehu"
-
-[sub_resource type="Resource" id="Resource_it3ga"]
-script = ExtResource("3_xrdel")
-type_choice = "Float"
-Float_value = -0.1
-metadata/_custom_type_script = "uid://djemock204iuk"
-
-[sub_resource type="Resource" id="Resource_moujg"]
-script = ExtResource("4_g3ebc")
-property_name = 1
-bonus = SubResource("Resource_it3ga")
+script = ExtResource("1_c8dfq")
 operation = "add"
-metadata/_custom_type_script = "uid://0arbfjfw4ycv"
+modifier_target_type = "RANGED"
+modifier_property = "SHOT_SPEED"
+property_value = -0.1
+metadata/_custom_type_script = "uid://dy57yv2agufk2"
 
 [sub_resource type="Resource" id="Resource_rpaew"]
-script = ExtResource("3_xrdel")
-type_choice = "Float"
-Float_value = -0.1
-metadata/_custom_type_script = "uid://djemock204iuk"
+script = ExtResource("1_c8dfq")
+operation = "add"
+modifier_target_type = "RANGED"
+modifier_property = "SHOT_SPEED"
+property_value = -0.1
+metadata/_custom_type_script = "uid://dy57yv2agufk2"
 
 [sub_resource type="Resource" id="Resource_lak7a"]
-script = ExtResource("4_g3ebc")
-property_name = 1
-bonus = SubResource("Resource_rpaew")
+script = ExtResource("1_c8dfq")
 operation = "add"
-metadata/_custom_type_script = "uid://0arbfjfw4ycv"
-
-[sub_resource type="Resource" id="Resource_5hgpo"]
-script = ExtResource("3_xrdel")
-type_choice = "Float"
-Float_value = -0.1
-metadata/_custom_type_script = "uid://djemock204iuk"
-
-[sub_resource type="Resource" id="Resource_dgekq"]
-script = ExtResource("4_g3ebc")
-property_name = 1
-bonus = SubResource("Resource_5hgpo")
-operation = "add"
-metadata/_custom_type_script = "uid://0arbfjfw4ycv"
-
-[sub_resource type="Resource" id="Resource_tews2"]
-script = ExtResource("5_j50xo")
-modifiers = Array[ExtResource("1_0dtom")]([SubResource("Resource_dgekq")])
-nexts = Array[ExtResource("5_j50xo")]([])
-metadata/_custom_type_script = "uid://bgr31s8pkpehu"
+modifier_target_type = "RANGED"
+modifier_property = "SHOT_SPEED"
+property_value = -0.1
+metadata/_custom_type_script = "uid://dy57yv2agufk2"
 
 [sub_resource type="Resource" id="Resource_8qaq7"]
 script = ExtResource("5_j50xo")
-modifiers = Array[ExtResource("1_0dtom")]([SubResource("Resource_lak7a")])
-nexts = Array[ExtResource("5_j50xo")]([SubResource("Resource_tews2")])
+modifiers = Array[ExtResource("1_c8dfq")]([SubResource("Resource_lak7a")])
+nexts = Array[ExtResource("5_j50xo")]([])
 metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
-[sub_resource type="Resource" id="Resource_237pr"]
+[sub_resource type="Resource" id="Resource_5hgpo"]
 script = ExtResource("5_j50xo")
-modifiers = Array[ExtResource("1_0dtom")]([SubResource("Resource_moujg")])
+modifiers = Array[ExtResource("1_c8dfq")]([SubResource("Resource_rpaew")])
 nexts = Array[ExtResource("5_j50xo")]([SubResource("Resource_8qaq7")])
+metadata/_custom_type_script = "uid://bgr31s8pkpehu"
+
+[sub_resource type="Resource" id="Resource_dgekq"]
+script = ExtResource("5_j50xo")
+modifiers = Array[ExtResource("1_c8dfq")]([SubResource("Resource_b7ayg")])
+nexts = Array[ExtResource("5_j50xo")]([SubResource("Resource_5hgpo")])
 metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
 [resource]
 script = ExtResource("5_j50xo")
-modifiers = Array[ExtResource("1_0dtom")]([SubResource("Resource_l6hin")])
-nexts = Array[ExtResource("5_j50xo")]([SubResource("Resource_5okd8"), SubResource("Resource_ao1s4"), SubResource("Resource_237pr")])
+modifiers = Array[ExtResource("1_c8dfq")]([SubResource("Resource_ji3mq")])
+nexts = Array[ExtResource("5_j50xo")]([SubResource("Resource_j50xo"), SubResource("Resource_5st23"), SubResource("Resource_dgekq")])
 metadata/_custom_type_script = "uid://bgr31s8pkpehu"

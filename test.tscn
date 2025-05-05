@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dms8fyytdxu0j"]
+
+[ext_resource type="Script" uid="uid://dy57yv2agufk2" path="res://modifiers/modifier.gd" id="1_37kl0"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_37kl0")
+operation = null
+modifier_property = "HIT_EFFECT"
+property_value = null
