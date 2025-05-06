@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="WeaponUpgradeNode" load_steps=29 format=3 uid="uid://dy0f21onsaorg"]
+[gd_resource type="Resource" script_class="WeaponUpgradeNode" load_steps=30 format=3 uid="uid://dy0f21onsaorg"]
 
 [ext_resource type="Script" uid="uid://dy57yv2agufk2" path="res://modifiers/modifier.gd" id="1_8o1nt"]
 [ext_resource type="Script" uid="uid://cdu8jjauvfhnp" path="res://shared/script/damageSource.gd" id="3_gm3ar"]
+[ext_resource type="PackedScene" uid="uid://dncuj6qhkoy3y" path="res://weapons/impact/magical_hit/magical_hit.tscn" id="3_knip4"]
 [ext_resource type="Script" uid="uid://c0kuifl8ndn83" path="res://weapons/effects/DamageEffect.gd" id="4_knip4"]
 [ext_resource type="Script" uid="uid://bgr31s8pkpehu" path="res://weapons/upgrade/weaponUpgradeNode.gd" id="5_oaors"]
 
@@ -44,6 +45,7 @@ armor_penetration = 0.0
 crit_chance = 0.0
 crit_damage = 1.5
 types = Array[int]([2])
+particules = ExtResource("3_knip4")
 damage_reduction_on_piercing = 0.0
 knockback_force = 0.0
 metadata/_custom_type_script = "uid://cdu8jjauvfhnp"
@@ -55,7 +57,7 @@ metadata/_custom_type_script = "uid://c0kuifl8ndn83"
 
 [sub_resource type="Resource" id="Resource_6iifi"]
 script = ExtResource("1_8o1nt")
-operation = "add"
+operation = "set"
 modifier_target_type = "BULLET"
 modifier_property = "HIT_EFFECT"
 property_value = SubResource("Resource_b5b6y")

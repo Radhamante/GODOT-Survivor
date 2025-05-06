@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://cxcoswce3vqjx" path="res://characters/player/scene/blue.tscn" id="8_y5c5m"]
 [ext_resource type="Texture2D" uid="uid://61qqpjkva8wa" path="res://characters/player/sprites/blue/alienBlue.png" id="9_6wcgi"]
 [ext_resource type="PackedScene" uid="uid://cv8fwsrr1gglv" path="res://menu/level_up_menu/level_up_menu.tscn" id="9_kdtid"]
-[ext_resource type="PackedScene" uid="uid://c1emgqt0boroh" path="res://weapons/melee_weapons/sword/scene/sword.tscn" id="10_pq63d"]
+[ext_resource type="PackedScene" uid="uid://b1j5fo84ar6nd" path="res://weapons/ranged_weapons/flamethrower/scene/flamethrower.tscn" id="10_pq63d"]
 [ext_resource type="PackedScene" uid="uid://c1x03tehiym1y" path="res://menu/weapoon_select_menu/weapon_select_menu.tscn" id="17_uiicw"]
 
 [sub_resource type="Resource" id="Resource_3k4mv"]

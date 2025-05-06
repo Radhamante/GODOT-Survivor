@@ -41,7 +41,7 @@ func _show_crit_particles() -> void:
 	particles.global_position = global_position
 	get_parent().add_child(particles)
 	
-func _calculate_damages( damage_source: DamageSource) -> float:
+func _calculate_damages( damage_source: DamageSource) -> Array:
 	var damage = damage_source.damage
 	
 	# ARMOR
@@ -63,9 +63,8 @@ func _calculate_damages( damage_source: DamageSource) -> float:
 		if stats.resistance.has(Enums.DamageType.CRITICAL):
 			crit_damage *= stats.resistance[Enums.DamageType.CRITICAL]
 		damage += damage_source.crit_damage
-		_show_crit_particles()
 	
-	return damage
+	return [damage, is_critical]
 
 func _kill():
 	call_deferred("_generate_xp")
@@ -89,10 +88,17 @@ func take_damage(damage_source: DamageSource):
 	if stats.health <= 0:
 		return
 	
-	var damage = _calculate_damages(damage_source)
+	var _calculate_damages_result = _calculate_damages(damage_source)
+	var damage = _calculate_damages_result[0]
+	var is_critical = _calculate_damages_result[1]
+	
 	if damage > 0:
 		stats.health -= damage
-		animation.play("hurt")
+		if is_critical:
+			animation.play("hurt_critical")
+		else:
+			animation.play("hurt")
+		
 	else: 
 		animation.play("immune")
 	animation.queue("RESET")

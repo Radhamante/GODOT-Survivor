@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="WeaponUpgradeNode" load_steps=32 format=3 uid="uid://lb1hchmbc8l7"]
+[gd_resource type="Resource" script_class="WeaponUpgradeNode" load_steps=33 format=3 uid="uid://lb1hchmbc8l7"]
 
 [ext_resource type="Script" uid="uid://dy57yv2agufk2" path="res://modifiers/modifier.gd" id="1_3e62r"]
 [ext_resource type="PackedScene" uid="uid://baa70obrjl62s" path="res://weapons/impact/fire_hit/fire_hit.tscn" id="3_ljfyn"]
@@ -71,7 +71,7 @@ metadata/_custom_type_script = "uid://cm0q6v7v8lll8"
 
 [sub_resource type="Resource" id="Resource_plsf6"]
 script = ExtResource("1_3e62r")
-operation = "add"
+operation = "set"
 modifier_target_type = "BULLET"
 modifier_property = "HIT_EFFECT"
 property_value = SubResource("Resource_kti4x")
@@ -97,6 +97,14 @@ modifier_property = "RANGE"
 property_value = 100.0
 metadata/_custom_type_script = "uid://dy57yv2agufk2"
 
+[sub_resource type="Resource" id="Resource_3e62r"]
+script = ExtResource("1_3e62r")
+operation = "add"
+modifier_target_type = "BULLET"
+modifier_property = "SPEED"
+property_value = 100.0
+metadata/_custom_type_script = "uid://dy57yv2agufk2"
+
 [sub_resource type="Resource" id="Resource_sad0v"]
 script = ExtResource("1_3e62r")
 operation = "add"
@@ -110,7 +118,7 @@ script = ExtResource("1_3e62r")
 operation = "add"
 modifier_target_type = "BULLET"
 modifier_property = "SPEED"
-property_value = 150.0
+property_value = 100.0
 metadata/_custom_type_script = "uid://dy57yv2agufk2"
 
 [sub_resource type="Resource" id="Resource_ji780"]
@@ -121,7 +129,7 @@ metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 
 [sub_resource type="Resource" id="Resource_xitm2"]
 script = ExtResource("5_08o7q")
-modifiers = Array[ExtResource("1_3e62r")]([SubResource("Resource_tlwbx")])
+modifiers = Array[ExtResource("1_3e62r")]([SubResource("Resource_tlwbx"), SubResource("Resource_3e62r")])
 nexts = Array[ExtResource("5_08o7q")]([SubResource("Resource_ji780")])
 metadata/_custom_type_script = "uid://bgr31s8pkpehu"
 

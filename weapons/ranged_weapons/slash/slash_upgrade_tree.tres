@@ -59,7 +59,7 @@ metadata/_custom_type_script = "uid://cm0q6v7v8lll8"
 
 [sub_resource type="Resource" id="Resource_yewg0"]
 script = ExtResource("1_6hpnx")
-operation = "add"
+operation = "set"
 modifier_target_type = "BULLET"
 modifier_property = "HIT_EFFECT"
 property_value = SubResource("Resource_xtt6r")
