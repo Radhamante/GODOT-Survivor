@@ -49,12 +49,7 @@ layout_mode = 2
 text = "Main menu 
 ( no progession save )"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="WeaponsList" type="HBoxContainer" parent="VBoxContainer/ScrollContainer"]
+[node name="WeaponsList" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 3

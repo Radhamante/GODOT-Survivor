@@ -1,13 +1,18 @@
 extends Control
 
-@onready var weapon_name: Label = $NinePatchRect/MarginContainer/VBoxContainer/WeaponName
-@onready var v_box_container: VBoxContainer = $NinePatchRect/MarginContainer/VBoxContainer
 @onready var nine_patch_rect: NinePatchRect = $NinePatchRect
+@onready var v_box_container: VBoxContainer = $NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer
+@onready var weapon_name: Label = $NinePatchRect/ScrollContainer/MarginContainer/VBoxContainer/WeaponName
+@onready var scroll_container: ScrollContainer = $NinePatchRect/ScrollContainer
+
+
 
 func setup(weapon: Weapon):
 	await ready
 	weapon_name.text = weapon.weapon_name
-	for modifier: Modifier in weapon.weapon_modifiers:
+	
+	var all_modifiers = weapon.weapon_modifiers + (weapon.bullet_modifiers if "bullet_modifiers" in weapon else [])
+	for modifier: Modifier in all_modifiers:
 		var modifier_container = HBoxContainer.new()
 		
 		var logo_wrapper = Control.new()
@@ -40,9 +45,14 @@ func setup(weapon: Weapon):
 	_update_ninepatchrect_size()
 
 func _update_ninepatchrect_size():
-	if nine_patch_rect.get_child_count() > 0 and nine_patch_rect.get_child(0) is Container:
-		var container = nine_patch_rect.get_child(0)
-		var content_size = container.get_combined_minimum_size()
+	if scroll_container.get_child_count() > 0 and scroll_container.get_child(0) is Container:
+		var container = scroll_container.get_child(0)
+		var content_size:Vector2 = container.get_combined_minimum_size()
 		
-		nine_patch_rect.custom_minimum_size = content_size
-		nine_patch_rect.size = nine_patch_rect.custom_minimum_size
+		content_size.y = min(content_size.y, 400)
+		#scroll_container.custom_minimum_size = content_size
+		#scroll_container.size = content_size
+		scroll_container.set_anchors_preset(PRESET_FULL_RECT)
+		#nine_patch_rect.custom_minimum_size = content_size
+		nine_patch_rect.size = content_size
+		nine_patch_rect.set_anchors_preset(PRESET_TOP_LEFT)

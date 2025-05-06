@@ -4,7 +4,7 @@ class_name PauseMenu
 signal resume_pressed
 signal main_menu_pressed
 
-@onready var weapons_list: HBoxContainer = $VBoxContainer/ScrollContainer/WeaponsList
+@onready var weapons_list: HBoxContainer = $VBoxContainer/WeaponsList
 var pause_open = false
 
 
