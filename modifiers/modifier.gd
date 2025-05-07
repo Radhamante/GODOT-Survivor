@@ -179,12 +179,16 @@ var display_value: String:
 				operation_icon = "*"
 			"set":
 				operation_icon = "="
-				
-		value = property.display_value
-		value += operation_icon
-		if property_value is float or property_value is int:
-			value += str(abs(property_value * (property.display_value_multiplier if "display_value_multiplier" in property else 1 )))
-		value += property.display_value_suffix if "display_value_suffix" in property else ""
+		
+		if property_value is EffectComponent:
+			value += property_value.get_display_value()
+		else:
+			value = property.display_value
+			value += operation_icon
+			if property_value is float or property_value is int:
+				value += str(abs(property_value * (property.display_value_multiplier if "display_value_multiplier" in property else 1 )))
+			
+			value += property.display_value_suffix if "display_value_suffix" in property else ""
 		return value
 
 var display_logo: CompressedTexture2D:

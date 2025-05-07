@@ -9,4 +9,4 @@ class_name DamageSource
 @export var particules: PackedScene
 @export_range(0,1) var damage_reduction_on_piercing: float = 0
 @export var knockback_force: float = 0.0
-var source_position: Vector2 = Vector2.ZERO # Pour calculer la direction
+var source_position: Vector2 = Vector2.ZERO

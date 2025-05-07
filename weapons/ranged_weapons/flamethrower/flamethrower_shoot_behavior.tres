@@ -7,9 +7,9 @@
 resource_local_to_scene = true
 script = ExtResource("2_6hw40")
 bullet_scene = ExtResource("1_uksat")
+accuracy_correction = -90.0
 bullet_count = 1
 spread_angle = 0.0
-accuracy_correction = -90.0
-shoot_delay = 0.05
+shoot_delay = 0.1
 accuracy = 50.0
 metadata/_custom_type_script = "uid://b8cyifd2w58xg"
