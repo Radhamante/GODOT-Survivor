@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cxcoswce3vqjx" path="res://characters/player/scene/blue.tscn" id="1_csqau"]
 [ext_resource type="Texture2D" uid="uid://61qqpjkva8wa" path="res://characters/player/sprites/blue/alienBlue.png" id="2_4n42a"]
 [ext_resource type="Script" uid="uid://b2sycb0fk37xf" path="res://characters/player/script/character_info.gd" id="2_xa2pi"]
-[ext_resource type="PackedScene" uid="uid://bl0xb7yg5qst5" path="res://weapons/ranged_weapons/bouncing_bolt/scene/bouncing_bolt.tscn" id="4_4n42a"]
+[ext_resource type="PackedScene" uid="uid://c1emgqt0boroh" path="res://weapons/melee_weapons/sword/scene/sword.tscn" id="4_4n42a"]
 
 [resource]
 resource_local_to_scene = true
