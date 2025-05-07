@@ -8,30 +8,40 @@ var travelled_distance = 0
 @export var damage_source: DamageSource
 @export var bulletStats: BulletStats
 
-@export var modifiers: Array[Modifier] = []
-@export var hit_effects: Array[EffectComponent] = []
+@export var modifiers: Array[Modifier]
+@export var hit_effects: Array[EffectComponent]
 
+var _modifiers: Array[Modifier]
+var _hit_effects: Array[EffectComponent]
+
+func _init() -> void:
+	for modifier in modifiers:
+		_modifiers.push_back(modifier.duplicate(true))
+	for hit_effect in hit_effects:
+		_hit_effects.push_back(hit_effect.duplicate(true))
 
 func _ready() -> void:
 	damage_source.source_position = global_position
 
 func setup(
-	_modifiers: Array[Modifier] = [], 
-	_hit_effects: Array[EffectComponent] = []
+	__modifiers: Array[Modifier] = [], 
+	__hit_effects: Array[EffectComponent] = []
 ) -> void:
 	await ready
-	modifiers += _modifiers
-	hit_effects += _hit_effects
+	for modifier in __modifiers:
+		_modifiers.push_back(modifier.duplicate(true))
+	for hit_effect in __hit_effects:
+		_hit_effects.push_back(hit_effect.duplicate(true))
 	_apply_modifier()
 
 func _apply_modifier():
-	for mod in modifiers:
+	for mod in _modifiers:
 		if mod.operation == "add":
 			mod.apply(self)
-	for mod in modifiers:
+	for mod in _modifiers:
 		if mod.operation == "mult":
 			mod.apply(self)
-	for mod in modifiers:
+	for mod in _modifiers:
 		if mod.operation == "set":
 			mod.apply(self)
 
@@ -48,7 +58,7 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	before_monster_hited.emit(self, body)
 	body.take_damage(damage_source)
-	for effect in hit_effects:
+	for effect in _hit_effects:
 		effect.apply(self, body)
 	if not bulletStats.piercing:
 		queue_free()

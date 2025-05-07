@@ -50,7 +50,7 @@ func shoot(weapon: RangedWeapon, delta: float, move_behavior: WeaponMovementBeha
 	
 	for i in range(bullet_count):
 		var bullet:Bullet = bullet_scene.instantiate()
-		bullet.setup(weapon.bullet_modifiers)
+		bullet.setup(weapon.bullet_modifiers, weapon.hit_effects)
 
 		var random_bias = pow(randf(), 2) 
 		var direction = -1 if randf() < 0.5 else 1 
