@@ -28,11 +28,15 @@ func setup() -> void:
 	base_bullet_count = bullet_count
 	base_spread_angle = spread_angle
 
-func shoot(weapon: RangedWeapon, delta: float) -> void:
+func shoot(weapon: RangedWeapon, delta: float, move_behavior: WeaponMovementBehavior) -> void:
 	shoot_timer += delta
 	
 	if shoot_timer < shoot_delay:
 		return
+		
+	if move_behavior.trigger_on_shoot:
+		move_behavior.update_movement(weapon, delta)
+		
 	shoot_timer = 0.0
 		
 	accuracy = base_accuracy

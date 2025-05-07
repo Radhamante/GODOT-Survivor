@@ -25,9 +25,9 @@ func add_modifier(modifier: Modifier):
 
 func _process(delta: float) -> void:
 	if shoot_behavior:
-		shoot_behavior.shoot(self, delta)
+		shoot_behavior.shoot(self, delta, movement_behavior)
 
 
 func _physics_process(delta: float) -> void:
-	if movement_behavior:
+	if movement_behavior and not movement_behavior.trigger_on_shoot:
 		movement_behavior.update_movement(self, delta)
