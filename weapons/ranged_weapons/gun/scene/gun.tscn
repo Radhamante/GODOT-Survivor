@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://eiececv5s1s8" path="res://weapons/behaviors/move_behaviors/FollowClosestEnemyMovement.gd" id="3_1uysu"]
 [ext_resource type="Resource" uid="uid://b3ayu8pvggejh" path="res://weapons/ranged_weapons/gun/gun_upgrade_tree.tres" id="4_0v2ip"]
 
-[sub_resource type="Resource" id="Resource_3htep"]
+[sub_resource type="Resource" id="Resource_0v2ip"]
 script = ExtResource("3_1uysu")
 metadata/_custom_type_script = "uid://eiececv5s1s8"
 
@@ -18,7 +18,7 @@ collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_6h5ka")
 shoot_behavior = ExtResource("2_6h5ka")
-movement_behavior = SubResource("Resource_3htep")
+movement_behavior = SubResource("Resource_0v2ip")
 weapon_name = "Gun"
 logo = ExtResource("2_buta8")
 upgrade_tree = ExtResource("4_0v2ip")

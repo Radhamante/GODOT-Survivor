@@ -127,7 +127,7 @@ var ranged_weapon_modifier_properties = {
 		"display_value_suffix": "s"
 	},
 	"ORBIT_SPEED": {
-		"property_path":["shoot_behavior","orbit_speed"],
+		"property_path":["movement_behavior","orbit_speed"],
 		"display_logo": preload("res://modifiers/sprites/bullet_count.png"),
 		"display_value": "Orbit speed "
 	},
@@ -137,7 +137,7 @@ var ranged_weapon_modifier_properties = {
 		"display_value": "bullet count "
 	},
 	"SPREAD_ANGLE": {
-		"property_path":["movement_behavior","spread_angle"],
+		"property_path":["shoot_behavior","spread_angle"],
 		"display_logo": preload("res://modifiers/sprites/orbit_speed.png"),
 		"display_value": "Spread angle "
 	},
