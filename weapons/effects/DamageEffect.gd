@@ -9,7 +9,7 @@ func apply(caller: Variant, monster: Monster) -> void:
 func get_display_value() -> String:
 	var result = "On hit : \n"
 	result+= "Damage : %d \n" % damage_source.damage
-	result+= "Types : %s\n" % ", ".join(
+	result+= "Types : %s" % ", ".join(
 		damage_source.types.map(func(value):
 			for k in Enums.DamageType:
 				if Enums.DamageType[k] == value:

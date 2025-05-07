@@ -20,5 +20,5 @@ func get_display_value() -> String:
 			return str(value) # fallback
 			)
 	)
-	result+= "Delay : %d\n" % tick_interval
+	result+= "Delay : %.1fs" % tick_interval
 	return result
