@@ -98,6 +98,7 @@ func start_game():
 	get_tree().paused = false
 	game_scene = preload("res://level/scene/survivor_game.tscn").instantiate()
 	player = game_scene.get_node("Player")
+	game_scene.get_node("Background/BackgroundTexture").texture = selected_level_info.background
 	player.character_info = selected_character_info
 	game_scene.get_node("DifficultyManager").difficulty_levels = selected_level_info.difficulty_levels
 	get_tree().root.add_child(game_scene)

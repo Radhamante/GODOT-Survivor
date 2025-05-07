@@ -6,6 +6,7 @@ signal xp_level(xp: float, level: int, xp_for_next_level:float)
 signal health_updated(current_heath: float, max_health: float)
 
 @export var character_info: CharacterInfo
+@onready var background: TextureRect = $"../Background/BackgroundTexture"
 
 var available_weapons: Array[Weapon] = [
 	preload("res://weapons/melee_weapons/forcefield/scene/forcefield.tscn").instantiate(),
@@ -68,6 +69,12 @@ func _physics_process(delta: float) -> void:
 		%ProgressBar.value = character_info.health
 		if character_info.health <= 0:
 			heath_depleted.emit()
+	
+	if background.material and background.material is ShaderMaterial:
+		var scroll_speed := 0.001  # plus petit = plus lent
+		var offset := global_position * scroll_speed
+		background.material.set_shader_parameter("offset", offset)
+
 
 func _level_up():
 	$LevelUpParticules.emitting = true

@@ -1,8 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://cpvj8xnphfau1"]
+[gd_scene load_steps=25 format=3 uid="uid://cpvj8xnphfau1"]
 
 [ext_resource type="Script" uid="uid://bo5ru0gqcwtgi" path="res://level/script/survivor_game.gd" id="1_5mrb7"]
 [ext_resource type="PackedScene" uid="uid://deyaebkrhgrx2" path="res://characters/player/scene/player.tscn" id="1_wkcnj"]
+[ext_resource type="Shader" uid="uid://bg261l03wju0" path="res://level/scene/moving_background.gdshader" id="2_4hd3s"]
 [ext_resource type="Script" uid="uid://dp12pg7emkynb" path="res://level/script/time_display.gd" id="2_j618h"]
+[ext_resource type="Texture2D" uid="uid://cw5ah5t7jimpy" path="res://level/sprite/Background_error.png" id="2_npl3b"]
 [ext_resource type="Script" uid="uid://bioesh7rgehi2" path="res://characters/player/script/despawning_zone.gd" id="3_i54c3"]
 [ext_resource type="Script" uid="uid://c435d8n4npur8" path="res://level/script/mob_generator.gd" id="4_5mrb7"]
 [ext_resource type="Script" uid="uid://dxlfu5j8dlngl" path="res://environement/environement_generator.gd" id="5_d0dif"]
@@ -15,7 +17,10 @@
 [ext_resource type="PackedScene" uid="uid://yi6xlwinuh2e" path="res://weapons/ranged_weapons/gun/scene/gun.tscn" id="8_8cgn3"]
 [ext_resource type="Script" uid="uid://bt7hlidqv1hvl" path="res://level/script/xp_progess_bar.gd" id="14_46rwm"]
 [ext_resource type="Script" uid="uid://cl8jlx6msmnre" path="res://level/script/health_bar.gd" id="16_8cgn3"]
-[ext_resource type="Texture2D" uid="uid://bswi3tyvra8or" path="res://level/sprite/progress_green.png" id="16_npl3b"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_67dxx"]
+shader = ExtResource("2_4hd3s")
+shader_parameter/offset = Vector2(0, 0)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i54c3"]
 radius = 200.0
@@ -31,7 +36,7 @@ health = 0.0
 max_health = 0.0
 speed = 0.0
 armor = 0.0
-weapons = Array[Resource]([ExtResource("8_8cgn3")])
+weapons = Array[PackedScene]([ExtResource("8_8cgn3")])
 xp = 0.0
 level = 0
 xp_by_level_multipler = 0.0
@@ -48,8 +53,11 @@ point_count = 43
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbdm8"]
 size = Vector2(5427, 3608)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8cgn3"]
+load_path = "res://.godot/imported/progress_green.png-0d5c9ed8f9d4852a3aedbeb5949b5903.ctex"
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8cgn3"]
-texture = ExtResource("16_npl3b")
+texture = SubResource("CompressedTexture2D_8cgn3")
 texture_margin_left = 16.0
 texture_margin_top = 16.0
 texture_margin_right = 16.0
@@ -62,10 +70,19 @@ script = ExtResource("1_5mrb7")
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
 
-[node name="ColorRect" type="ColorRect" parent="Background"]
-offset_right = 1920.0
-offset_bottom = 1081.0
-color = Color(0.537701, 0.960516, 0.51703, 1)
+[node name="BackgroundError" type="TextureRect" parent="Background"]
+offset_right = 1911.0
+offset_bottom = 1065.0
+texture = ExtResource("2_npl3b")
+stretch_mode = 1
+
+[node name="BackgroundTexture" type="TextureRect" parent="Background"]
+material = SubResource("ShaderMaterial_67dxx")
+offset_right = 1914.0
+offset_bottom = 1074.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+stretch_mode = 1
 
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true

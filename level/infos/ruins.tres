@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="LevelInfo" load_steps=9 format=3 uid="uid://klg3um3nqw2k"]
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=10 format=3 uid="uid://klg3um3nqw2k"]
 
+[ext_resource type="Texture2D" uid="uid://vdnrcgw2cf7i" path="res://level/sprite/Sand.jpg" id="1_3hcts"]
 [ext_resource type="Script" uid="uid://84yg1uhklpuv" path="res://level/script/difficulty_level.gd" id="1_nlgh7"]
 [ext_resource type="Texture2D" uid="uid://dsd6byfi3je6l" path="res://level/sprite/ruins.webp" id="1_wflpm"]
 [ext_resource type="Script" uid="uid://cv5psvvs0vfxs" path="res://modifiers/monster_modifier.gd" id="2_05o5q"]
@@ -28,4 +29,5 @@ name = "Ruins"
 description = "Old ruins in the desert"
 dificulty = 2
 difficulty_levels = SubResource("Resource_05o5q")
+background = ExtResource("1_3hcts")
 metadata/_custom_type_script = "uid://6282jyup2y6f"
