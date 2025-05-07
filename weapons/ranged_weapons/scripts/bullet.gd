@@ -15,10 +15,13 @@ var _modifiers: Array[Modifier]
 var _hit_effects: Array[EffectComponent]
 
 func _init() -> void:
-	for modifier in modifiers:
-		_modifiers.push_back(modifier.duplicate(true))
+	_modifiers = modifiers
+	
 	for hit_effect in hit_effects:
-		_hit_effects.push_back(hit_effect.duplicate(true))
+		if hit_effect is BoucingBulletEffect:
+			_hit_effects.push_back(hit_effect.duplicate())
+		else:
+			_hit_effects.push_back(hit_effect)
 
 func _ready() -> void:
 	damage_source.source_position = global_position
@@ -28,10 +31,14 @@ func setup(
 	__hit_effects: Array[EffectComponent] = []
 ) -> void:
 	await ready
-	for modifier in __modifiers:
-		_modifiers.push_back(modifier.duplicate(true))
+	_modifiers = __modifiers
+	
 	for hit_effect in __hit_effects:
-		_hit_effects.push_back(hit_effect.duplicate(true))
+		if hit_effect is BoucingBulletEffect:
+			_hit_effects.push_back(hit_effect.duplicate())
+		else:
+			_hit_effects.push_back(hit_effect)
+
 	_apply_modifier()
 
 func _apply_modifier():
@@ -59,7 +66,10 @@ func _on_body_entered(body: Node2D) -> void:
 	before_monster_hited.emit(self, body)
 	body.take_damage(damage_source)
 	for effect in _hit_effects:
-		effect.apply(self, body)
+		if effect is BoucingBulletEffect:
+			effect.apply(self, body)
+		else:
+			effect.apply(self, body)
 	if not bulletStats.piercing:
 		queue_free()
 	else:

@@ -5,6 +5,9 @@ class_name BoucingBulletEffect
 @export var max_bouce: int = 3
 var current_bouce_time = 0
 
+func reset():
+	current_bouce_time = 0
+
 func apply(caller: Variant, monster: Monster) -> void:
 	if caller is not Bullet:
 		return
