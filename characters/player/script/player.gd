@@ -66,7 +66,6 @@ func _physics_process(delta: float) -> void:
 		var overlapping_damages = overlapping_mobs.reduce(func (sum, next): return sum + next.stats.damage, 0)
 		character_info.health -= overlapping_damages * delta
 		health_updated.emit(character_info.health, character_info.max_health)
-		%ProgressBar.value = character_info.health
 		if character_info.health <= 0:
 			heath_depleted.emit()
 	

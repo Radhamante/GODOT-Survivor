@@ -104,26 +104,31 @@ func start_game():
 	get_tree().root.add_child(game_scene)
 	hide_all_menu()
 
-
-func _on_pause_menu_resume_pressed() -> void:
-	get_tree().paused = false
-	hide_all_menu()
-
+func back_to_main_menu():
+	get_tree().paused = true
+	game_scene.queue_free()
+	show_menu(menus_enum.MAIN)
 
 func _on_level_up_menu_upgrade_selected(_weapon: Variant, _upgrade: WeaponUpgradeNode) -> void:
 	get_tree().paused = false
 	hide_all_menu()
 	player.level_up_upgrade_selected(_weapon,_upgrade)
 
-
-func _on_pause_menu_main_menu_pressed() -> void:
-	get_tree().paused = true
-	game_scene.queue_free()
-	show_menu(menus_enum.MAIN)
-	
-
-
 func _on_weapon_select_menu_weapon_selected(_weapon: Weapon) -> void:
 	get_tree().paused = false
 	hide_all_menu()
 	player.level_up_selected_weapon(_weapon)
+	
+func _on_pause_menu_resume_pressed() -> void:
+	get_tree().paused = false
+	hide_all_menu()
+
+func _on_pause_menu_main_menu_pressed() -> void:
+	back_to_main_menu()
+
+func _on_game_over_menu_main_menu_pressed() -> void:
+	back_to_main_menu()
+
+
+func _on_level_select_menu_back_pressed() -> void:
+	show_menu(menus_enum.CHARACTER)

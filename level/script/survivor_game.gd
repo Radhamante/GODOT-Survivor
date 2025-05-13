@@ -2,8 +2,7 @@ extends Node2D
 
 
 func _on_player_heath_depleted() -> void:
-	%GameOver.visible = true
-	get_tree().paused = true
+	game_over()
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -12,7 +11,7 @@ func _input(event):
 
 func game_over():
 	get_tree().paused = true
-	MenuRoot.show_menu(MenuRoot.show_menu(MenuRoot.menus_enum.GAMEOVER))
+	MenuRoot.show_menu((MenuRoot.menus_enum.GAMEOVER))
 
 
 func _on_difficulty_manager_difficulty_changed(difficulty_level: DifficultyLevel) -> void:

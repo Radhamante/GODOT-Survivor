@@ -1,9 +1,10 @@
 extends Control
 
 signal level_selected(level_info: LevelInfo)
+signal back_pressed
 
 @onready var level_list: VBoxContainer = $MarginContainer/VBoxContainer/ScrollContainer/LevelList
-@onready var start_run_button: Button = $MarginContainer/VBoxContainer/StartRunButton
+@onready var start_run_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/StartRunButton
 
 
 var selected_level_info: LevelInfo
@@ -28,3 +29,7 @@ func _on_level_selected(level_info: LevelInfo):
 func _on_start_run():
 	if selected_level_info:
 		level_selected.emit(selected_level_info.duplicate(true))
+
+
+func _on_back_button_pressed() -> void:
+	back_pressed.emit()

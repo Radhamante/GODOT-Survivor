@@ -61,10 +61,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 last_wrap_alignment = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="BackButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer"]
+[node name="BackButton" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_styles/normal = SubResource("StyleBoxTexture_5tvcj")
 text = "BACK"
@@ -92,12 +89,9 @@ autowrap_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/HBoxContainer/DetailsPanel"]
-layout_mode = 2
-
-[node name="ContinueButton" type="Button" parent="MarginContainer/HBoxContainer/DetailsPanel/MarginContainer"]
+[node name="ContinueButton" type="Button" parent="MarginContainer/HBoxContainer/DetailsPanel"]
 layout_mode = 2
 text = "Continue"
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/MarginContainer/BackButton" to="." method="_on_back_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/DetailsPanel/MarginContainer/ContinueButton" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/BackButton" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/DetailsPanel/ContinueButton" to="." method="_on_continue_pressed"]
