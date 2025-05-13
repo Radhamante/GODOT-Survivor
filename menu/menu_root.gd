@@ -6,8 +6,6 @@ var menus
 var selected_character_info: CharacterInfo
 var selected_level_info: LevelInfo
 
-@onready var background: ColorRect = $Background
-
 @onready var main_menu = $MainMenu
 @onready var character_select_menu = $CharacterSelectMenu
 @onready var level_select_menu = $LevelSelectMenu
@@ -17,7 +15,8 @@ var selected_level_info: LevelInfo
 @onready var level_up_menu = $LevelUpMenu
 @onready var weapon_select_menu: Control = $WeaponSelectMenu
 
-var player: Player
+@onready var main_menu_music: AudioStreamPlayer = $MainMenuMusic
+
 var game_scene: Node2D
 
 enum menus_enum {
@@ -52,6 +51,7 @@ func _ready():
 	character_select_menu.back_pressed.connect(_on_ButtonBack_pressed)
 	
 	level_select_menu.level_selected.connect(_on_LevelChosen)
+	main_menu_music.play(0)
 		
 
 func hide_all_menu():
@@ -81,6 +81,7 @@ func _on_ButtonBack_pressed():
 		show_menu(menus_enum.MAIN)
 
 func _on_CharacterChosen(_selected_character_info: CharacterInfo):
+	print(_selected_character_info.character_name)
 	selected_character_info = _selected_character_info
 	show_menu(menus_enum.LEVEL)
 
@@ -95,29 +96,30 @@ func _on_ButtonQuit_pressed():
 	get_tree().quit()
 
 func start_game():
-	get_tree().paused = false
 	game_scene = preload("res://level/scene/survivor_game.tscn").instantiate()
-	player = game_scene.get_node("Player")
-	game_scene.get_node("Background/BackgroundTexture").texture = selected_level_info.background
-	player.character_info = selected_character_info
-	game_scene.get_node("DifficultyManager").difficulty_levels = selected_level_info.difficulty_levels
+	game_scene.setup(selected_level_info, selected_character_info)
+	
 	get_tree().root.add_child(game_scene)
+	get_tree().paused = false
+	
+	main_menu_music.playing = false
 	hide_all_menu()
 
 func back_to_main_menu():
 	get_tree().paused = true
 	game_scene.queue_free()
 	show_menu(menus_enum.MAIN)
+	main_menu_music.play(0)
 
 func _on_level_up_menu_upgrade_selected(_weapon: Variant, _upgrade: WeaponUpgradeNode) -> void:
 	get_tree().paused = false
 	hide_all_menu()
-	player.level_up_upgrade_selected(_weapon,_upgrade)
+	game_scene.player.level_up_upgrade_selected(_weapon,_upgrade)
 
 func _on_weapon_select_menu_weapon_selected(_weapon: Weapon) -> void:
 	get_tree().paused = false
 	hide_all_menu()
-	player.level_up_selected_weapon(_weapon)
+	game_scene.player.level_up_selected_weapon(_weapon)
 	
 func _on_pause_menu_resume_pressed() -> void:
 	get_tree().paused = false

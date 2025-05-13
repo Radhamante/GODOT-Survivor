@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://cu640jf24aile"]
+
+[ext_resource type="AudioStream" uid="uid://ct4fg2u2d75pg" path="res://shared/sounds/click.ogg" id="1_3v4dk"]
+[ext_resource type="Script" uid="uid://r885gx8mm45t" path="res://shared/script/button_click.gd" id="2_5x1ln"]
+
+[node name="ButtonClick" type="AudioStreamPlayer"]
+stream = ExtResource("1_3v4dk")
+bus = &"UI"
+script = ExtResource("2_5x1ln")

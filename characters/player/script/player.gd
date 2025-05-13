@@ -7,6 +7,7 @@ signal health_updated(current_heath: float, max_health: float)
 
 @export var character_info: CharacterInfo
 @onready var background: TextureRect = $"../Background/BackgroundTexture"
+@onready var damage_audio: AudioStreamPlayer = $DamageAudio
 
 var available_weapons: Array[Weapon] = [
 	preload("res://weapons/melee_weapons/forcefield/scene/forcefield.tscn").instantiate(),
@@ -28,7 +29,9 @@ func _get_weapon() -> Array[Weapon]:
 		weapons.push_back(weapon_child as Weapon)
 	return weapons
 
-func _ready() -> void:
+func setup(_character_info: CharacterInfo) -> void:
+	character_info = _character_info
+	damage_audio.stream_paused = false
 	Variables.player = self
 	
 	if character_info.appearance is PackedScene:
@@ -63,11 +66,17 @@ func _physics_process(delta: float) -> void:
 
 	var overlapping_mobs: Array[Node2D] = %HurtBox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0:
+		modulate = Color(0.902, 0.424, 0.424)
+		if not damage_audio.playing:
+			damage_audio.playing = true
 		var overlapping_damages = overlapping_mobs.reduce(func (sum, next): return sum + next.stats.damage, 0)
 		character_info.health -= overlapping_damages * delta
 		health_updated.emit(character_info.health, character_info.max_health)
 		if character_info.health <= 0:
 			heath_depleted.emit()
+	else:
+		damage_audio.playing = false
+		modulate = Color(1.0, 1.0, 1.0)
 	
 	if background.material and background.material is ShaderMaterial:
 		var scroll_speed := 0.001  # plus petit = plus lent

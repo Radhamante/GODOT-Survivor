@@ -1,16 +1,22 @@
-[gd_resource type="Resource" script_class="LevelInfo" load_steps=5 format=3 uid="uid://d4ddhd6ae4l15"]
+[gd_resource type="Resource" script_class="LevelInfo" load_steps=6 format=3 uid="uid://d4ddhd6ae4l15"]
 
-[ext_resource type="Texture2D" uid="uid://s0e7aoi82uno" path="res://level/sprite/Grass_2.jpg" id="1_416wl"]
-[ext_resource type="Texture2D" uid="uid://bvauk735atflj" path="res://level/sprite/forest.webp" id="1_gpfvl"]
 [ext_resource type="Resource" uid="uid://cnu6kgpn63wt3" path="res://level/infos/forest_difficulty_levels.tres" id="1_y0m47"]
+[ext_resource type="AudioStream" uid="uid://bj1cf101yurev" path="res://level/sound/forest.mp3" id="2_416wl"]
 [ext_resource type="Script" uid="uid://6282jyup2y6f" path="res://level/script/level_info.gd" id="2_y0m47"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_d7d80"]
+load_path = "res://.godot/imported/Grass_2.jpg-34816e9c346739d93aba863a8a8abc42.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_no8e2"]
+load_path = "res://.godot/imported/forest.webp-63d7a3672b6bdc0a0c1a538071cc6665.ctex"
 
 [resource]
 script = ExtResource("2_y0m47")
-logo = ExtResource("1_gpfvl")
+logo = SubResource("CompressedTexture2D_no8e2")
 name = "Forest"
 description = "A beautify and peacefull forest"
 dificulty = 1
 difficulty_levels = ExtResource("1_y0m47")
-background = ExtResource("1_416wl")
+background = SubResource("CompressedTexture2D_d7d80")
+music = ExtResource("2_416wl")
 metadata/_custom_type_script = "uid://6282jyup2y6f"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cpvj8xnphfau1"]
+[gd_scene load_steps=26 format=3 uid="uid://cpvj8xnphfau1"]
 
 [ext_resource type="Script" uid="uid://bo5ru0gqcwtgi" path="res://level/script/survivor_game.gd" id="1_5mrb7"]
 [ext_resource type="PackedScene" uid="uid://deyaebkrhgrx2" path="res://characters/player/scene/player.tscn" id="1_wkcnj"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://yi6xlwinuh2e" path="res://weapons/ranged_weapons/gun/scene/gun.tscn" id="8_8cgn3"]
 [ext_resource type="Script" uid="uid://bt7hlidqv1hvl" path="res://level/script/xp_progess_bar.gd" id="14_46rwm"]
 [ext_resource type="Script" uid="uid://cl8jlx6msmnre" path="res://level/script/health_bar.gd" id="16_8cgn3"]
+[ext_resource type="Script" uid="uid://dwylfyutgx8e2" path="res://level/script/background_music.gd" id="18_4hd3s"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_67dxx"]
 shader = ExtResource("2_4hd3s")
@@ -237,6 +238,11 @@ theme_override_styles/fill = SubResource("StyleBoxTexture_8cgn3")
 show_percentage = false
 script = ExtResource("16_8cgn3")
 
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"Music"
+script = ExtResource("18_4hd3s")
+
 [connection signal="timeout" from="MobGenerator/Timer" to="MobGenerator" method="spawn_mod"]
 [connection signal="health_updated" from="Player" to="HUD/HBoxContainer/HealthBar" method="_on_player_health_updated"]
 [connection signal="heath_depleted" from="Player" to="." method="_on_player_heath_depleted"]
@@ -245,3 +251,4 @@ script = ExtResource("16_8cgn3")
 [connection signal="body_exited" from="Player/DespawningZone" to="Player/DespawningZone" method="_on_body_exited"]
 [connection signal="difficulty_changed" from="DifficultyManager" to="." method="_on_difficulty_manager_difficulty_changed"]
 [connection signal="timer_updated" from="DifficultyManager" to="HUD/MarginContainer/NinePatchRect/VBoxContainer" method="_on_difficulty_manager_timer_updated"]
+[connection signal="finished" from="BackgroundMusic" to="BackgroundMusic" method="_on_finished"]

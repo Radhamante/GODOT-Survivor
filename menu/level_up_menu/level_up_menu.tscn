@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cv8fwsrr1gglv"]
+[gd_scene load_steps=4 format=3 uid="uid://cv8fwsrr1gglv"]
 
 [ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="1_rskay"]
 [ext_resource type="Script" uid="uid://bxn1hqdmpjv8c" path="res://menu/level_up_menu/level_up_menu.gd" id="1_vrdnv"]
+[ext_resource type="AudioStream" uid="uid://c1pm2v0os10cw" path="res://menu/sound/level_up.ogg" id="3_twanv"]
 
 [node name="LevelUpMenu" type="Control"]
 layout_mode = 3
@@ -37,3 +38,7 @@ theme_override_constants/margin_bottom = 200
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_twanv")
+bus = &"SFX"

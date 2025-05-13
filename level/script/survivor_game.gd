@@ -1,5 +1,20 @@
 extends Node2D
 
+@onready var player: Player = $Player
+@onready var difficulty_manager: DifficultyManager = %DifficultyManager
+@onready var background_music: AudioStreamPlayer = $BackgroundMusic
+@onready var background_texture: TextureRect = $Background/BackgroundTexture
+
+func setup(level_info: LevelInfo, character_info: CharacterInfo):
+	await ready
+	player.setup(character_info)
+	
+	background_texture.texture = level_info.background
+	difficulty_manager.difficulty_levels = level_info.difficulty_levels
+	background_music.stream = level_info.music
+	background_music.playing = true
+	
+	return player
 
 func _on_player_heath_depleted() -> void:
 	game_over()

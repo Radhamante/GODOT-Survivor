@@ -27,7 +27,7 @@ var bullet_modifier_properties = {
 	"CRIT_DAMAGE" : {
 		"property_path": ["damage_source","crit_damage"],
 		"display_logo": preload("res://modifiers/sprites/crit_damage.png"),
-		"display_value": "Critical damages multiplier ",
+		"display_value": "Crit dmg multiplier ",
 	},
 	"TYPES" : {
 		"property_path": ["damage_source","types"],
@@ -89,7 +89,7 @@ var melee_weapon_modifier_properties = {
 	"CRIT_DAMAGE" : {
 		"property_path": ["damage_source","crit_damage"],
 		"display_logo": preload("res://modifiers/sprites/crit_damage.png"),
-		"display_value": "Critical damages multiplier ",
+		"display_value": "crit dmg multiplier ",
 		"display_value_suffix": "%" 
 	},
 	"TYPES" : {

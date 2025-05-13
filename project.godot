@@ -85,6 +85,7 @@ buses/default_bus_layout=""
 
 [autoload]
 
+ButtonClick="*res://shared/button_click.tscn"
 Enums="*res://shared/script/enums.gd"
 Variables="*res://shared/script/variables.gd"
 MenuRoot="*res://menu/menu_root.tscn"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://deyaebkrhgrx2"]
+[gd_scene load_steps=14 format=3 uid="uid://deyaebkrhgrx2"]
 
 [ext_resource type="Script" uid="uid://x5oxgo5ceols" path="res://characters/player/script/player.gd" id="1_onrkg"]
 [ext_resource type="Resource" uid="uid://ph72dst7pq8j" path="res://characters/player/character_infos/yellow.tres" id="2_0nskp"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bswi3tyvra8or" path="res://level/sprite/progress_green.png" id="4_u7g1b"]
 [ext_resource type="Material" uid="uid://bs3417ynvhjyi" path="res://characters/player/level_up_process_material.tres" id="6_n5vo5"]
 [ext_resource type="Texture2D" uid="uid://okn5sngoaf6w" path="res://characters/player/sprites/level_up.png" id="6_sar8d"]
+[ext_resource type="AudioStream" uid="uid://dsfoohaiqnhlq" path="res://characters/player/sounds/damage.mp3" id="8_sevic"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_onrkg"]
 radius = 21.0238
@@ -93,6 +94,12 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pickup"]
 shape = SubResource("CircleShape2D_ow4ck")
 debug_color = Color(0.592108, 0.555083, 1.92523e-07, 0.42)
+
+[node name="DamageAudio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_sevic")
+autoplay = true
+bus = &"SFX"
+parameters/looping = true
 
 [connection signal="area_entered" from="Magnet" to="." method="_on_magnet_area_entered"]
 [connection signal="area_entered" from="Magnet" to="Magnet" method="_on_area_entered"]

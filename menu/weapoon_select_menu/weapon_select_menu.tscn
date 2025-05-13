@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c1x03tehiym1y"]
+[gd_scene load_steps=4 format=3 uid="uid://c1x03tehiym1y"]
 
 [ext_resource type="Theme" uid="uid://biwko33b8flpa" path="res://shared/theme/survivor_game.tres" id="1_ei8lj"]
 [ext_resource type="Script" uid="uid://c260pc7uhxdhf" path="res://menu/weapoon_select_menu/weapon_select_menu.gd" id="2_3r4lk"]
+[ext_resource type="AudioStream" uid="uid://dyl5a4h01j6qe" path="res://menu/sound/new_weapon.ogg" id="3_2tth2"]
 
 [node name="WeaponSelectMenu" type="Control"]
 layout_mode = 3
@@ -37,3 +38,7 @@ theme_override_constants/margin_bottom = 200
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 100
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_2tth2")
+bus = &"SFX"

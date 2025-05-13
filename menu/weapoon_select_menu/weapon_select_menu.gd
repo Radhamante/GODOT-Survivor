@@ -4,6 +4,7 @@ var selected_weapon: Array
 
 signal weapon_selected(_weapon: Weapon)
 @onready var buttons_container: HBoxContainer = $MarginContainer/HBoxContainer
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 func setup(weapons: Array):
 	for child in buttons_container.get_children():
@@ -14,6 +15,7 @@ func setup(weapons: Array):
 		button.setup(weapon)
 		button.connect("weapon_selected", _on_weapon_selected)
 		buttons_container.add_child(button)
+	audio_stream_player.play()
 
 func _on_weapon_selected(_weapon: Weapon):
 	weapon_selected.emit(_weapon)
