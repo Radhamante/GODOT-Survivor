@@ -58,10 +58,10 @@ func hide_all_menu():
 	for key in menus:
 		menus[key].visible = false
 
-func show_menu(name: menus_enum):
+func show_menu(_name: menus_enum):
 	for key in menus:
-		menus[key].visible = (key == name)
-	current_menu = name
+		menus[key].visible = (key == _name)
+	current_menu = _name
 	
 func show_level_up_menu(_selected_upgrades: Array):
 	level_up_menu.setup(_selected_upgrades)

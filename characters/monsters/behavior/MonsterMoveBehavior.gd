@@ -3,5 +3,5 @@ extends Resource
 class_name MonsterMoveBehavior
 @export_category("Movement")
 
-func move(monster: Monster, delta: float) -> void:
+func move(_monster: Monster, _delta: float) -> void:
 	pass # à override

@@ -24,10 +24,10 @@ var weapons: Array[Weapon]:
 	get = _get_weapon
 
 func _get_weapon() -> Array[Weapon]:
-	var weapons:Array[Weapon] = []
+	var weaps:Array[Weapon] = []
 	for weapon_child in $Weapons.get_children():
-		weapons.push_back(weapon_child as Weapon)
-	return weapons
+		weaps.push_back(weapon_child as Weapon)
+	return weaps
 
 func setup(_character_info: CharacterInfo) -> void:
 	character_info = _character_info
