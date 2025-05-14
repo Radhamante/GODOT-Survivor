@@ -14,9 +14,11 @@ func apply(caller: Variant, monster: Monster) -> void:
 	if current_bouce_time >= max_bouce:
 		caller.queue_free()
 		return
-		
-	var bullet: Bullet = caller
+	
+	call_deferred("_rebounces", caller, monster)
+	
 
+func _rebounces(bullet: Bullet, monster: Monster):
 	var area := Area2D.new()
 	var shape := CircleShape2D.new()
 	shape.radius = bounce_radius
@@ -57,3 +59,4 @@ func apply(caller: Variant, monster: Monster) -> void:
 		bullet.queue_free()
 
 	area.queue_free()
+	
