@@ -97,7 +97,6 @@ debug_color = Color(0.592108, 0.555083, 1.92523e-07, 0.42)
 
 [node name="DamageAudio" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_sevic")
-autoplay = true
 bus = &"SFX"
 parameters/looping = true
 
