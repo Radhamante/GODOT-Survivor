@@ -41,7 +41,7 @@ func setup(_character_info: CharacterInfo) -> void:
 	
 	for weapon in character_info.weapons:
 		if weapon is PackedScene:
-			$Weapons.add_weapon(weapon)
+			$Weapons.add_weapon(weapon.duplicate(true))
 		else:
 			push_error("CharacterInfo '%s' has an weapon. " % character_info.character_name)
 			printerr("Invalide Weapon", weapon)
