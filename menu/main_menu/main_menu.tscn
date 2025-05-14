@@ -46,7 +46,6 @@ layout_mode = 2
 
 [node name="ButtonOptions" type="Button" parent="HBoxContainer/MarginContainer2"]
 layout_mode = 2
-disabled = true
 text = "Options"
 
 [node name="MarginContainer3" type="MarginContainer" parent="HBoxContainer"]

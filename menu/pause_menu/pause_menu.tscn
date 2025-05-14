@@ -44,6 +44,10 @@ text = "PAUSE !"
 layout_mode = 2
 text = "Resume"
 
+[node name="Options" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Options"
+
 [node name="MainMenu" type="Button" parent="VBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Main menu 
@@ -58,4 +62,5 @@ alignment = 1
 [connection signal="draw" from="." to="." method="_on_draw"]
 [connection signal="hidden" from="." to="." method="_on_hidden"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/MarginContainer/VBoxContainer/MainMenu" to="." method="_on_main_menu_pressed"]

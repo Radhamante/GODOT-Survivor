@@ -34,3 +34,7 @@ func _on_draw() -> void:
 
 func _on_hidden() -> void:
 	pause_open = false
+
+
+func _on_options_pressed() -> void:
+	MenuRoot.show_menu(MenuRoot.menus_enum.OPTIONS)
